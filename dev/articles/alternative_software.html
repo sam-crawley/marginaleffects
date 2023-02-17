@@ -258,7 +258,7 @@ argument would not be necessary.</p>
 <span><span class="fu"><a href="../reference/comparisons.html">comparisons</a></span><span class="op">(</span><span class="va">mod</span>, newdata <span class="op">=</span> <span class="st">"mean"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Term Contrast Estimate Std. Error        z Pr(&gt;|z|)    2.5 %  97.5 %</span></span>
-<span><span class="co">#&gt;    hp       +1 -1.6e-10    6.8e-07 -0.00023     1.00 -1.3e-06 1.3e-06</span></span>
+<span><span class="co">#&gt;   hp     +1    -1.6e-10    6.8e-07 -0.00023     1.00 -1.3e-06 1.3e-06</span></span>
 <span><span class="co">#&gt;   cyl    6 - 4 -2.2e-01    3.9e-01 -0.56731     0.57 -9.9e-01 5.5e-01</span></span>
 <span><span class="co">#&gt;   cyl    8 - 4 -5.9e-01    5.1e-01 -1.16664     0.24 -1.6e+00 4.0e-01</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -290,7 +290,7 @@ estimate a model and compute pairwise contrasts by subgroup using
 <span><span class="co">#&gt; resp = no:</span></span>
 <span><span class="co">#&gt;  contrast      estimate     SE  df z.ratio p.value</span></span>
 <span><span class="co">#&gt;  scold - curse  -0.0152 0.1097 Inf  -0.139  0.8898</span></span>
-<span><span class="co">#&gt;  shout - curse  -0.2533 0.1022 Inf  -2.479  0.0132</span></span>
+<span><span class="co">#&gt;  shout - curse  -0.2533 0.1022 Inf  -2.478  0.0132</span></span>
 <span><span class="co">#&gt;  shout - scold  -0.2381 0.0886 Inf  -2.686  0.0072</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; resp = perhaps:</span></span>
@@ -380,15 +380,15 @@ argument:</p>
 <span>    type <span class="op">=</span> <span class="st">"link"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;   Term                  Contrast    resp Estimate Std. Error     z Pr(&gt;|z|) 2.5 %  97.5 %</span></span>
-<span><span class="co">#&gt;  btype mean(scold) - mean(curse)      no   -0.015      0.110 -0.14   0.8898 -0.23  0.1997</span></span>
+<span><span class="co">#&gt;  btype mean(scold) - mean(curse) no        -0.015      0.110 -0.14   0.8898 -0.23  0.1997</span></span>
 <span><span class="co">#&gt;  btype mean(scold) - mean(curse) perhaps   -0.239      0.118 -2.03   0.0422 -0.47 -0.0084</span></span>
-<span><span class="co">#&gt;  btype mean(scold) - mean(curse)     yes    0.039      0.129  0.30   0.7624 -0.21  0.2923</span></span>
-<span><span class="co">#&gt;  btype mean(shout) - mean(curse)      no   -0.253      0.102 -2.48   0.0132 -0.45 -0.0530</span></span>
+<span><span class="co">#&gt;  btype mean(scold) - mean(curse) yes        0.039      0.129  0.30   0.7624 -0.21  0.2923</span></span>
+<span><span class="co">#&gt;  btype mean(shout) - mean(curse) no        -0.253      0.102 -2.48   0.0132 -0.45 -0.0530</span></span>
 <span><span class="co">#&gt;  btype mean(shout) - mean(curse) perhaps   -0.083      0.133 -0.63   0.5309 -0.34  0.1774</span></span>
-<span><span class="co">#&gt;  btype mean(shout) - mean(curse)     yes    0.580      0.178  3.25   0.0011  0.23  0.9299</span></span>
-<span><span class="co">#&gt;  btype mean(shout) - mean(scold)      no   -0.238      0.089 -2.69   0.0072 -0.41 -0.0644</span></span>
-<span><span class="co">#&gt;  btype mean(shout) - mean(scold) perhaps    0.156      0.136  1.15   0.2510 -0.11  0.4221</span></span>
-<span><span class="co">#&gt;  btype mean(shout) - mean(scold)     yes    0.541      0.189  2.87   0.0042  0.17  0.9112</span></span>
+<span><span class="co">#&gt;  btype mean(shout) - mean(curse) yes        0.580      0.178  3.25   0.0011  0.23  0.9299</span></span>
+<span><span class="co">#&gt;  btype mean(shout) - mean(scold) no        -0.238      0.089 -2.69   0.0072 -0.41 -0.0644</span></span>
+<span><span class="co">#&gt;  btype mean(shout) - mean(scold) perhaps    0.156      0.136  1.15   0.2510 -0.11  0.4222</span></span>
+<span><span class="co">#&gt;  btype mean(shout) - mean(scold) yes        0.541      0.189  2.87   0.0042  0.17  0.9112</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  link </span></span>
 <span><span class="co">#&gt; Columns: type, term, contrast, resp, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo</span></span></code></pre></div>
@@ -413,10 +413,10 @@ large grids or for the full original dataset.</p>
 <span></span>
 <span><span class="fu"><a href="../reference/slopes.html">slopes</a></span><span class="op">(</span><span class="va">mod</span>, newdata <span class="op">=</span> <span class="fu"><a href="../reference/datagrid.html">datagrid</a></span><span class="op">(</span>cyl <span class="op">=</span> <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Term Contrast Estimate Std. Error     z Pr(&gt;|z|) 2.5 % 97.5 %       hp cyl</span></span>
-<span><span class="co">#&gt;    hp    dY/dX  -0.0079      0.011 -0.71     0.48 -0.03  0.014 146.6875   4</span></span>
-<span><span class="co">#&gt;   cyl    6 - 4  -0.2222      0.392 -0.57     0.57 -0.99  0.545 146.6875   4</span></span>
-<span><span class="co">#&gt;   cyl    8 - 4  -0.5947      0.510 -1.17     0.24 -1.59  0.404 146.6875   4</span></span>
+<span><span class="co">#&gt;  Term Contrast Estimate Std. Error     z Pr(&gt;|z|) 2.5 % 97.5 %  hp cyl</span></span>
+<span><span class="co">#&gt;   hp     dY/dX  -0.0079      0.011 -0.71     0.48 -0.03  0.014 147   4</span></span>
+<span><span class="co">#&gt;   cyl    6 - 4  -0.2222      0.392 -0.57     0.57 -0.99  0.545 147   4</span></span>
+<span><span class="co">#&gt;   cyl    8 - 4  -0.5947      0.510 -1.17     0.24 -1.59  0.404 147   4</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, vs, hp, cyl, eps</span></span></code></pre></div>
@@ -430,10 +430,10 @@ large grids or for the full original dataset.</p>
 <span></span>
 <span><span class="fu"><a href="../reference/slopes.html">slopes</a></span><span class="op">(</span><span class="va">mod</span>, type <span class="op">=</span> <span class="st">"link"</span>, newdata <span class="op">=</span> <span class="fu"><a href="../reference/datagrid.html">datagrid</a></span><span class="op">(</span>cyl <span class="op">=</span> <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Term Contrast Estimate Std. Error       z Pr(&gt;|z|)    2.5 %  97.5 %       hp cyl</span></span>
-<span><span class="co">#&gt;    hp    dY/dX   -0.033    3.4e-02 -0.9614     0.34 -9.9e-02 3.4e-02 146.6875   4</span></span>
-<span><span class="co">#&gt;   cyl    6 - 4   -0.905    1.6e+00 -0.5551     0.58 -4.1e+00 2.3e+00 146.6875   4</span></span>
-<span><span class="co">#&gt;   cyl    8 - 4  -19.542    4.4e+03 -0.0045     1.00 -8.6e+03 8.5e+03 146.6875   4</span></span>
+<span><span class="co">#&gt;  Term Contrast Estimate Std. Error       z Pr(&gt;|z|)    2.5 %  97.5 %  hp cyl</span></span>
+<span><span class="co">#&gt;   hp     dY/dX   -0.033    3.4e-02 -0.9614     0.34 -9.9e-02 3.4e-02 147   4</span></span>
+<span><span class="co">#&gt;   cyl    6 - 4   -0.905    1.6e+00 -0.5551     0.58 -4.1e+00 2.3e+00 147   4</span></span>
+<span><span class="co">#&gt;   cyl    8 - 4  -19.542    4.4e+03 -0.0045     1.00 -8.6e+03 8.5e+03 147   4</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  link </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, vs, hp, cyl, eps</span></span></code></pre></div>
@@ -595,8 +595,8 @@ benefits of <code>marginaleffects</code> over these packages are:</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Term Estimate Std. Error    z Pr(&gt;|z|)  2.5 %  97.5 %</span></span>
 <span><span class="co">#&gt;   cyl   -0.942      0.551 -1.7    0.087 -2.021  0.1382</span></span>
-<span><span class="co">#&gt;    hp   -0.018      0.012 -1.5    0.129 -0.041  0.0052</span></span>
-<span><span class="co">#&gt;    wt   -3.167      0.741 -4.3   &lt;0.001 -4.618 -1.7155</span></span>
+<span><span class="co">#&gt;   hp    -0.018      0.012 -1.5    0.129 -0.041  0.0052</span></span>
+<span><span class="co">#&gt;   wt    -3.167      0.741 -4.3   &lt;0.001 -4.618 -1.7155</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, term, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, cyl, hp, wt, eps</span></span></code></pre></div>
@@ -638,12 +638,12 @@ compute 64 unit-level marginal effects estimates:</p>
 <span><span class="co">#&gt;   cyl mean(dY/dX)   4    0.038      0.600  0.064   0.9493 -1.138  1.2139</span></span>
 <span><span class="co">#&gt;   cyl mean(dY/dX)   6    0.038      0.600  0.064   0.9493 -1.138  1.2139</span></span>
 <span><span class="co">#&gt;   cyl mean(dY/dX)   8    0.038      0.600  0.064   0.9493 -1.138  1.2139</span></span>
-<span><span class="co">#&gt;    hp mean(dY/dX)   4   -0.088      0.027 -3.294   &lt;0.001 -0.140 -0.0355</span></span>
-<span><span class="co">#&gt;    hp mean(dY/dX)   6   -0.050      0.015 -3.240   0.0012 -0.080 -0.0197</span></span>
-<span><span class="co">#&gt;    hp mean(dY/dX)   8   -0.012      0.011 -1.106   0.2685 -0.033  0.0092</span></span>
-<span><span class="co">#&gt;    wt mean(dY/dX)   4   -3.120      0.661 -4.718   &lt;0.001 -4.416 -1.8236</span></span>
-<span><span class="co">#&gt;    wt mean(dY/dX)   6   -3.120      0.661 -4.718   &lt;0.001 -4.416 -1.8236</span></span>
-<span><span class="co">#&gt;    wt mean(dY/dX)   8   -3.120      0.661 -4.718   &lt;0.001 -4.416 -1.8236</span></span>
+<span><span class="co">#&gt;   hp  mean(dY/dX)   4   -0.088      0.027 -3.294   &lt;0.001 -0.140 -0.0355</span></span>
+<span><span class="co">#&gt;   hp  mean(dY/dX)   6   -0.050      0.015 -3.240   0.0012 -0.080 -0.0197</span></span>
+<span><span class="co">#&gt;   hp  mean(dY/dX)   8   -0.012      0.011 -1.106   0.2685 -0.033  0.0092</span></span>
+<span><span class="co">#&gt;   wt  mean(dY/dX)   4   -3.120      0.661 -4.718   &lt;0.001 -4.416 -1.8236</span></span>
+<span><span class="co">#&gt;   wt  mean(dY/dX)   6   -3.120      0.661 -4.718   &lt;0.001 -4.416 -1.8236</span></span>
+<span><span class="co">#&gt;   wt  mean(dY/dX)   8   -3.120      0.661 -4.718   &lt;0.001 -4.416 -1.8236</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: type, term, contrast, cyl, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo</span></span></code></pre></div>
@@ -733,8 +733,8 @@ cyl |  -.9416168   .5509164    -1.71   0.098    -2.070118    .1868842
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Term Estimate Std. Error    z Pr(&gt;|z|)  2.5 %  97.5 %</span></span>
 <span><span class="co">#&gt;   cyl   -0.942      0.551 -1.7    0.087 -2.021  0.1382</span></span>
-<span><span class="co">#&gt;    hp   -0.018      0.012 -1.5    0.129 -0.041  0.0052</span></span>
-<span><span class="co">#&gt;    wt   -3.167      0.741 -4.3   &lt;0.001 -4.618 -1.7155</span></span>
+<span><span class="co">#&gt;   hp    -0.018      0.012 -1.5    0.129 -0.041  0.0052</span></span>
+<span><span class="co">#&gt;   wt    -3.167      0.741 -4.3   &lt;0.001 -4.618 -1.7155</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: type, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
@@ -1006,7 +1006,7 @@ show highlight parallels and differences in syntax.</p>
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/slopes.html">avg_slopes</a></span><span class="op">(</span><span class="va">bayes.logistic</span><span class="op">)</span> </span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Term Contrast Estimate  2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;    am    1 - 0    -0.27 -0.421 -0.074</span></span>
+<span><span class="co">#&gt;   am     1 - 0    -0.27 -0.421 -0.074</span></span>
 <span><span class="co">#&gt;   mpg    dY/dX     0.07  0.054  0.092</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
@@ -1161,7 +1161,7 @@ the output from <code>brmsmargins</code>.</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Term Contrast Estimate 2.5 % 97.5 %</span></span>
 <span><span class="co">#&gt;   grp    1 - 0      1.0  0.35    1.7</span></span>
-<span><span class="co">#&gt;     x    dY/dX      1.6  0.76    2.5</span></span>
+<span><span class="co">#&gt;   x      dY/dX      1.6  0.76    2.5</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: type, term, contrast, estimate, conf.low, conf.high</span></span></code></pre></div>
@@ -1215,7 +1215,7 @@ function and the <code>variables</code> argument:</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Term Contrast Estimate 2.5 % 97.5 %</span></span>
 <span><span class="co">#&gt;   grp    1 - 0      4.9   4.4    5.4</span></span>
-<span><span class="co">#&gt;     x    dY/dX      4.4   3.5    5.4</span></span>
+<span><span class="co">#&gt;   x      dY/dX      4.4   3.5    5.4</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: type, term, contrast, estimate, conf.low, conf.high</span></span></code></pre></div>

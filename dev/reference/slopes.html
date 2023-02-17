@@ -337,9 +337,9 @@ posterior using the function supplied to the
 <span class="r-in"><span><span class="co"># Marginal Effect at the Mean (MEM)</span></span></span>
 <span class="r-in"><span><span class="fu">slopes</span><span class="op">(</span><span class="va">mod</span>, newdata <span class="op">=</span> <span class="fu"><a href="datagrid.html">datagrid</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Term Estimate Std. Error    z Pr(&gt;|z|)   2.5 % 97.5 %       hp      wt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    hp   0.0085     0.0078  1.1     0.28 -0.0069  0.024 146.6875 3.21725</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    wt  -1.7445     1.5863 -1.1     0.27 -4.8536  1.365 146.6875 3.21725</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Term Estimate Std. Error    z Pr(&gt;|z|)   2.5 % 97.5 %  hp  wt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    hp   0.0085     0.0078  1.1     0.28 -0.0069  0.024 147 3.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    wt  -1.7445     1.5863 -1.1     0.27 -4.8536  1.365 147 3.2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: rowid, type, term, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, am, hp, wt, eps </span>
@@ -349,11 +349,11 @@ posterior using the function supplied to the
 <span class="r-in"><span><span class="co"># Variables not explicitly included in `datagrid()` are held at their means</span></span></span>
 <span class="r-in"><span><span class="fu">slopes</span><span class="op">(</span><span class="va">mod</span>, newdata <span class="op">=</span> <span class="fu"><a href="datagrid.html">datagrid</a></span><span class="op">(</span>hp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">110</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Term Estimate Std. Error     z Pr(&gt;|z|)   2.5 % 97.5 %      wt  hp</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    hp   0.0012     0.0018  0.67     0.51 -0.0023 0.0046 3.21725 100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    hp   0.0019     0.0024  0.78     0.43 -0.0028 0.0066 3.21725 110</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    wt  -0.1947     0.3072 -0.63     0.53 -0.7968 0.4075 3.21725 100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    wt  -0.3315     0.4361 -0.76     0.45 -1.1862 0.5232 3.21725 110</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Term Estimate Std. Error     z Pr(&gt;|z|)   2.5 % 97.5 %  wt  hp</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    hp   0.0012     0.0018  0.67     0.51 -0.0023 0.0046 3.2 100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    hp   0.0019     0.0024  0.78     0.43 -0.0028 0.0066 3.2 110</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    wt  -0.1947     0.3072 -0.63     0.53 -0.7968 0.4075 3.2 100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    wt  -0.3315     0.4361 -0.76     0.45 -1.1862 0.5232 3.2 110</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: rowid, type, term, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, am, wt, hp, eps </span>
@@ -384,13 +384,13 @@ posterior using the function supplied to the
 <span class="r-in"><span>              grid_type <span class="op">=</span> <span class="st">"counterfactual"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">mfx</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  rowidcf Term Estimate Std. Error    z Pr(&gt;|z|)    2.5 %  97.5 %    wt  hp</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        1   hp  0.01203    0.00999 1.21     0.23 -0.00754 0.03161 2.620 100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        2   hp  0.01416    0.01081 1.31     0.19 -0.00702 0.03534 2.875 100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        3   hp  0.00156    0.00220 0.71     0.48 -0.00275 0.00588 2.320 100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        4   hp  0.00119    0.00178 0.67     0.50 -0.00230 0.00468 3.215 100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        5   hp  0.00015    0.00034 0.43     0.67 -0.00052 0.00081 3.440 100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        6   hp  0.00012    0.00029 0.41     0.68 -0.00045 0.00069 3.460 100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  rowidcf Term Estimate Std. Error    z Pr(&gt;|z|)    2.5 %  97.5 %  wt  hp</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        1   hp  0.01203    0.00999 1.21     0.23 -0.00754 0.03161 2.6 100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        2   hp  0.01416    0.01081 1.31     0.19 -0.00702 0.03534 2.9 100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        3   hp  0.00156    0.00220 0.71     0.48 -0.00275 0.00588 2.3 100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        4   hp  0.00119    0.00178 0.67     0.50 -0.00230 0.00468 3.2 100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        5   hp  0.00015    0.00034 0.43     0.67 -0.00052 0.00081 3.4 100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        6   hp  0.00012    0.00029 0.41     0.68 -0.00045 0.00069 3.5 100</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: rowid, rowidcf, type, term, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, am, wt, hp, eps </span>
