@@ -140,13 +140,13 @@ different values of flipper length and species:</p>
 <code class="sourceCode R"><span><span class="va">pre</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">mod</span>, newdata <span class="op">=</span> <span class="fu"><a href="../reference/datagrid.html">datagrid</a></span><span class="op">(</span>flipper_length_mm <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">172</span>, <span class="fl">231</span><span class="op">)</span>, species <span class="op">=</span> <span class="va">unique</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">pre</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Estimate Std. Error      z   Pr(&gt;|z|) 2.5 % 97.5 % bill_length_mm island flipper_length_mm   species</span></span>
-<span><span class="co">#&gt;      3859      203.9 18.926 &lt; 2.22e-16  3460   4259       43.92193 Biscoe               172    Adelie</span></span>
-<span><span class="co">#&gt;      2545      368.9  6.898 5.2873e-12  1822   3268       43.92193 Biscoe               172    Gentoo</span></span>
-<span><span class="co">#&gt;      3146      233.8 13.453 &lt; 2.22e-16  2688   3604       43.92193 Biscoe               172 Chinstrap</span></span>
-<span><span class="co">#&gt;      4764      362.1 13.156 &lt; 2.22e-16  4054   5474       43.92193 Biscoe               231    Adelie</span></span>
-<span><span class="co">#&gt;      5597      155.4 36.011 &lt; 2.22e-16  5292   5901       43.92193 Biscoe               231    Gentoo</span></span>
-<span><span class="co">#&gt;      4086      469.4  8.704 &lt; 2.22e-16  3166   5006       43.92193 Biscoe               231 Chinstrap</span></span>
+<span><span class="co">#&gt;  Estimate Std. Error    z Pr(&gt;|z|) 2.5 % 97.5 % bill_length_mm island flipper_length_mm   species</span></span>
+<span><span class="co">#&gt;      3859        204 18.9   &lt;0.001  3460   4259       43.92193 Biscoe               172    Adelie</span></span>
+<span><span class="co">#&gt;      2545        369  6.9   &lt;0.001  1822   3268       43.92193 Biscoe               172    Gentoo</span></span>
+<span><span class="co">#&gt;      3146        234 13.5   &lt;0.001  2688   3604       43.92193 Biscoe               172 Chinstrap</span></span>
+<span><span class="co">#&gt;      4764        362 13.2   &lt;0.001  4054   5474       43.92193 Biscoe               231    Adelie</span></span>
+<span><span class="co">#&gt;      5597        155 36.0   &lt;0.001  5292   5901       43.92193 Biscoe               231    Gentoo</span></span>
+<span><span class="co">#&gt;      4086        469  8.7   &lt;0.001  3166   5006       43.92193 Biscoe               231 Chinstrap</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, estimate, std.error, statistic, p.value, conf.low, conf.high, body_mass_g, bill_length_mm, island, flipper_length_mm, species</span></span></code></pre></div>
@@ -183,10 +183,10 @@ predictors. For example:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">mod</span>, by <span class="op">=</span> <span class="st">"species"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;    species Estimate Std. Error      z   Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;     Adelie     3701      27.18 136.13 &lt; 2.22e-16  3647   3754</span></span>
-<span><span class="co">#&gt;  Chinstrap     3733      40.51  92.15 &lt; 2.22e-16  3654   3812</span></span>
-<span><span class="co">#&gt;     Gentoo     5076      30.12 168.53 &lt; 2.22e-16  5017   5135</span></span>
+<span><span class="co">#&gt;    species Estimate Std. Error   z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
+<span><span class="co">#&gt;     Adelie     3701         27 136   &lt;0.001  3647   3754</span></span>
+<span><span class="co">#&gt;  Chinstrap     3733         41  92   &lt;0.001  3654   3812</span></span>
+<span><span class="co">#&gt;     Gentoo     5076         30 169   &lt;0.001  5017   5135</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: type, species, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
@@ -199,12 +199,12 @@ variables:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">mod</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"species"</span>, <span class="st">"island"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;    species    island Estimate Std. Error      z   Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;     Adelie    Biscoe     3710      50.36  73.66 &lt; 2.22e-16  3611   3808</span></span>
-<span><span class="co">#&gt;     Adelie     Dream     3688      44.64  82.63 &lt; 2.22e-16  3601   3776</span></span>
-<span><span class="co">#&gt;     Adelie Torgersen     3706      46.78  79.24 &lt; 2.22e-16  3615   3798</span></span>
-<span><span class="co">#&gt;  Chinstrap     Dream     3733      40.51  92.15 &lt; 2.22e-16  3654   3812</span></span>
-<span><span class="co">#&gt;     Gentoo    Biscoe     5076      30.12 168.53 &lt; 2.22e-16  5017   5135</span></span>
+<span><span class="co">#&gt;    species    island Estimate Std. Error   z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
+<span><span class="co">#&gt;     Adelie    Biscoe     3710         50  74   &lt;0.001  3611   3808</span></span>
+<span><span class="co">#&gt;     Adelie     Dream     3688         45  83   &lt;0.001  3601   3776</span></span>
+<span><span class="co">#&gt;     Adelie Torgersen     3706         47  79   &lt;0.001  3615   3798</span></span>
+<span><span class="co">#&gt;  Chinstrap     Dream     3733         41  92   &lt;0.001  3654   3812</span></span>
+<span><span class="co">#&gt;     Gentoo    Biscoe     5076         30 169   &lt;0.001  5017   5135</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: type, species, island, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
@@ -228,13 +228,13 @@ variable(s) of interest using an additional argument:</p>
 <span>  variables <span class="op">=</span> <span class="st">"flipper_length_mm"</span>,</span>
 <span>  newdata <span class="op">=</span> <span class="fu"><a href="../reference/datagrid.html">datagrid</a></span><span class="op">(</span>flipper_length_mm <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">172</span>, <span class="fl">231</span><span class="op">)</span>, species <span class="op">=</span> <span class="va">unique</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;               Term Contrast Estimate Std. Error     z   Pr(&gt;|z|)  2.5 % 97.5 % bill_length_mm island   species</span></span>
-<span><span class="co">#&gt;  flipper_length_mm       +1    15.33      9.253 1.656   0.097621 -2.808  33.46       43.92193 Biscoe    Adelie</span></span>
-<span><span class="co">#&gt;  flipper_length_mm       +1    51.73      8.696 5.948 2.7126e-09 34.683  68.77       43.92193 Biscoe    Gentoo</span></span>
-<span><span class="co">#&gt;  flipper_length_mm       +1    15.93     11.366 1.402   0.160953 -6.343  38.21       43.92193 Biscoe Chinstrap</span></span>
-<span><span class="co">#&gt;  flipper_length_mm       +1    15.33      9.253 1.657   0.097606 -2.807  33.46       43.92193 Biscoe    Adelie</span></span>
-<span><span class="co">#&gt;  flipper_length_mm       +1    51.73      8.697 5.948 2.7171e-09 34.682  68.77       43.92193 Biscoe    Gentoo</span></span>
-<span><span class="co">#&gt;  flipper_length_mm       +1    15.93     11.366 1.402   0.160952 -6.343  38.21       43.92193 Biscoe Chinstrap</span></span>
+<span><span class="co">#&gt;               Term Contrast Estimate Std. Error   z Pr(&gt;|z|) 2.5 % 97.5 % bill_length_mm island   species</span></span>
+<span><span class="co">#&gt;  flipper_length_mm       +1       15        9.3 1.7    0.098  -2.8     33       43.92193 Biscoe    Adelie</span></span>
+<span><span class="co">#&gt;  flipper_length_mm       +1       52        8.7 5.9   &lt;0.001  34.7     69       43.92193 Biscoe    Gentoo</span></span>
+<span><span class="co">#&gt;  flipper_length_mm       +1       16       11.4 1.4    0.161  -6.3     38       43.92193 Biscoe Chinstrap</span></span>
+<span><span class="co">#&gt;  flipper_length_mm       +1       15        9.3 1.7    0.098  -2.8     33       43.92193 Biscoe    Adelie</span></span>
+<span><span class="co">#&gt;  flipper_length_mm       +1       52        8.7 5.9   &lt;0.001  34.7     69       43.92193 Biscoe    Gentoo</span></span>
+<span><span class="co">#&gt;  flipper_length_mm       +1       16       11.4 1.4    0.161  -6.3     38       43.92193 Biscoe Chinstrap</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, body_mass_g, bill_length_mm, island, flipper_length_mm, species, eps</span></span>
@@ -450,18 +450,19 @@ For example,</p>
 <span></span>
 <span><span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Group Estimate Std. Error       z   Pr(&gt;|z|)      2.5 %  97.5 %</span></span>
-<span><span class="co">#&gt;      3 0.531596   0.112672  4.7181 2.3807e-06  0.3107631 0.75243</span></span>
-<span><span class="co">#&gt;      3 0.531596   0.112672  4.7181 2.3807e-06  0.3107631 0.75243</span></span>
-<span><span class="co">#&gt;      3 0.449160   0.120036  3.7419 0.00018264  0.2138946 0.68443</span></span>
-<span><span class="co">#&gt;      3 0.494359   0.111137  4.4482 8.6591e-06  0.2765352 0.71218</span></span>
-<span><span class="co">#&gt;      3 0.421265   0.113957  3.6967 0.00021843  0.1979129 0.64462</span></span>
+<span><span class="co">#&gt;  Group Estimate Std. Error     z Pr(&gt;|z|)    2.5 % 97.5 %</span></span>
+<span><span class="co">#&gt;      3   0.5316     0.1127  4.72   &lt;0.001  0.31076  0.752</span></span>
+<span><span class="co">#&gt;      3   0.5316     0.1127  4.72   &lt;0.001  0.31076  0.752</span></span>
+<span><span class="co">#&gt;      3   0.4492     0.1200  3.74   &lt;0.001  0.21389  0.684</span></span>
+<span><span class="co">#&gt;      3   0.4944     0.1111  4.45   &lt;0.001  0.27654  0.712</span></span>
+<span><span class="co">#&gt;      3   0.4213     0.1140  3.70   &lt;0.001  0.19791  0.645</span></span>
 <span><span class="co">#&gt; --- 86 rows omitted. See ?avg_predictions and ?print.marginaleffects --- </span></span>
-<span><span class="co">#&gt;      5 0.689397   0.195008  3.5352 0.00040744  0.3071872 1.07161</span></span>
-<span><span class="co">#&gt;      5 0.164953   0.130661  1.2624 0.20678702 -0.0911382 0.42104</span></span>
-<span><span class="co">#&gt;      5 0.124546   0.069841  1.7833 0.07453997 -0.0123394 0.26143</span></span>
-<span><span class="co">#&gt;      5 0.377925   0.326811  1.1564 0.24751620 -0.2626125 1.01846</span></span>
-<span><span class="co">#&gt;      5 0.066739   0.045573  1.4644 0.14307241 -0.0225821 0.15606 </span></span>
+<span><span class="co">#&gt;  Group Estimate Std. Error     z Pr(&gt;|z|)    2.5 % 97.5 %</span></span>
+<span><span class="co">#&gt;      5   0.6894     0.1950  3.54   &lt;0.001  0.30719  1.072</span></span>
+<span><span class="co">#&gt;      5   0.1650     0.1307  1.26   0.2068 -0.09114  0.421</span></span>
+<span><span class="co">#&gt;      5   0.1245     0.0698  1.78   0.0745 -0.01234  0.261</span></span>
+<span><span class="co">#&gt;      5   0.3779     0.3268  1.16   0.2475 -0.26261  1.018</span></span>
+<span><span class="co">#&gt;      5   0.0667     0.0456  1.46   0.1431 -0.02258  0.156</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  probs </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, group, estimate, std.error, statistic, p.value, conf.low, conf.high, gear, mpg, hp</span></span></code></pre></div>
@@ -505,10 +506,10 @@ are accessible via standard <code>R</code> operators. For example:</p>
 <code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/predictions.html">avg_predictions</a></span><span class="op">(</span><span class="va">mod</span>, by <span class="op">=</span> <span class="st">"cyl"</span><span class="op">)</span></span>
 <span><span class="va">p</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  cyl Estimate Std. Error     z   Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;    4    26.66     0.6951 38.36 &lt; 2.22e-16 25.30  28.03</span></span>
-<span><span class="co">#&gt;    6    19.74     0.8714 22.66 &lt; 2.22e-16 18.03  21.45</span></span>
-<span><span class="co">#&gt;    8    15.10     0.6162 24.51 &lt; 2.22e-16 13.89  16.31</span></span>
+<span><span class="co">#&gt;  cyl Estimate Std. Error  z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
+<span><span class="co">#&gt;    4       27       0.70 38   &lt;0.001    25     28</span></span>
+<span><span class="co">#&gt;    6       20       0.87 23   &lt;0.001    18     21</span></span>
+<span><span class="co">#&gt;    8       15       0.62 25   &lt;0.001    14     16</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: type, cyl, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span>

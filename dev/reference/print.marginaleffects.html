@@ -66,7 +66,8 @@ Some of the data columns are not printed by default. You can disable pretty prin
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for marginaleffects</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span></span>
 <span>  <span class="va">x</span>,</span>
-<span>  digits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="fl">3L</span>, <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"digits"</span><span class="op">)</span> <span class="op">-</span> <span class="fl">3L</span><span class="op">)</span>,</span>
+<span>  digits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"marginaleffects_print_digits"</span>, default <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
+<span>  p_eps <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"marginaleffects_print_p_eps"</span>, default <span class="op">=</span> <span class="fl">0.001</span><span class="op">)</span>,</span>
 <span>  topn <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"marginaleffects_print_topn"</span>, default <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>,</span>
 <span>  nrows <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"marginaleffects_print_nrows"</span>, default <span class="op">=</span> <span class="fl">30</span><span class="op">)</span>,</span>
 <span>  ncols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"marginaleffects_print_ncols"</span>, default <span class="op">=</span> <span class="fl">30</span><span class="op">)</span>,</span>
@@ -83,6 +84,10 @@ Some of the data columns are not printed by default. You can disable pretty prin
 
 <dt>digits</dt>
 <dd><p>The number of digits to display.</p></dd>
+
+
+<dt>p_eps</dt>
+<dd><p>p values smaller than this number are printed in "&lt;0.001" style.</p></dd>
 
 
 <dt>topn</dt>
@@ -113,11 +118,11 @@ Some of the data columns are not printed by default. You can disable pretty prin
 <span class="r-in"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="predictions.html">predictions</a></span><span class="op">(</span><span class="va">mod</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"am"</span>, <span class="st">"gear"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">p</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  am gear Estimate Std. Error     z   Pr(&gt;|z|) 2.5 % 97.5 %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   0    3    16.11      0.759 21.22 &lt; 2.22e-16 14.62  17.59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   0    4    21.05      1.470 14.32 &lt; 2.22e-16 18.17  23.93</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1    4    26.27      1.039 25.28 &lt; 2.22e-16 24.24  28.31</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1    5    21.38      1.315 16.26 &lt; 2.22e-16 18.80  23.96</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  am gear Estimate Std. Error  z Pr(&gt;|z|) 2.5 % 97.5 %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0    3       16       0.76 21   &lt;0.001    15     18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0    4       21       1.47 14   &lt;0.001    18     24</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1    4       26       1.04 25   &lt;0.001    24     28</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1    5       21       1.31 16   &lt;0.001    19     24</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: type, am, gear, estimate, std.error, statistic, p.value, conf.low, conf.high </span>
@@ -125,9 +130,9 @@ Some of the data columns are not printed by default. You can disable pretty prin
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">p</span>, <span class="va">am</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Estimate Std. Error     z   Pr(&gt;|z|) CI low CI high</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     26.27      1.039 25.28 &lt; 2.22e-16  24.24   28.31</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     21.38      1.315 16.26 &lt; 2.22e-16  18.80   23.96</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Estimate Std. Error  z Pr(&gt;|z|) CI low CI high</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        26        1.0 25   &lt;0.001     24      28</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        21        1.3 16   &lt;0.001     19      24</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: type, am, gear, estimate, std.error, statistic, p.value, conf.low, conf.high </span>
