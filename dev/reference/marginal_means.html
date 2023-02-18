@@ -22,7 +22,7 @@ https://vincentarelbundock.github.io/marginaleffects/
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.9.0.9046</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.9.0.9047</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -216,6 +216,15 @@ predictions on the link scale, that is, with the <code>type</code> argument set 
 <p>The <code>marginaleffects</code> website compares the output of this function to the
 popular <code>emmeans</code> package, which provides similar but more advanced
 functionality: https://vincentarelbundock.github.io/marginaleffects/</p>
+    </div>
+    <div class="section level2">
+    <h2 id="delta-method-standard-errors">Delta method standard errors<a class="anchor" aria-label="anchor" href="#delta-method-standard-errors"></a></h2>
+    
+
+
+<p>Standard errors are obtained using the Delta method and finite differences. In some models, the estimated standard errors can be can be quite sensitive to  the numeric differentiation strategy (e.g., step size).</p>
+<p>See the "Standard Errors and Confidence Intervals" vignette on the <code>marginaleffects</code> website to learn how standard errors are computed, and how the <code>numDeriv</code> package can help you explore the effects of alternative differentiation strategies:</p>
+<p>https://vincentarelbundock.github.io/marginaleffects/articles/uncertainty.html</p>
     </div>
     <div class="section level2">
     <h2 id="model-specific-arguments">Model-Specific Arguments<a class="anchor" aria-label="anchor" href="#model-specific-arguments"></a></h2>

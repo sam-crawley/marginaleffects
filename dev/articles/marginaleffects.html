@@ -27,7 +27,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.9.0.9046</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.9.0.9047</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -225,7 +225,7 @@ there are 3 predictors in the model and our data has 32 rows, we obtain
 <span><span class="co">##    am    1 - 0    4.027      3.240  1.24   0.2139 -2.324 10.37797</span></span>
 <span><span class="co">##    am    1 - 0   -0.237      1.586 -0.15   0.8813 -3.346  2.87242</span></span>
 <span><span class="co">## Prediction type:  response </span></span>
-<span><span class="co">## Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, wt, am, eps</span></span></code></pre>
+<span><span class="co">## Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, wt, am</span></span></code></pre>
 <p>The <code><a href="../reference/comparisons.html">comparisons()</a></code> function allows customized queries.
 For example, what happens to the predicted outcome when the
 <code>hp</code> variable increases from 100 to 120?</p>
@@ -245,7 +245,7 @@ For example, what happens to the predicted outcome when the
 <span><span class="co">##    hp 120 - 100    -0.13       0.27 -0.46   0.6436 -0.66  0.408</span></span>
 <span><span class="co">##    hp 120 - 100    -0.64       0.33 -1.91   0.0560 -1.29  0.016</span></span>
 <span><span class="co">## Prediction type:  response </span></span>
-<span><span class="co">## Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, wt, am, eps</span></span></code></pre>
+<span><span class="co">## Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, wt, am</span></span></code></pre>
 <p>What happens to the predicted outcome when the <code>wt</code>
 variable increases by 1 standard deviation about its mean?</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
@@ -264,7 +264,7 @@ variable increases by 1 standard deviation about its mean?</p>
 <span><span class="co">##    hp (x + sd/2) - (x - sd/2)    -0.43       0.93 -0.46   0.6436  -2.3  1.397</span></span>
 <span><span class="co">##    hp (x + sd/2) - (x - sd/2)    -2.18       1.14 -1.91   0.0560  -4.4  0.056</span></span>
 <span><span class="co">## Prediction type:  response </span></span>
-<span><span class="co">## Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, wt, am, eps</span></span></code></pre>
+<span><span class="co">## Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, wt, am</span></span></code></pre>
 <p>The <code><a href="../reference/comparisons.html">comparisons()</a></code> function also allows users to specify
 arbitrary functions of predictions, with the <code>transform_pre</code>
 argument. For example, what is the average ratio between predicted Miles
@@ -306,7 +306,7 @@ predictors. Once again, we obtain a data frame with 96 rows:</p>
 <span><span class="co">##    am    1 - 0    4.027      3.240  1.24   0.2139 -2.324 10.37797</span></span>
 <span><span class="co">##    am    1 - 0   -0.237      1.586 -0.15   0.8813 -3.346  2.87242</span></span>
 <span><span class="co">## Prediction type:  response </span></span>
-<span><span class="co">## Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, wt, am, eps</span></span></code></pre>
+<span><span class="co">## Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, wt, am</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="grid">Grid<a class="anchor" aria-label="anchor" href="#grid"></a>
@@ -372,7 +372,7 @@ is equal to 0 and 1, while other predictors are held at their means:</p>
 <span><span class="co">##    wt     -5.4        2.2 -2.5    0.012  -9.7  -1.21 147 3.2  1</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Prediction type:  response </span></span>
-<span><span class="co">## Columns: rowid, type, term, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, wt, am, eps</span></span></code></pre>
+<span><span class="co">## Columns: rowid, type, term, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, wt, am</span></span></code></pre>
 <p>We can also plot how predictions, comparisons, or slopes change
 across different values of the predictors using <a href="https://vincentarelbundock.github.io/marginaleffects/articles/plot.html">three
 powerful plotting functions:</a></p>
@@ -533,7 +533,7 @@ model testing. For example, consider two slope estimates:</p>
 <span><span class="co">##  drat     10.2        5.2 2.0    0.047  0.13     20  3.6   23</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Prediction type:  response </span></span>
-<span><span class="co">## Columns: rowid, type, term, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, drat, qsec, eps</span></span></code></pre>
+<span><span class="co">## Columns: rowid, type, term, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, drat, qsec</span></span></code></pre>
 <p>Are these two slopes significantly different from one another? To
 test this, we can use the <code>hypothesis</code> argument:</p>
 <div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">

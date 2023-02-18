@@ -30,7 +30,7 @@ https://vincentarelbundock.github.io/marginaleffects/
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.9.0.9046</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.9.0.9047</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -272,6 +272,15 @@ arguments.</p></dd>
 <ul><li><p><code>avg_predictions()</code>: Average predictions</p></li>
 </ul></div>
     <div class="section level2">
+    <h2 id="delta-method-standard-errors">Delta method standard errors<a class="anchor" aria-label="anchor" href="#delta-method-standard-errors"></a></h2>
+    
+
+
+<p>Standard errors are obtained using the Delta method and finite differences. In some models, the estimated standard errors can be can be quite sensitive to  the numeric differentiation strategy (e.g., step size).</p>
+<p>See the "Standard Errors and Confidence Intervals" vignette on the <code>marginaleffects</code> website to learn how standard errors are computed, and how the <code>numDeriv</code> package can help you explore the effects of alternative differentiation strategies:</p>
+<p>https://vincentarelbundock.github.io/marginaleffects/articles/uncertainty.html</p>
+    </div>
+    <div class="section level2">
     <h2 id="model-specific-arguments">Model-Specific Arguments<a class="anchor" aria-label="anchor" href="#model-specific-arguments"></a></h2>
     
 
@@ -505,9 +514,9 @@ posterior using the function supplied to the
 <span class="r-out co"><span class="r-pr">#&gt;</span>      3  3.6e-05    2.0e-03   0.018    0.986 -3.9e-03 4.0e-03</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      3  3.6e-05    2.0e-03   0.018    0.986 -3.9e-03 4.0e-03</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      3  9.3e-08    6.9e-06   0.014    0.989 -1.3e-05 1.4e-05</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3  4.0e-01    2.0e-01   2.058    0.040  1.9e-02 7.9e-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3  1.0e+00    1.2e-03 802.406   &lt;0.001  1.0e+00 1.0e+00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3  5.2e-01    2.9e-01   1.789    0.074 -5.0e-02 1.1e+00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3  4.0e-01    2.0e-01   2.057    0.040  1.9e-02 7.9e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3  1.0e+00    1.2e-03 802.445   &lt;0.001  1.0e+00 1.0e+00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3  5.2e-01    2.9e-01   1.788    0.074 -5.0e-02 1.1e+00</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  probs </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: rowid, type, group, estimate, std.error, statistic, p.value, conf.low, conf.high, gear, mpg, am, vs </span>
@@ -547,7 +556,7 @@ posterior using the function supplied to the
 <span class="r-in"><span><span class="fu">predictions</span><span class="op">(</span><span class="va">mod</span>, newdata <span class="op">=</span> <span class="st">"mean"</span>, byfun <span class="op">=</span> <span class="va">sum</span>, by <span class="op">=</span> <span class="va">by</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Estimate Std. Error    z Pr(&gt;|z|) 2.5 % 97.5 %  By</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     0.916       0.12 7.52   &lt;0.001  0.68   1.15 4,6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     0.916       0.12 7.55   &lt;0.001  0.68   1.15 4,6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     0.084       0.12 0.69     0.49 -0.15   0.32 8  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  probs </span>

@@ -38,7 +38,7 @@ https://vincentarelbundock.github.io/marginaleffects/
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.9.0.9046</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.9.0.9047</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -292,6 +292,15 @@ arguments.</p></dd>
 <ul><li><p><code>avg_comparisons()</code>: Average comparisons</p></li>
 </ul></div>
     <div class="section level2">
+    <h2 id="delta-method-standard-errors">Delta method standard errors<a class="anchor" aria-label="anchor" href="#delta-method-standard-errors"></a></h2>
+    
+
+
+<p>Standard errors are obtained using the Delta method and finite differences. In some models, the estimated standard errors can be can be quite sensitive to  the numeric differentiation strategy (e.g., step size).</p>
+<p>See the "Standard Errors and Confidence Intervals" vignette on the <code>marginaleffects</code> website to learn how standard errors are computed, and how the <code>numDeriv</code> package can help you explore the effects of alternative differentiation strategies:</p>
+<p>https://vincentarelbundock.github.io/marginaleffects/articles/uncertainty.html</p>
+    </div>
+    <div class="section level2">
     <h2 id="model-specific-arguments">Model-Specific Arguments<a class="anchor" aria-label="anchor" href="#model-specific-arguments"></a></h2>
     
 
@@ -454,7 +463,7 @@ posterior using the function supplied to the
 <span class="r-out co"><span class="r-pr">#&gt;</span>    hp       +1   -0.045      0.015 -3   0.0024 -0.074 -0.016  3.7   8  0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, drat, cyl, am, eps </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, drat, cyl, am </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
@@ -663,11 +672,11 @@ posterior using the function supplied to the
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Term  By Estimate Std. Error     z Pr(&gt;|z|)  2.5 % 97.5 %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   am  3,4 -0.22279     0.0796 -2.80   0.0051 -0.379 -0.067</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   am  5    0.44559     0.1591  2.80   0.0051  0.134  0.757</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   mpg 3,4  0.00046     0.0058  0.08   0.9363 -0.011  0.012</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   mpg 5   -0.00093     0.0116 -0.08   0.9363 -0.024  0.022</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   vs  3,4  0.10210     0.0732  1.39   0.1633 -0.041  0.246</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   vs  5   -0.20420     0.1465 -1.39   0.1633 -0.491  0.083</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   am  5    0.44559     0.1592  2.80   0.0051  0.134  0.758</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   mpg 3,4  0.00046     0.0058  0.08   0.9362 -0.011  0.012</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   mpg 5   -0.00093     0.0116 -0.08   0.9362 -0.024  0.022</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   vs  3,4  0.10210     0.0733  1.39   0.1639 -0.042  0.246</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   vs  5   -0.20420     0.1467 -1.39   0.1639 -0.492  0.083</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  probs </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: type, term, by, estimate, std.error, statistic, p.value, conf.low, conf.high </span>

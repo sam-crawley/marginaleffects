@@ -27,7 +27,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.9.0.9046</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.9.0.9047</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -483,9 +483,9 @@ Note that response levels are identified by the “group” column.</p>
 <span><span class="co">#&gt;      3  3.6e-05    2.0e-03   0.018    0.986 -3.9e-03 4.0e-03</span></span>
 <span><span class="co">#&gt;      3  3.6e-05    2.0e-03   0.018    0.986 -3.9e-03 4.0e-03</span></span>
 <span><span class="co">#&gt;      3  9.3e-08    6.9e-06   0.014    0.989 -1.3e-05 1.4e-05</span></span>
-<span><span class="co">#&gt;      3  4.0e-01    2.0e-01   2.058    0.040  1.9e-02 7.9e-01</span></span>
-<span><span class="co">#&gt;      3  1.0e+00    1.2e-03 802.406   &lt;0.001  1.0e+00 1.0e+00</span></span>
-<span><span class="co">#&gt;      3  5.2e-01    2.9e-01   1.789    0.074 -5.0e-02 1.1e+00</span></span>
+<span><span class="co">#&gt;      3  4.0e-01    2.0e-01   2.057    0.040  1.9e-02 7.9e-01</span></span>
+<span><span class="co">#&gt;      3  1.0e+00    1.2e-03 802.445   &lt;0.001  1.0e+00 1.0e+00</span></span>
+<span><span class="co">#&gt;      3  5.2e-01    2.9e-01   1.788    0.074 -5.0e-02 1.1e+00</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  probs </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, group, estimate, std.error, statistic, p.value, conf.low, conf.high, gear, mpg, am, vs</span></span>
@@ -564,20 +564,20 @@ predicted probability of outcome levels for each value of
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">nom</span>, by <span class="op">=</span> <span class="va">by</span>, hypothesis <span class="op">=</span> <span class="st">"pairwise"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;                                               Term Estimate Std. Error        z Pr(&gt;|z|)   2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  3/4 Gears &amp; 4 Cylinders - 3/4 Gears &amp; 6 Cylinders -1.9e-02      0.088 -0.21983    0.826 -0.1916   0.15</span></span>
-<span><span class="co">#&gt;  3/4 Gears &amp; 4 Cylinders - 3/4 Gears &amp; 8 Cylinders -1.9e-02      0.074 -0.26104    0.794 -0.1642   0.13</span></span>
-<span><span class="co">#&gt;  3/4 Gears &amp; 4 Cylinders - 5 Gears &amp; 4 Cylinders    2.3e-01      0.174  1.30935    0.190 -0.1132   0.57</span></span>
-<span><span class="co">#&gt;  3/4 Gears &amp; 4 Cylinders - 5 Gears &amp; 6 Cylinders    2.7e-01      0.144  1.84607    0.065 -0.0164   0.55</span></span>
-<span><span class="co">#&gt;  3/4 Gears &amp; 4 Cylinders - 5 Gears &amp; 8 Cylinders    2.7e-01      0.108  2.45496    0.014  0.0537   0.48</span></span>
+<span><span class="co">#&gt;  3/4 Gears &amp; 4 Cylinders - 3/4 Gears &amp; 6 Cylinders -1.9e-02      0.088 -0.21984    0.826 -0.1916   0.15</span></span>
+<span><span class="co">#&gt;  3/4 Gears &amp; 4 Cylinders - 3/4 Gears &amp; 8 Cylinders -1.9e-02      0.074 -0.26105    0.794 -0.1641   0.13</span></span>
+<span><span class="co">#&gt;  3/4 Gears &amp; 4 Cylinders - 5 Gears &amp; 4 Cylinders    2.3e-01      0.174  1.30948    0.190 -0.1131   0.57</span></span>
+<span><span class="co">#&gt;  3/4 Gears &amp; 4 Cylinders - 5 Gears &amp; 6 Cylinders    2.7e-01      0.144  1.84619    0.065 -0.0164   0.55</span></span>
+<span><span class="co">#&gt;  3/4 Gears &amp; 4 Cylinders - 5 Gears &amp; 8 Cylinders    2.7e-01      0.108  2.45512    0.014  0.0537   0.48</span></span>
 <span><span class="co">#&gt;  3/4 Gears &amp; 6 Cylinders - 3/4 Gears &amp; 8 Cylinders  2.8e-05      0.080  0.00035    1.000 -0.1576   0.16</span></span>
-<span><span class="co">#&gt;  3/4 Gears &amp; 6 Cylinders - 5 Gears &amp; 4 Cylinders    2.5e-01      0.133  1.85122    0.064 -0.0145   0.51</span></span>
-<span><span class="co">#&gt;  3/4 Gears &amp; 6 Cylinders - 5 Gears &amp; 6 Cylinders    2.9e-01      0.198  1.44148    0.149 -0.1028   0.67</span></span>
-<span><span class="co">#&gt;  3/4 Gears &amp; 6 Cylinders - 5 Gears &amp; 8 Cylinders    2.9e-01      0.113  2.52753    0.011  0.0641   0.51</span></span>
-<span><span class="co">#&gt;  3/4 Gears &amp; 8 Cylinders - 5 Gears &amp; 4 Cylinders    2.5e-01      0.125  1.98117    0.048  0.0026   0.49</span></span>
-<span><span class="co">#&gt;  3/4 Gears &amp; 8 Cylinders - 5 Gears &amp; 6 Cylinders    2.9e-01      0.140  2.04255    0.041  0.0115   0.56</span></span>
-<span><span class="co">#&gt;  3/4 Gears &amp; 8 Cylinders - 5 Gears &amp; 8 Cylinders    2.9e-01      0.138  2.07667    0.038  0.0161   0.56</span></span>
-<span><span class="co">#&gt;  5 Gears &amp; 4 Cylinders - 5 Gears &amp; 6 Cylinders      3.9e-02      0.176  0.21983    0.826 -0.3059   0.38</span></span>
-<span><span class="co">#&gt;  5 Gears &amp; 4 Cylinders - 5 Gears &amp; 8 Cylinders      3.9e-02      0.148  0.26104    0.794 -0.2511   0.33</span></span>
+<span><span class="co">#&gt;  3/4 Gears &amp; 6 Cylinders - 5 Gears &amp; 4 Cylinders    2.5e-01      0.133  1.85141    0.064 -0.0145   0.51</span></span>
+<span><span class="co">#&gt;  3/4 Gears &amp; 6 Cylinders - 5 Gears &amp; 6 Cylinders    2.9e-01      0.198  1.44154    0.149 -0.1027   0.67</span></span>
+<span><span class="co">#&gt;  3/4 Gears &amp; 6 Cylinders - 5 Gears &amp; 8 Cylinders    2.9e-01      0.113  2.52763    0.011  0.0641   0.51</span></span>
+<span><span class="co">#&gt;  3/4 Gears &amp; 8 Cylinders - 5 Gears &amp; 4 Cylinders    2.5e-01      0.125  1.98136    0.048  0.0027   0.49</span></span>
+<span><span class="co">#&gt;  3/4 Gears &amp; 8 Cylinders - 5 Gears &amp; 6 Cylinders    2.9e-01      0.140  2.04263    0.041  0.0116   0.56</span></span>
+<span><span class="co">#&gt;  3/4 Gears &amp; 8 Cylinders - 5 Gears &amp; 8 Cylinders    2.9e-01      0.138  2.07675    0.038  0.0161   0.56</span></span>
+<span><span class="co">#&gt;  5 Gears &amp; 4 Cylinders - 5 Gears &amp; 6 Cylinders      3.9e-02      0.176  0.21984    0.826 -0.3059   0.38</span></span>
+<span><span class="co">#&gt;  5 Gears &amp; 4 Cylinders - 5 Gears &amp; 8 Cylinders      3.9e-02      0.148  0.26105    0.794 -0.2511   0.33</span></span>
 <span><span class="co">#&gt;  5 Gears &amp; 6 Cylinders - 5 Gears &amp; 8 Cylinders     -5.7e-05      0.161 -0.00035    1.000 -0.3153   0.32</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  probs </span></span>
@@ -687,12 +687,12 @@ when we call <code>draw=FALSE</code>, the result includes a
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   rowid  type group  estimate  std.error statistic       p.value  conf.low conf.high gear      mpg</span></span>
-<span><span class="co">#&gt; 1     1 probs     3 0.9714990 0.03871641  25.09269 5.976078e-139 0.8956163  1.047382    3 10.40000</span></span>
-<span><span class="co">#&gt; 2     2 probs     3 0.9656724 0.04391767  21.98824 3.731500e-107 0.8795953  1.051749    3 10.87959</span></span>
-<span><span class="co">#&gt; 3     3 probs     3 0.9586759 0.04961146  19.32368  3.395749e-83 0.8614392  1.055913    3 11.35918</span></span>
-<span><span class="co">#&gt; 4     4 probs     3 0.9502914 0.05577453  17.03809  4.285120e-65 0.8409753  1.059607    3 11.83878</span></span>
-<span><span class="co">#&gt; 5     5 probs     3 0.9402691 0.06235509  15.07927  2.217162e-51 0.8180554  1.062483    3 12.31837</span></span>
-<span><span class="co">#&gt; 6     6 probs     3 0.9283274 0.06926567  13.40242  5.852526e-41 0.7925692  1.064086    3 12.79796</span></span></code></pre></div>
+<span><span class="co">#&gt; 1     1 probs     3 0.9714990 0.03872773  25.08536 7.185838e-139 0.8955941  1.047404    3 10.40000</span></span>
+<span><span class="co">#&gt; 2     2 probs     3 0.9656724 0.04393256  21.98079 4.397495e-107 0.8795661  1.051779    3 10.87959</span></span>
+<span><span class="co">#&gt; 3     3 probs     3 0.9586759 0.04963084  19.31613  3.930287e-83 0.8614012  1.055951    3 11.35918</span></span>
+<span><span class="co">#&gt; 4     4 probs     3 0.9502914 0.05579948  17.03047  4.880938e-65 0.8409265  1.059656    3 11.83878</span></span>
+<span><span class="co">#&gt; 5     5 probs     3 0.9402691 0.06238682  15.07160  2.490123e-51 0.8179932  1.062545    3 12.31837</span></span>
+<span><span class="co">#&gt; 6     6 probs     3 0.9283274 0.06930549  13.39472  6.492421e-41 0.7924911  1.064164    3 12.79796</span></span></code></pre></div>
 <p>Now we use the <code>group</code> column:</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_predictions.html">plot_predictions</a></span><span class="op">(</span></span>

@@ -27,7 +27,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.9.0.9046</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.9.0.9047</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -171,15 +171,15 @@ archive</a>, and estimate a GLM model:</p>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">mfx</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;            Term Contrast Estimate Std. Error   z Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  bill_length_mm    dY/dX    0.018     0.0078 2.2   0.0246 0.0023  0.033</span></span>
-<span><span class="co">#&gt;  bill_length_mm    dY/dX    0.036     0.0119 3.0   0.0026 0.0125  0.059</span></span>
-<span><span class="co">#&gt;  bill_length_mm    dY/dX    0.084     0.0211 4.0   &lt;0.001 0.0430  0.126</span></span>
-<span><span class="co">#&gt;  bill_length_mm    dY/dX    0.035     0.0065 5.3   &lt;0.001 0.0220  0.047</span></span>
-<span><span class="co">#&gt;  bill_length_mm    dY/dX    0.051     0.0134 3.8   &lt;0.001 0.0246  0.077</span></span>
-<span><span class="co">#&gt;  bill_length_mm    dY/dX    0.017     0.0073 2.3   0.0228 0.0023  0.031</span></span>
+<span><span class="co">#&gt;  bill_length_mm    dY/dX    0.018     0.0083 2.1   0.0336 0.0014  0.034</span></span>
+<span><span class="co">#&gt;  bill_length_mm    dY/dX    0.036     0.0123 2.9   0.0035 0.0118  0.060</span></span>
+<span><span class="co">#&gt;  bill_length_mm    dY/dX    0.084     0.0211 4.0   &lt;0.001 0.0431  0.126</span></span>
+<span><span class="co">#&gt;  bill_length_mm    dY/dX    0.035     0.0064 5.4   &lt;0.001 0.0221  0.047</span></span>
+<span><span class="co">#&gt;  bill_length_mm    dY/dX    0.051     0.0135 3.8   &lt;0.001 0.0244  0.077</span></span>
+<span><span class="co">#&gt;  bill_length_mm    dY/dX    0.017     0.0077 2.1   0.0320 0.0014  0.032</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, large_penguin, bill_length_mm, flipper_length_mm, species, eps</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, large_penguin, bill_length_mm, flipper_length_mm, species</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="the-marginal-effects-zoo">The Marginal Effects Zoo<a class="anchor" aria-label="anchor" href="#the-marginal-effects-zoo"></a>
@@ -223,8 +223,8 @@ on the full <code>data.frame</code> shown above, but the
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;               Term           Contrast Estimate Std. Error     z Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
 <span><span class="co">#&gt;  bill_length_mm    dY/dX                 0.028     0.0058  4.77   &lt;0.001  0.016  0.039</span></span>
-<span><span class="co">#&gt;  flipper_length_mm dY/dX                 0.011     0.0024  4.49   &lt;0.001  0.006  0.015</span></span>
-<span><span class="co">#&gt;  species           Chinstrap - Adelie   -0.415     0.0569 -7.29   &lt;0.001 -0.526 -0.303</span></span>
+<span><span class="co">#&gt;  flipper_length_mm dY/dX                 0.011     0.0023  4.51   &lt;0.001  0.006  0.015</span></span>
+<span><span class="co">#&gt;  species           Chinstrap - Adelie   -0.415     0.0566 -7.33   &lt;0.001 -0.526 -0.304</span></span>
 <span><span class="co">#&gt;  species           Gentoo - Adelie       0.062     0.1069  0.58     0.56 -0.148  0.271</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
@@ -242,9 +242,9 @@ specification</a>:</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 9</span></span></span>
 <span><span class="co">#&gt;   type     term              contrast                       estimate std.error statistic  p.value conf.low conf.high</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                             <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> response bill_length_mm    mean(dY/dX)                      0.027<span style="text-decoration: underline;">6</span>   0.005<span style="text-decoration: underline;">78</span>     4.77  1.87<span style="color: #949494;">e</span><span style="color: #BB0000;">- 6</span>  0.016<span style="text-decoration: underline;">2</span>     0.038<span style="text-decoration: underline;">9</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> response flipper_length_mm mean(dY/dX)                      0.010<span style="text-decoration: underline;">6</span>   0.002<span style="text-decoration: underline;">36</span>     4.49  7.14<span style="color: #949494;">e</span><span style="color: #BB0000;">- 6</span>  0.005<span style="text-decoration: underline;">96</span>    0.015<span style="text-decoration: underline;">2</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> response species           mean(Chinstrap) - mean(Adelie)  -<span style="color: #BB0000;">0.415</span>    0.056<span style="text-decoration: underline;">9</span>     -<span style="color: #BB0000;">7.29</span>  3.10<span style="color: #949494;">e</span><span style="color: #BB0000;">-13</span> -<span style="color: #BB0000;">0.526</span>     -<span style="color: #BB0000;">0.303</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> response bill_length_mm    mean(dY/dX)                      0.027<span style="text-decoration: underline;">6</span>   0.005<span style="text-decoration: underline;">78</span>     4.77  1.82<span style="color: #949494;">e</span><span style="color: #BB0000;">- 6</span>  0.016<span style="text-decoration: underline;">2</span>     0.038<span style="text-decoration: underline;">9</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> response flipper_length_mm mean(dY/dX)                      0.010<span style="text-decoration: underline;">6</span>   0.002<span style="text-decoration: underline;">35</span>     4.51  6.52<span style="color: #949494;">e</span><span style="color: #BB0000;">- 6</span>  0.005<span style="text-decoration: underline;">98</span>    0.015<span style="text-decoration: underline;">2</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> response species           mean(Chinstrap) - mean(Adelie)  -<span style="color: #BB0000;">0.415</span>    0.056<span style="text-decoration: underline;">6</span>     -<span style="color: #BB0000;">7.33</span>  2.31<span style="color: #949494;">e</span><span style="color: #BB0000;">-13</span> -<span style="color: #BB0000;">0.526</span>     -<span style="color: #BB0000;">0.304</span> </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> response species           mean(Gentoo) - mean(Adelie)      0.061<span style="text-decoration: underline;">7</span>   0.107       0.577 5.64<span style="color: #949494;">e</span><span style="color: #BB0000;">- 1</span> -<span style="color: #BB0000;">0.148</span>      0.271</span></span>
 <span></span>
 <span><span class="fu"><a href="https://generics.r-lib.org/reference/glance.html" class="external-link">glance</a></span><span class="op">(</span><span class="va">mfx</span><span class="op">)</span></span>
@@ -267,8 +267,8 @@ marginal effects of Bill Length for each Species, we do:</p>
 <span>  variables <span class="op">=</span> <span class="st">"bill_length_mm"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;            Term    Contrast   species Estimate Std. Error   z Pr(&gt;|z|)   2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  bill_length_mm mean(dY/dX) Adelie      0.0435     0.0088 4.9   &lt;0.001  0.0262 0.0608</span></span>
-<span><span class="co">#&gt;  bill_length_mm mean(dY/dX) Chinstrap   0.0368     0.0098 3.8   &lt;0.001  0.0176 0.0560</span></span>
+<span><span class="co">#&gt;  bill_length_mm mean(dY/dX) Adelie      0.0435     0.0088 5.0   &lt;0.001  0.0263 0.0608</span></span>
+<span><span class="co">#&gt;  bill_length_mm mean(dY/dX) Chinstrap   0.0368     0.0098 3.8   &lt;0.001  0.0177 0.0559</span></span>
 <span><span class="co">#&gt;  bill_length_mm mean(dY/dX) Gentoo      0.0029     0.0028 1.0     0.31 -0.0027 0.0084</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
@@ -322,17 +322,17 @@ individuals:</p>
 <span>    species <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Adelie"</span>, <span class="st">"Gentoo"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;               Term           Contrast Estimate Std. Error     z Pr(&gt;|z|)   2.5 %  97.5 % bill_length_mm flipper_length_mm species</span></span>
-<span><span class="co">#&gt;  bill_length_mm    dY/dX                 0.061     0.0333  1.82    0.068 -0.0045  0.1259             44               180  Adelie</span></span>
-<span><span class="co">#&gt;  bill_length_mm    dY/dX                 0.085     0.0404  2.10    0.036  0.0055  0.1639             44               180  Gentoo</span></span>
-<span><span class="co">#&gt;  flipper_length_mm dY/dX                 0.023     0.0055  4.24   &lt;0.001  0.0125  0.0341             44               180  Adelie</span></span>
-<span><span class="co">#&gt;  flipper_length_mm dY/dX                 0.032     0.0086  3.77   &lt;0.001  0.0156  0.0494             44               180  Gentoo</span></span>
-<span><span class="co">#&gt;  species           Chinstrap - Adelie   -0.211     0.1032 -2.05    0.041 -0.4133 -0.0088             44               180  Adelie</span></span>
-<span><span class="co">#&gt;  species           Chinstrap - Adelie   -0.211     0.1032 -2.05    0.041 -0.4133 -0.0088             44               180  Gentoo</span></span>
-<span><span class="co">#&gt;  species           Gentoo - Adelie       0.159     0.3035  0.52    0.600 -0.4357  0.7539             44               180  Adelie</span></span>
-<span><span class="co">#&gt;  species           Gentoo - Adelie       0.159     0.3035  0.52    0.600 -0.4357  0.7539             44               180  Gentoo</span></span>
+<span><span class="co">#&gt;  bill_length_mm    dY/dX                 0.061     0.0332  1.83    0.068 -0.0044  0.1258             44               180  Adelie</span></span>
+<span><span class="co">#&gt;  bill_length_mm    dY/dX                 0.085     0.0394  2.15    0.032  0.0075  0.1619             44               180  Gentoo</span></span>
+<span><span class="co">#&gt;  flipper_length_mm dY/dX                 0.023     0.0055  4.23   &lt;0.001  0.0125  0.0341             44               180  Adelie</span></span>
+<span><span class="co">#&gt;  flipper_length_mm dY/dX                 0.032     0.0085  3.82   &lt;0.001  0.0158  0.0492             44               180  Gentoo</span></span>
+<span><span class="co">#&gt;  species           Chinstrap - Adelie   -0.211     0.1062 -1.99    0.047 -0.4192 -0.0029             44               180  Adelie</span></span>
+<span><span class="co">#&gt;  species           Chinstrap - Adelie   -0.211     0.1062 -1.99    0.047 -0.4192 -0.0029             44               180  Gentoo</span></span>
+<span><span class="co">#&gt;  species           Gentoo - Adelie       0.159     0.3024  0.53    0.599 -0.4336  0.7518             44               180  Adelie</span></span>
+<span><span class="co">#&gt;  species           Gentoo - Adelie       0.159     0.3024  0.53    0.599 -0.4336  0.7518             44               180  Gentoo</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, large_penguin, bill_length_mm, flipper_length_mm, species, eps</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, large_penguin, bill_length_mm, flipper_length_mm, species</span></span></code></pre></div>
 <p>When variables are omitted from the <code>datagrid</code> call, they
 will automatically be set at their mean or mode (depending on variable
 type).</p>
@@ -351,13 +351,13 @@ effects:</p>
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/slopes.html">slopes</a></span><span class="op">(</span><span class="va">mod</span>, newdata <span class="op">=</span> <span class="st">"mean"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;               Term           Contrast Estimate Std. Error      z Pr(&gt;|z|)   2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  bill_length_mm    dY/dX                 0.050     0.0120   4.19   &lt;0.001  0.0267  0.074</span></span>
-<span><span class="co">#&gt;  flipper_length_mm dY/dX                 0.019     0.0056   3.47   &lt;0.001  0.0084  0.030</span></span>
-<span><span class="co">#&gt;  species           Chinstrap - Adelie   -0.807     0.0733 -11.01   &lt;0.001 -0.9507 -0.663</span></span>
-<span><span class="co">#&gt;  species           Gentoo - Adelie       0.083     0.1135   0.73     0.47 -0.1397  0.305</span></span>
+<span><span class="co">#&gt;  bill_length_mm    dY/dX                 0.050     0.0124   4.06   &lt;0.001  0.0260  0.075</span></span>
+<span><span class="co">#&gt;  flipper_length_mm dY/dX                 0.019     0.0055   3.49   &lt;0.001  0.0084  0.030</span></span>
+<span><span class="co">#&gt;  species           Chinstrap - Adelie   -0.807     0.0764 -10.57   &lt;0.001 -0.9567 -0.657</span></span>
+<span><span class="co">#&gt;  species           Gentoo - Adelie       0.083     0.1145   0.72     0.47 -0.1416  0.307</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, large_penguin, bill_length_mm, flipper_length_mm, species, eps</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, large_penguin, bill_length_mm, flipper_length_mm, species</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="counterfactual-marginal-effects">Counterfactual Marginal Effects<a class="anchor" aria-label="anchor" href="#counterfactual-marginal-effects"></a>
@@ -538,7 +538,7 @@ actually differ based on the value of the moderator variable
 <span><span class="co">#&gt;    hp   -0.133      0.015 -8.6   &lt;0.001 -0.16 -0.102 147   19</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: rowid, type, term, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, qsec, eps</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: rowid, type, term, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, qsec</span></span></code></pre></div>
 <p>As we see in the graph, all three slopes are negative, but the Q3
 slope is steepest.</p>
 <p>We could then push this one step further, and measure the slope of

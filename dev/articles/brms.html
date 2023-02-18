@@ -27,7 +27,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.9.0.9046</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.9.0.9047</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -231,7 +231,7 @@ effects:</p>
 <span><span class="co">#&gt;  passengerClass 3rd - 1st   -0.455 -0.546  -0.37</span></span>
 <span><span class="co">#&gt;  passengerClass 3rd - 1st   -0.436 -0.526  -0.35</span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: rowid, type, term, contrast, estimate, conf.low, conf.high, predicted, predicted_hi, predicted_lo, tmp_idx, survived, woman, age, passengerClass, eps</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: rowid, type, term, contrast, estimate, conf.low, conf.high, predicted, predicted_hi, predicted_lo, tmp_idx, survived, woman, age, passengerClass</span></span></code></pre></div>
 <p>Compute marginal effects with some regressors fixed at user-specified
 values, and other regressors held at their means:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
@@ -248,7 +248,7 @@ values, and other regressors held at their means:</p>
 <span><span class="co">#&gt;  passengerClass 3rd - 1st -0.36538 -0.4383 -0.29477  30     1            1st</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: rowid, type, term, contrast, estimate, conf.low, conf.high, predicted, predicted_hi, predicted_lo, tmp_idx, survived, age, woman, passengerClass, eps</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: rowid, type, term, contrast, estimate, conf.low, conf.high, predicted, predicted_hi, predicted_lo, tmp_idx, survived, age, woman, passengerClass</span></span></code></pre></div>
 <p>Compute and plot conditional marginal effects:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_slopes.html">plot_slopes</a></span><span class="op">(</span><span class="va">mod</span>, variables <span class="op">=</span> <span class="st">"woman"</span>, condition <span class="op">=</span> <span class="st">"age"</span><span class="op">)</span></span></code></pre></div>
@@ -259,16 +259,16 @@ values, and other regressors held at their means:</p>
 <code class="sourceCode R"><span><span class="va">draws</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/posterior_draws.html">posterior_draws</a></span><span class="op">(</span><span class="va">mfx</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">draws</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 16736000       18</span></span>
+<span><span class="co">#&gt; [1] 16736000       17</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">draws</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   drawid       draw rowid     type  term contrast   estimate   conf.low conf.high predicted predicted_hi predicted_lo tmp_idx survived woman     age passengerClass eps</span></span>
-<span><span class="co">#&gt; 1      1 0.45768070     1 response woman    1 - 0 0.40758806 0.33394178 0.4783255 0.9366604    0.9366604    0.5276344       1        1     1 29.0000            1st  NA</span></span>
-<span><span class="co">#&gt; 2      1 0.09282294     2 response woman    1 - 0 0.09190500 0.03006249 0.1788661 0.8493050    0.9436352    0.8493050       2        1     0  0.9167            1st  NA</span></span>
-<span><span class="co">#&gt; 3      1 0.10179526     3 response woman    1 - 0 0.09973464 0.03710637 0.1873029 0.9433293    0.9433293    0.8409878       3        0     1  2.0000            1st  NA</span></span>
-<span><span class="co">#&gt; 4      1 0.47357659     4 response woman    1 - 0 0.42198871 0.34867425 0.4921402 0.5131011    0.9363704    0.5131011       4        0     0 30.0000            1st  NA</span></span>
-<span><span class="co">#&gt; 5      1 0.39400824     5 response woman    1 - 0 0.35167800 0.27617966 0.4262480 0.9374937    0.9374937    0.5851849       5        0     1 25.0000            1st  NA</span></span>
-<span><span class="co">#&gt; 6      1 0.72093817     6 response woman    1 - 0 0.65665127 0.57622574 0.7297775 0.2730542    0.9320972    0.2730542       6        1     0 48.0000            1st  NA</span></span></code></pre></div>
+<span><span class="co">#&gt;   drawid       draw rowid     type  term contrast   estimate   conf.low conf.high predicted predicted_hi predicted_lo tmp_idx survived woman     age passengerClass</span></span>
+<span><span class="co">#&gt; 1      1 0.45768070     1 response woman    1 - 0 0.40758806 0.33394178 0.4783255 0.9366604    0.9366604    0.5276344       1        1     1 29.0000            1st</span></span>
+<span><span class="co">#&gt; 2      1 0.09282294     2 response woman    1 - 0 0.09190500 0.03006249 0.1788661 0.8493050    0.9436352    0.8493050       2        1     0  0.9167            1st</span></span>
+<span><span class="co">#&gt; 3      1 0.10179526     3 response woman    1 - 0 0.09973464 0.03710637 0.1873029 0.9433293    0.9433293    0.8409878       3        0     1  2.0000            1st</span></span>
+<span><span class="co">#&gt; 4      1 0.47357659     4 response woman    1 - 0 0.42198871 0.34867425 0.4921402 0.5131011    0.9363704    0.5131011       4        0     0 30.0000            1st</span></span>
+<span><span class="co">#&gt; 5      1 0.39400824     5 response woman    1 - 0 0.35167800 0.27617966 0.4262480 0.9374937    0.9374937    0.5851849       5        0     1 25.0000            1st</span></span>
+<span><span class="co">#&gt; 6      1 0.72093817     6 response woman    1 - 0 0.65665127 0.57622574 0.7297775 0.2730542    0.9320972    0.2730542       6        1     0 48.0000            1st</span></span></code></pre></div>
 <p>We can use this dataset to plot our results. For example, to plot the
 posterior density of the marginal effect of <code>age</code> when the
 <code>woman</code> variable is equal to 0 or 1:</p>
@@ -371,7 +371,7 @@ effects:</p>
 <span><span class="co">#&gt;  civil_liberties dY/dX            0.82  0.62   1.01           TRUE             0.5 Middle East and North Africa</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: rowid, type, term, contrast, estimate, conf.low, conf.high, predicted, predicted_hi, predicted_lo, tmp_idx, media_index, party_autonomy, civil_liberties, region, eps</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: rowid, type, term, contrast, estimate, conf.low, conf.high, predicted, predicted_hi, predicted_lo, tmp_idx, media_index, party_autonomy, civil_liberties, region</span></span></code></pre></div>
 <p>Use the <code><a href="../reference/posterior_draws.html">posterior_draws()</a></code> to extract draws from the
 posterior distribution of marginal effects, and plot them:</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
@@ -422,7 +422,7 @@ obtained with:</p>
 <span><span class="co">#&gt;  civil_liberties     0.81  0.67   0.93             0.8          FALSE Middle East and North Africa</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: rowid, type, term, estimate, conf.low, conf.high, predicted, predicted_hi, predicted_lo, tmp_idx, media_index, civil_liberties, party_autonomy, region, eps</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: rowid, type, term, estimate, conf.low, conf.high, predicted, predicted_hi, predicted_lo, tmp_idx, media_index, civil_liberties, party_autonomy, region</span></span></code></pre></div>
 <p>And plotted:</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mfx</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/posterior_draws.html">posterior_draws</a></span><span class="op">(</span><span class="va">mfx</span><span class="op">)</span></span>
@@ -650,7 +650,7 @@ arguments to the <code><a href="https://mc-stan.org/rstantools/reference/posteri
 <span>    by <span class="op">=</span> <span class="st">"x"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  x Estimate 2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  0     0.45  0.35   0.57</span></span>
+<span><span class="co">#&gt;  0     0.45  0.34   0.56</span></span>
 <span><span class="co">#&gt;  1     0.55  0.44   0.66</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
@@ -665,7 +665,7 @@ arguments to the <code><a href="https://mc-stan.org/rstantools/reference/posteri
 <span>    sample_new_levels <span class="op">=</span> <span class="st">"gaussian"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Term Contrast Estimate 2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;     x    1 - 0    0.097 0.048   0.16</span></span>
+<span><span class="co">#&gt;     x    1 - 0    0.096 0.046   0.16</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: type, term, contrast, estimate, conf.low, conf.high</span></span></code></pre></div>
@@ -682,8 +682,8 @@ arguments to the <code><a href="https://mc-stan.org/rstantools/reference/posteri
 <span>  contrasts <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="st">"AME x"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  effects <span class="op">=</span> <span class="st">"integrateoutRE"</span><span class="op">)</span></span>
 <span><span class="va">bm</span><span class="op">$</span><span class="va">ContrastSummary</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt;           M        Mdn         LL        UL PercentROPE PercentMID   CI CIType ROPE  MID Label</span></span>
-<span><span class="co">#&gt; 1 0.0990904 0.09730083 0.04859299 0.1622319          NA         NA 0.95    ETI &lt;NA&gt; &lt;NA&gt; AME x</span></span></code></pre></div>
+<span><span class="co">#&gt;            M        Mdn         LL        UL PercentROPE PercentMID   CI CIType ROPE  MID Label</span></span>
+<span><span class="co">#&gt; 1 0.09901333 0.09714293 0.04762522 0.1630547          NA         NA 0.95    ETI &lt;NA&gt; &lt;NA&gt; AME x</span></span></code></pre></div>
 <p>See the <a href="https://vincentarelbundock.github.io/marginaleffects/articles/alternative_software.html">alternative
 software vignette</a> for more information on
 <code>brmsmargins</code>.</p>
