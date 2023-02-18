@@ -673,13 +673,13 @@
 <span>    variable.name <span class="op">=</span> <span class="st">"time"</span>,</span>
 <span>    id.vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"trt"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">did</span><span class="op">)</span></span>
-<span><span class="co">#&gt;    id trt time           y</span></span>
-<span><span class="co">#&gt; 1:  1   0  pre  3.25431956</span></span>
-<span><span class="co">#&gt; 2:  2   1  pre  0.32136479</span></span>
-<span><span class="co">#&gt; 3:  3   0  pre  0.17951318</span></span>
-<span><span class="co">#&gt; 4:  4   1  pre  0.50656920</span></span>
-<span><span class="co">#&gt; 5:  5   1  pre  1.37621307</span></span>
-<span><span class="co">#&gt; 6:  6   0  pre -0.08440807</span></span></code></pre></div>
+<span><span class="co">#&gt;    id trt time          y</span></span>
+<span><span class="co">#&gt; 1:  1   0  pre -0.3339227</span></span>
+<span><span class="co">#&gt; 2:  2   1  pre -0.3402445</span></span>
+<span><span class="co">#&gt; 3:  3   1  pre -0.5128500</span></span>
+<span><span class="co">#&gt; 4:  4   1  pre -0.6291432</span></span>
+<span><span class="co">#&gt; 5:  5   0  pre  1.7547422</span></span>
+<span><span class="co">#&gt; 6:  6   0  pre -0.5865238</span></span></code></pre></div>
 <p>Then, we estimate a linear model with a multiple interaction between the time and the treatment indicators. We also compute contrasts at the mean for each treatment level:</p>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">did_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">time</span> <span class="op">*</span> <span class="va">trt</span>, data <span class="op">=</span> <span class="va">did</span><span class="op">)</span></span>
@@ -690,8 +690,8 @@
 <span>    variables <span class="op">=</span> <span class="st">"time"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Term   Contrast Estimate Std. Error     z Pr(&gt;|z|) 2.5 % 97.5 % trt</span></span>
-<span><span class="co">#&gt;  time post - pre    -0.02      0.076 -0.26   0.7951 -0.17   0.13   0</span></span>
-<span><span class="co">#&gt;  time post - pre     0.26      0.079  3.26   0.0011  0.10   0.41   1</span></span>
+<span><span class="co">#&gt;  time post - pre  -0.0088      0.083 -0.11     0.92 -0.17   0.15   0</span></span>
+<span><span class="co">#&gt;  time post - pre   0.2778      0.079  3.52   &lt;0.001  0.12   0.43   1</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, y, time, trt</span></span></code></pre></div>
@@ -704,7 +704,7 @@
 <span>    hypothesis <span class="op">=</span> <span class="st">"pairwise"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;           Term Estimate Std. Error    z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  Row 1 - Row 2    -0.28       0.11 -2.5    0.011 -0.49 -0.063</span></span>
+<span><span class="co">#&gt;  Row 1 - Row 2    -0.29       0.11 -2.5    0.012 -0.51 -0.062</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: type, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>

@@ -190,27 +190,27 @@
 <span><span class="va">mod</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/inferences.html">inferences</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"simulation"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Estimate Std. Error   2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;   7.8e-01       0.19 2.6e-01   0.97</span></span>
-<span><span class="co">#&gt;   7.8e-01       0.17 3.3e-01   0.96</span></span>
-<span><span class="co">#&gt;   9.0e-01       0.14 4.2e-01   0.99</span></span>
-<span><span class="co">#&gt;   8.7e-01       0.24 1.7e-01   1.00</span></span>
-<span><span class="co">#&gt;   1.3e-02       0.19 6.8e-05   0.75</span></span>
+<span><span class="co">#&gt;   7.8e-01       0.19 2.7e-01   0.98</span></span>
+<span><span class="co">#&gt;   7.8e-01       0.16 3.5e-01   0.96</span></span>
+<span><span class="co">#&gt;   9.0e-01       0.14 4.7e-01   0.99</span></span>
+<span><span class="co">#&gt;   8.7e-01       0.23 1.6e-01   1.00</span></span>
+<span><span class="co">#&gt;   1.3e-02       0.19 7.1e-05   0.77</span></span>
 <span><span class="co">#&gt; --- 22 rows omitted. See ?avg_predictions and ?print.marginaleffects --- </span></span>
-<span><span class="co">#&gt;   3.8e-01       0.29 2.1e-02   0.96</span></span>
-<span><span class="co">#&gt;   1.2e-06       0.15 1.3e-12   0.73</span></span>
-<span><span class="co">#&gt;   6.9e-03       0.15 3.3e-05   0.61</span></span>
+<span><span class="co">#&gt;   3.8e-01       0.29 2.0e-02   0.95</span></span>
+<span><span class="co">#&gt;   1.2e-06       0.14 1.9e-12   0.50</span></span>
+<span><span class="co">#&gt;   6.9e-03       0.15 2.2e-05   0.58</span></span>
 <span><span class="co">#&gt;   8.1e-11       0.18 2.2e-16   0.92</span></span>
-<span><span class="co">#&gt;   8.0e-01       0.17 3.3e-01   0.97</span></span>
+<span><span class="co">#&gt;   8.0e-01       0.17 3.4e-01   0.97</span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, estimate, std.error, conf.low, conf.high, vs, hp, wt, gear</span></span>
 <span></span>
 <span><span class="va">mod</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/slopes.html">avg_slopes</a></span><span class="op">(</span>vcov <span class="op">=</span> <span class="op">~</span><span class="va">gear</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/inferences.html">inferences</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"simulation"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Term Contrast Estimate Std. Error  2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  gear    4 - 3  -0.0393     0.0552 -0.089 0.1272</span></span>
-<span><span class="co">#&gt;  gear    5 - 3  -0.1923     0.2674 -0.486 0.3341</span></span>
-<span><span class="co">#&gt;  hp      dY/dX  -0.0048     0.0042 -0.012 0.0036</span></span>
-<span><span class="co">#&gt;  wt      dY/dX   0.0137     0.3029 -0.532 0.7052</span></span>
+<span><span class="co">#&gt;  gear    4 - 3  -0.0398     0.0576 -0.091 0.1406</span></span>
+<span><span class="co">#&gt;  gear    5 - 3  -0.2011     0.2691 -0.488 0.3308</span></span>
+<span><span class="co">#&gt;  hp      dY/dX  -0.0046     0.0044 -0.012 0.0043</span></span>
+<span><span class="co">#&gt;  wt      dY/dX   0.0061     0.3130 -0.580 0.6666</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: type, term, contrast, estimate, std.error, conf.low, conf.high</span></span></code></pre></div>
@@ -328,13 +328,15 @@
 <li>First derivative to estimate the partial derivatives reported by <code><a href="../reference/slopes.html">slopes()</a></code> function.
 <ul>
 <li>Centered finite difference</li>
-<li><span class="math inline">\(\frac{f(x + \varepsilon_1 / 2) - f(x - \varepsilon_1 / 2)}{\varepsilon_1}\)</span></li>
+<li>
+<span class="math inline">\(\frac{f(x + \varepsilon_1 / 2) - f(x - \varepsilon_1 / 2)}{\varepsilon_1}\)</span>, where <span class="math inline">\(f\)</span> is the <code><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict()</a></code> function.</li>
 </ul>
 </li>
 <li>Second derivative to estimate standard errors using the delta method.
 <ul>
 <li>Forward finite difference</li>
-<li><span class="math inline">\(\frac{g(x) - g(x - \varepsilon_2)}{\varepsilon_2}\)</span></li>
+<li>
+<span class="math inline">\(\frac{g(\hat{\beta},x) - g(\hat{beta} + \varepsilon_2,x)}{\varepsilon_2}\)</span>, where <span class="math inline">\(g\)</span> is a function which returns the partial derivative with respect to <span class="math inline">\(x\)</span>, evaluated at different values of the coefficient vector <span class="math inline">\(\beta\)</span>.</li>
 </ul>
 </li>
 </ol>
@@ -386,7 +388,7 @@
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: type, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>Notice that the standard errors can vary considerably when using different step sizes. It is good practice for analysts to consider the sensitivity of their results to this setting.</p>
-<p>Now, we illustrate the full process standard error computation, using “raw” <code>R</code> code. First, we choose two step sizes:</p>
+<p>Now, we illustrate the full process of standard error computation, using raw <code>R</code> code. First, we choose two step sizes:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">eps1</span> <span class="op">&lt;-</span> <span class="fl">1e-5</span> <span class="co"># 1st derivative epsilon</span></span>
 <span><span class="va">eps2</span> <span class="op">&lt;-</span> <span class="fl">1e-7</span> <span class="co"># 2nd derivative epsilon</span></span>
@@ -403,7 +405,7 @@
 <span><span class="co">#&gt; Columns: rowid, type, term, estimate, std.error</span></span></code></pre></div>
 <p>We can get the same estimates manually with these steps:</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">linkinv</span> <span class="op">&lt;-</span> <span class="fu">insight</span><span class="fu">::</span><span class="fu"><a href="https://easystats.github.io/insight/reference/link_inverse.html" class="external-link">link_inverse</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">linkinv</span> <span class="op">&lt;-</span> <span class="va">mod</span><span class="op">$</span><span class="va">family</span><span class="op">$</span><span class="va">linkinv</span></span>
 <span></span>
 <span><span class="co"># increment the variable of interest by h</span></span>
 <span><span class="va">dat_hi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/transform.html" class="external-link">transform</a></span><span class="op">(</span><span class="va">dat</span>, bill_length_mm <span class="op">=</span> <span class="va">bill_length_mm</span> <span class="op">+</span> <span class="va">eps1</span><span class="op">)</span></span>
@@ -422,7 +424,7 @@
 <span><span class="co">#&gt; 1 0.01797653</span></span>
 <span><span class="co">#&gt; 2 0.03596304</span></span>
 <span><span class="co">#&gt; 3 0.08490712</span></span></code></pre></div>
-<p>To get standard errors, we must build a jacobian matrix where each column holds derivatives of the slopes with respect to each of the coefficients. Using the same example:</p>
+<p>To get standard errors, we build a jacobian matrix where each column holds derivatives of the slopes with respect to each of the coefficients. Using the same example:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">b_lo</span> <span class="op">&lt;-</span> <span class="va">b_hi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
 <span><span class="va">b_hi</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">b_hi</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">+</span> <span class="va">eps2</span></span>
@@ -434,7 +436,7 @@
 <span><span class="co">#&gt; 1 0.01600803</span></span>
 <span><span class="co">#&gt; 2 0.02771394</span></span>
 <span><span class="co">#&gt; 3 0.02275957</span></span></code></pre></div>
-<p>This gives us the first column of the jacobian, which we can recover in full from the <code>marginaleffects</code> object attribute:</p>
+<p>This gives us the first column of <span class="math inline">\(J\)</span>, which we can recover in full from the <code>marginaleffects</code> object attribute:</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">J</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">s</span>, <span class="st">"jacobian"</span><span class="op">)</span></span>
 <span><span class="va">J</span></span>
@@ -442,7 +444,7 @@
 <span><span class="co">#&gt; [1,]  0.01600803      0.6775691          2.897231                0             0                         122.6915</span></span>
 <span><span class="co">#&gt; [2,]  0.02771394      1.1958212          5.153114                0             0                         222.4993</span></span>
 <span><span class="co">#&gt; [3,]  0.02275957      1.1492474          4.439893                0             0                         224.0820</span></span></code></pre></div>
-<p>To build the full jacobian, we would simply iterate through the coefficients, incrementing them one after the other. Finally, using the jacobian, we can easily obtain standard errors:</p>
+<p>To build the full matrix, we would simply iterate through the coefficients, incrementing them one after the other. Finally, we get standard errors via:</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/diag.html" class="external-link">diag</a></span><span class="op">(</span><span class="va">J</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html" class="external-link">%*%</a></span> <span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html" class="external-link">%*%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/t.html" class="external-link">t</a></span><span class="op">(</span><span class="va">J</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 0.008755286 0.012611630 0.021286893</span></span></code></pre></div>
