@@ -103,9 +103,13 @@ https://vincentarelbundock.github.io/marginaleffects
 
 
 <dt>condition</dt>
-<dd><p>character vector or named list of length smaller than 3. Character vectors must be the names of the predictor variables to display. The names of the list must The first element is displayed on the x-axis. The second element determines the colors. The third element creates facets. Unspecified variables are held at their means or modes. Lists can include these types of values (see Examples section below):</p><ul><li><p>Numeric vector</p></li>
+<dd><p>Conditional slopes</p><ul><li><p>Character vector (max length 3): Names of the predictors to display.</p></li>
+<li><p>Named list (max length 3): List names correspond to predictors. List elements can be:</p><ul><li><p>Numeric vector</p></li>
 <li><p>Function which returns a numeric vector or a set of unique categorical values</p></li>
 <li><p>Shortcut strings for common reference values: "minmax", "quartile", "threenum"</p></li>
+</ul></li>
+<li><p>1: x-axis. 2: color. 3: facets.</p></li>
+<li><p>Numeric variables in position 2 and 3 are summarized by Tukey's five numbers <code><a href="https://rdrr.io/r/stats/fivenum.html" class="external-link">?stats::fivenum</a></code>.</p></li>
 </ul></dd>
 
 
