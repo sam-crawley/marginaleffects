@@ -126,36 +126,36 @@ easy to compute:</p>
 <span></span>
 <span><span class="fu"><a href="../reference/slopes.html">avg_slopes</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Term Estimate Std. Error    z Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;    hp   -0.032      0.009 -3.5   &lt;0.001 -0.049 -0.014</span></span>
-<span><span class="co">#&gt;    wt   -3.878      0.633 -6.1   &lt;0.001 -5.118 -2.638</span></span>
+<span><span class="co">#&gt;  Term Estimate Std. Error     z Pr(&gt;|z|)   2.5 %  97.5 %</span></span>
+<span><span class="co">#&gt;    hp  -0.0318    0.00903 -3.52   &lt;0.001 -0.0495 -0.0141</span></span>
+<span><span class="co">#&gt;    wt  -3.8778    0.63273 -6.13   &lt;0.001 -5.1180 -2.6377</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: type, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/slopes.html">avg_slopes</a></span><span class="op">(</span><span class="va">mod</span>, slope <span class="op">=</span> <span class="st">"eyex"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Term Contrast Estimate Std. Error    z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;    hp    eY/eX    -0.29      0.086 -3.3   &lt;0.001 -0.45  -0.12</span></span>
-<span><span class="co">#&gt;    wt    eY/eX    -0.75      0.142 -5.3   &lt;0.001 -1.02  -0.47</span></span>
+<span><span class="co">#&gt;  Term Contrast Estimate Std. Error     z Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
+<span><span class="co">#&gt;    hp    eY/eX   -0.285     0.0855 -3.34   &lt;0.001 -0.453 -0.118</span></span>
+<span><span class="co">#&gt;    wt    eY/eX   -0.746     0.1418 -5.26   &lt;0.001 -1.024 -0.468</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/slopes.html">avg_slopes</a></span><span class="op">(</span><span class="va">mod</span>, slope <span class="op">=</span> <span class="st">"eydx"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Term Contrast Estimate Std. Error    z Pr(&gt;|z|)   2.5 %   97.5 %</span></span>
-<span><span class="co">#&gt;    hp    eY/dX  -0.0017     0.0005 -3.5   &lt;0.001 -0.0027 -0.00075</span></span>
-<span><span class="co">#&gt;    wt    eY/dX  -0.2116     0.0379 -5.6   &lt;0.001 -0.2858 -0.13746</span></span>
+<span><span class="co">#&gt;  Term Contrast Estimate Std. Error     z Pr(&gt;|z|)    2.5 %    97.5 %</span></span>
+<span><span class="co">#&gt;    hp    eY/dX -0.00173   0.000502 -3.46   &lt;0.001 -0.00272 -0.000751</span></span>
+<span><span class="co">#&gt;    wt    eY/dX -0.21165   0.037850 -5.59   &lt;0.001 -0.28583 -0.137463</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/slopes.html">avg_slopes</a></span><span class="op">(</span><span class="va">mod</span>, slope <span class="op">=</span> <span class="st">"dyex"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Term Contrast Estimate Std. Error    z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;    hp    dY/eX     -4.7        1.3 -3.5   &lt;0.001  -7.3   -2.1</span></span>
-<span><span class="co">#&gt;    wt    dY/eX    -12.5        2.0 -6.1   &lt;0.001 -16.5   -8.5</span></span>
+<span><span class="co">#&gt;  Term Contrast Estimate Std. Error     z Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
+<span><span class="co">#&gt;    hp    dY/eX    -4.66       1.32 -3.52   &lt;0.001  -7.26  -2.06</span></span>
+<span><span class="co">#&gt;    wt    dY/eX   -12.48       2.04 -6.13   &lt;0.001 -16.47  -8.49</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>

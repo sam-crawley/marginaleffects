@@ -149,13 +149,13 @@ predicted values and uncertainty estimates:</p>
 <span><span class="co">#&gt; [1] 75600    12</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">pred</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Estimate Std. Error    z Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;     -1.87       0.20 -9.4   &lt;0.001 -2.264 -1.483</span></span>
-<span><span class="co">#&gt;     -1.35       0.18 -7.4   &lt;0.001 -1.703 -0.990</span></span>
-<span><span class="co">#&gt;     -0.82       0.17 -4.9   &lt;0.001 -1.147 -0.492</span></span>
-<span><span class="co">#&gt;     -0.29       0.16 -1.9     0.06 -0.599  0.013</span></span>
-<span><span class="co">#&gt;      0.23       0.15  1.6     0.12 -0.061  0.523</span></span>
-<span><span class="co">#&gt;      0.75       0.15  5.2   &lt;0.001  0.467  1.038</span></span>
+<span><span class="co">#&gt;  Estimate Std. Error     z Pr(&gt;|z|)   2.5 %  97.5 %</span></span>
+<span><span class="co">#&gt;    -1.874      0.199 -9.41   &lt;0.001 -2.2643 -1.4834</span></span>
+<span><span class="co">#&gt;    -1.346      0.182 -7.41   &lt;0.001 -1.7025 -0.9901</span></span>
+<span><span class="co">#&gt;    -0.819      0.167 -4.90   &lt;0.001 -1.1467 -0.4916</span></span>
+<span><span class="co">#&gt;    -0.293      0.156 -1.88   0.0605 -0.5988  0.0129</span></span>
+<span><span class="co">#&gt;     0.231      0.149  1.55   0.1204 -0.0606  0.5232</span></span>
+<span><span class="co">#&gt;     0.753      0.146  5.17   &lt;0.001  0.4675  1.0379</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, estimate, std.error, statistic, p.value, conf.low, conf.high, Y, Group, Time, Subject</span></span></code></pre></div>
@@ -177,13 +177,13 @@ new columns for the slop and uncertainty estimates:</p>
 <code class="sourceCode R"><span><span class="va">mfx</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/slopes.html">slopes</a></span><span class="op">(</span><span class="va">model</span>, variables <span class="op">=</span> <span class="st">"Time"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">mfx</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Term Estimate Std. Error  z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  Time    0.026     0.0014 19   &lt;0.001 0.023  0.029</span></span>
-<span><span class="co">#&gt;  Time    0.026     0.0014 19   &lt;0.001 0.023  0.029</span></span>
-<span><span class="co">#&gt;  Time    0.026     0.0013 20   &lt;0.001 0.023  0.029</span></span>
-<span><span class="co">#&gt;  Time    0.026     0.0013 20   &lt;0.001 0.023  0.029</span></span>
-<span><span class="co">#&gt;  Time    0.026     0.0012 22   &lt;0.001 0.024  0.028</span></span>
-<span><span class="co">#&gt;  Time    0.026     0.0011 24   &lt;0.001 0.024  0.028</span></span>
+<span><span class="co">#&gt;  Term Estimate Std. Error    z Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
+<span><span class="co">#&gt;  Time   0.0261    0.00137 19.1   &lt;0.001 0.0234 0.0288</span></span>
+<span><span class="co">#&gt;  Time   0.0261    0.00136 19.2   &lt;0.001 0.0234 0.0288</span></span>
+<span><span class="co">#&gt;  Time   0.0261    0.00133 19.5   &lt;0.001 0.0235 0.0287</span></span>
+<span><span class="co">#&gt;  Time   0.0260    0.00128 20.3   &lt;0.001 0.0235 0.0285</span></span>
+<span><span class="co">#&gt;  Time   0.0259    0.00120 21.6   &lt;0.001 0.0235 0.0282</span></span>
+<span><span class="co">#&gt;  Time   0.0257    0.00109 23.5   &lt;0.001 0.0236 0.0279</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, term, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, Y, Group, Time, Subject</span></span></code></pre></div>
@@ -209,8 +209,8 @@ function in the <code>marginaleffects</code> package:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">model</span>, newdata <span class="op">=</span> <span class="st">"mean"</span>, exclude <span class="op">=</span> <span class="st">"s(Subject)"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Estimate Std. Error  z Pr(&gt;|z|) 2.5 % 97.5 %  Group Time Subject</span></span>
-<span><span class="co">#&gt;        12       0.69 17   &lt;0.001    10     13 Adults 1000     a01</span></span>
+<span><span class="co">#&gt;  Estimate Std. Error    z Pr(&gt;|z|) 2.5 % 97.5 %  Group Time Subject</span></span>
+<span><span class="co">#&gt;      11.7      0.695 16.9   &lt;0.001  10.4   13.1 Adults 1000     a01</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, estimate, std.error, statistic, p.value, conf.low, conf.high, Y, Group, Time, Subject</span></span></code></pre></div>

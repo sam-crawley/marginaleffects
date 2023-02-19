@@ -84,6 +84,7 @@
 <code><a href="../reference/hypotheses.html">hypotheses()</a></code> now works on lists and in calls to <code><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply()</a></code>, <code><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">purrr::map()</a></code>, etc.</li>
 <li>
 <code><a href="../reference/datagrid.html">datagrid()</a></code> and <code>plot_*()</code> functions are faster in datasets with many extraneous columns.</li>
+<li>Do not backtransform GLM predictions if <code>type="response"</code> is specified explicitly.</li>
 </ul><p>Bugfixes:</p>
 <ul><li>
 <code>brms</code> models with multivariate outcome collapsed categories in <code><a href="../reference/comparisons.html">comparisons()</a></code>. Issue <a href="https://github.com/vincentarelbundock/marginaleffects/issues/639" class="external-link">#639</a></li>

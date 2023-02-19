@@ -151,13 +151,13 @@ original dataset:</p>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">pred</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Estimate Std. Error  z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;        20       1.20 17   &lt;0.001    18     22</span></span>
-<span><span class="co">#&gt;        20       1.20 17   &lt;0.001    18     22</span></span>
-<span><span class="co">#&gt;        26       0.96 27   &lt;0.001    25     28</span></span>
-<span><span class="co">#&gt;        20       1.20 17   &lt;0.001    18     22</span></span>
-<span><span class="co">#&gt;        16       0.99 16   &lt;0.001    14     18</span></span>
-<span><span class="co">#&gt;        20       1.22 17   &lt;0.001    18     23</span></span>
+<span><span class="co">#&gt;  Estimate Std. Error    z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
+<span><span class="co">#&gt;      20.0      1.204 16.6   &lt;0.001  17.7   22.4</span></span>
+<span><span class="co">#&gt;      20.0      1.204 16.6   &lt;0.001  17.7   22.4</span></span>
+<span><span class="co">#&gt;      26.4      0.962 27.5   &lt;0.001  24.5   28.3</span></span>
+<span><span class="co">#&gt;      20.0      1.204 16.6   &lt;0.001  17.7   22.4</span></span>
+<span><span class="co">#&gt;      15.9      0.992 16.0   &lt;0.001  14.0   17.9</span></span>
+<span><span class="co">#&gt;      20.2      1.219 16.5   &lt;0.001  17.8   22.5</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, estimate, std.error, statistic, p.value, conf.low, conf.high, mpg, hp, cyl</span></span></code></pre></div>
@@ -189,13 +189,13 @@ we specified in the <code>variables</code> argument:</p>
 <code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">mod</span>, variables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>hp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">120</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Estimate Std. Error    z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;        20       1.24 16.4   &lt;0.001    18     23</span></span>
-<span><span class="co">#&gt;        20       1.24 16.4   &lt;0.001    18     23</span></span>
-<span><span class="co">#&gt;        26       0.99 26.6   &lt;0.001    24     28</span></span>
-<span><span class="co">#&gt;        20       1.24 16.4   &lt;0.001    18     23</span></span>
-<span><span class="co">#&gt;        18       1.88  9.4   &lt;0.001    14     21</span></span>
-<span><span class="co">#&gt;        20       1.24 16.4   &lt;0.001    18     23</span></span>
+<span><span class="co">#&gt;  Estimate Std. Error     z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
+<span><span class="co">#&gt;      20.3      1.238 16.38   &lt;0.001  17.9   22.7</span></span>
+<span><span class="co">#&gt;      20.3      1.238 16.38   &lt;0.001  17.9   22.7</span></span>
+<span><span class="co">#&gt;      26.2      0.986 26.63   &lt;0.001  24.3   28.2</span></span>
+<span><span class="co">#&gt;      20.3      1.238 16.38   &lt;0.001  17.9   22.7</span></span>
+<span><span class="co">#&gt;      17.7      1.881  9.42   &lt;0.001  14.0   21.4</span></span>
+<span><span class="co">#&gt;      20.3      1.238 16.38   &lt;0.001  17.9   22.7</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, rowidcf, type, estimate, std.error, statistic, p.value, conf.low, conf.high, mpg, cyl, hp</span></span>
@@ -224,17 +224,17 @@ argument):</p>
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">mod</span>, newdata <span class="op">=</span> <span class="fu"><a href="../reference/datagrid.html">datagrid</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Estimate Std. Error  z Pr(&gt;|z|) 2.5 % 97.5 %  hp cyl</span></span>
-<span><span class="co">#&gt;        17        1.3 13   &lt;0.001    14     19 147   8</span></span>
+<span><span class="co">#&gt;      16.6       1.28 13   &lt;0.001  14.1   19.1 147   8</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, estimate, std.error, statistic, p.value, conf.low, conf.high, mpg, hp, cyl</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">mod</span>, newdata <span class="op">=</span> <span class="fu"><a href="../reference/datagrid.html">datagrid</a></span><span class="op">(</span>cyl <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">6</span>, <span class="fl">8</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Estimate Std. Error  z Pr(&gt;|z|) 2.5 % 97.5 %  hp cyl</span></span>
-<span><span class="co">#&gt;        25        1.4 18   &lt;0.001    22     28 147   4</span></span>
-<span><span class="co">#&gt;        19        1.2 15   &lt;0.001    17     22 147   6</span></span>
-<span><span class="co">#&gt;        17        1.3 13   &lt;0.001    14     19 147   8</span></span>
+<span><span class="co">#&gt;  Estimate Std. Error    z Pr(&gt;|z|) 2.5 % 97.5 %  hp cyl</span></span>
+<span><span class="co">#&gt;      25.1       1.37 18.4   &lt;0.001  22.4   27.8 147   4</span></span>
+<span><span class="co">#&gt;      19.2       1.25 15.4   &lt;0.001  16.7   21.6 147   6</span></span>
+<span><span class="co">#&gt;      16.6       1.28 13.0   &lt;0.001  14.1   19.1 147   8</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, estimate, std.error, statistic, p.value, conf.low, conf.high, mpg, hp, cyl</span></span></code></pre></div>
@@ -245,13 +245,13 @@ and related arguments. For example:</p>
 <code class="sourceCode R"><span><span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">hp</span> <span class="op">+</span> <span class="va">drat</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">cyl</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">am</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">m</span>, newdata <span class="op">=</span> <span class="fu"><a href="../reference/datagrid.html">datagrid</a></span><span class="op">(</span>FUN_factor <span class="op">=</span> <span class="va">unique</span>, FUN_numeric <span class="op">=</span> <span class="va">median</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Estimate Std. Error  z Pr(&gt;|z|) 2.5 % 97.5 %  hp drat cyl am</span></span>
-<span><span class="co">#&gt;        22        1.3 17   &lt;0.001    19     24 123  3.7   6  1</span></span>
-<span><span class="co">#&gt;        18        1.3 14   &lt;0.001    16     21 123  3.7   6  0</span></span>
-<span><span class="co">#&gt;        26        1.3 19   &lt;0.001    23     28 123  3.7   4  1</span></span>
-<span><span class="co">#&gt;        22        1.5 14   &lt;0.001    19     25 123  3.7   4  0</span></span>
-<span><span class="co">#&gt;        23        2.1 11   &lt;0.001    18     27 123  3.7   8  1</span></span>
-<span><span class="co">#&gt;        19        1.7 11   &lt;0.001    15     22 123  3.7   8  0</span></span>
+<span><span class="co">#&gt;  Estimate Std. Error    z Pr(&gt;|z|) 2.5 % 97.5 %  hp drat cyl am</span></span>
+<span><span class="co">#&gt;      22.0       1.29 17.0   &lt;0.001  19.4   24.5 123  3.7   6  1</span></span>
+<span><span class="co">#&gt;      18.2       1.27 14.3   &lt;0.001  15.7   20.7 123  3.7   6  0</span></span>
+<span><span class="co">#&gt;      25.5       1.32 19.3   &lt;0.001  23.0   28.1 123  3.7   4  1</span></span>
+<span><span class="co">#&gt;      21.8       1.54 14.1   &lt;0.001  18.8   24.8 123  3.7   4  0</span></span>
+<span><span class="co">#&gt;      22.6       2.14 10.6   &lt;0.001  18.4   26.8 123  3.7   8  1</span></span>
+<span><span class="co">#&gt;      18.9       1.73 10.9   &lt;0.001  15.5   22.3 123  3.7   8  0</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, estimate, std.error, statistic, p.value, conf.low, conf.high, mpg, hp, drat, cyl, am</span></span></code></pre></div>
@@ -382,8 +382,8 @@ do to get the APM is:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">mod</span>, newdata <span class="op">=</span> <span class="st">"mean"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Estimate Pr(&gt;|z|)  2.5 % 97.5 %  hp   am</span></span>
-<span><span class="co">#&gt;     0.063    0.066 0.0038   0.54 147 0.41</span></span>
+<span><span class="co">#&gt;  Estimate Pr(&gt;|z|)   2.5 % 97.5 %  hp    am</span></span>
+<span><span class="co">#&gt;    0.0631   0.0656 0.00379  0.543 147 0.406</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  link </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, estimate, p.value, conf.low, conf.high, vs, hp, am</span></span></code></pre></div>
@@ -391,8 +391,8 @@ do to get the APM is:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">mod</span>, newdata <span class="op">=</span> <span class="fu"><a href="../reference/datagrid.html">datagrid</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Estimate Pr(&gt;|z|)  2.5 % 97.5 %  hp   am</span></span>
-<span><span class="co">#&gt;     0.063    0.066 0.0038   0.54 147 0.41</span></span>
+<span><span class="co">#&gt;  Estimate Pr(&gt;|z|)   2.5 % 97.5 %  hp    am</span></span>
+<span><span class="co">#&gt;    0.0631   0.0656 0.00379  0.543 147 0.406</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  link </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, estimate, p.value, conf.low, conf.high, vs, hp, am</span></span></code></pre></div>
@@ -410,30 +410,59 @@ fixing some regressors to values of interest.</li>
 <p>We can obtain AAPs by applying the <code>avg_*()</code> functions or
 <code>by</code> argument:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/predictions.html">avg_predictions</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">modlin</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">hp</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">cyl</span><span class="op">)</span>, <span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/predictions.html">avg_predictions</a></span><span class="op">(</span><span class="va">modlin</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Estimate Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;     0.063    0.066 0.0038   0.54</span></span>
+<span><span class="co">#&gt;  Estimate Std. Error    z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
+<span><span class="co">#&gt;      20.1      0.556 36.1   &lt;0.001    19   21.2</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  link </span></span>
-<span><span class="co">#&gt; Columns: type, estimate, p.value, conf.low, conf.high</span></span></code></pre></div>
+<span><span class="co">#&gt; Prediction type:  response </span></span>
+<span><span class="co">#&gt; Columns: type, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>This is equivalent to:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">pred</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">pred</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">modlin</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">pred</span><span class="op">$</span><span class="va">estimate</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 0.4375</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] 20.09062</span></span></code></pre></div>
+<p>Note that in GLM models with a non-linear link function, the
+predictions are first made on the link scale, averaged, and then back
+transformed. Thus, the average prediction may not be exactly identical
+to the average of predictions:</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm</a></span><span class="op">(</span><span class="va">vs</span> <span class="op">~</span> <span class="va">hp</span> <span class="op">+</span> <span class="va">am</span>, data <span class="op">=</span> <span class="va">mtcars</span>, family <span class="op">=</span> <span class="va">binomial</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/predictions.html">avg_predictions</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span><span class="op">$</span><span class="va">estimate</span></span>
+<span><span class="co">#&gt; [1] 0.06308965</span></span>
+<span></span>
+<span><span class="co"># Step 1: predict on the link scale</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">mod</span>, type <span class="op">=</span> <span class="st">"link"</span><span class="op">)</span><span class="op">$</span><span class="va">estimate</span></span>
+<span><span class="co"># Step 2: average</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span></span>
+<span><span class="co"># Step 3: backtransform</span></span>
+<span><span class="va">mod</span><span class="op">$</span><span class="va">family</span><span class="op">$</span><span class="fu">linkinv</span><span class="op">(</span><span class="va">p</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 0.06308965</span></span></code></pre></div>
+<p>Users who want the average of individual-level predictions on the
+response scale can specify the <code>type</code> argument
+explicitly:</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/predictions.html">avg_predictions</a></span><span class="op">(</span><span class="va">mod</span>, type <span class="op">=</span> <span class="st">"response"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Estimate Std. Error    z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
+<span><span class="co">#&gt;     0.437     0.0429 10.2   &lt;0.001 0.353  0.522</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Prediction type:  response </span></span>
+<span><span class="co">#&gt; Columns: type, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="average-adjusted-predictions-by-group">Average Adjusted Predictions by Group<a class="anchor" aria-label="anchor" href="#average-adjusted-predictions-by-group"></a>
 </h2>
 <p>We can compute average adjusted predictions for different subsets of
 the data with the <code>by</code> argument.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">mod</span>, by <span class="op">=</span> <span class="st">"am"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  am Estimate Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;   0    0.059    0.116 0.0020   0.67</span></span>
-<span><span class="co">#&gt;   1    0.069    0.075 0.0042   0.57</span></span>
+<span><span class="co">#&gt;  am Estimate Pr(&gt;|z|)   2.5 % 97.5 %</span></span>
+<span><span class="co">#&gt;   0   0.0591   0.1163 0.00198  0.665</span></span>
+<span><span class="co">#&gt;   1   0.0694   0.0755 0.00424  0.566</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  link </span></span>
 <span><span class="co">#&gt; Columns: type, am, estimate, p.value, conf.low, conf.high</span></span></code></pre></div>
@@ -442,15 +471,15 @@ each observation of the dataset is repeated twice, with different values
 of the <code>am</code> variable, and all other variables held at the
 observed values. We also show the equivalent results using
 <code>dplyr</code>:</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span></span>
 <span>    <span class="va">mod</span>,</span>
 <span>    by <span class="op">=</span> <span class="st">"am"</span>,</span>
 <span>    newdata <span class="op">=</span> <span class="fu"><a href="../reference/datagrid.html">datagridcf</a></span><span class="op">(</span>am <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  am Estimate Pr(&gt;|z|)   2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;   0    0.240    0.392 2.2e-02   0.82</span></span>
-<span><span class="co">#&gt;   1    0.007    0.036 6.8e-05   0.42</span></span>
+<span><span class="co">#&gt;  am Estimate Pr(&gt;|z|)    2.5 % 97.5 %</span></span>
+<span><span class="co">#&gt;   0  0.24043   0.3922 2.22e-02  0.815</span></span>
+<span><span class="co">#&gt;   1  0.00696   0.0359 6.81e-05  0.419</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  link </span></span>
 <span><span class="co">#&gt; Columns: type, am, estimate, p.value, conf.low, conf.high</span></span>
@@ -472,20 +501,20 @@ observed values. We also show the equivalent results using
 with different response levels. For example, here we compute the average
 predicted outcome for each outcome level in a multinomial logit model.
 Note that response levels are identified by the “group” column.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://www.stats.ox.ac.uk/pub/MASS4/" class="external-link">nnet</a></span><span class="op">)</span></span>
 <span><span class="va">nom</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/nnet/man/multinom.html" class="external-link">multinom</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">gear</span><span class="op">)</span> <span class="op">~</span> <span class="va">mpg</span> <span class="op">+</span> <span class="va">am</span> <span class="op">*</span> <span class="va">vs</span>, data <span class="op">=</span> <span class="va">mtcars</span>, trace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># first 5 raw predictions</span></span>
 <span><span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">nom</span>, type <span class="op">=</span> <span class="st">"probs"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Group Estimate Std. Error       z Pr(&gt;|z|)    2.5 %  97.5 %</span></span>
-<span><span class="co">#&gt;      3  3.6e-05    2.0e-03   0.018    0.986 -3.9e-03 4.0e-03</span></span>
-<span><span class="co">#&gt;      3  3.6e-05    2.0e-03   0.018    0.986 -3.9e-03 4.0e-03</span></span>
-<span><span class="co">#&gt;      3  9.3e-08    6.9e-06   0.014    0.989 -1.3e-05 1.4e-05</span></span>
-<span><span class="co">#&gt;      3  4.0e-01    2.0e-01   2.057    0.040  1.9e-02 7.9e-01</span></span>
-<span><span class="co">#&gt;      3  1.0e+00    1.2e-03 802.445   &lt;0.001  1.0e+00 1.0e+00</span></span>
-<span><span class="co">#&gt;      3  5.2e-01    2.9e-01   1.788    0.074 -5.0e-02 1.1e+00</span></span>
+<span><span class="co">#&gt;  Group Estimate Std. Error        z Pr(&gt;|z|)     2.5 %   97.5 %</span></span>
+<span><span class="co">#&gt;      3 3.62e-05   2.00e-03   0.0181   0.9856 -3.89e-03 3.96e-03</span></span>
+<span><span class="co">#&gt;      3 3.62e-05   2.00e-03   0.0181   0.9856 -3.89e-03 3.96e-03</span></span>
+<span><span class="co">#&gt;      3 9.35e-08   6.91e-06   0.0135   0.9892 -1.35e-05 1.36e-05</span></span>
+<span><span class="co">#&gt;      3 4.04e-01   1.97e-01   2.0569   0.0397  1.91e-02 7.90e-01</span></span>
+<span><span class="co">#&gt;      3 1.00e+00   1.25e-03 802.4451   &lt;0.001  9.98e-01 1.00e+00</span></span>
+<span><span class="co">#&gt;      3 5.18e-01   2.90e-01   1.7884   0.0737 -4.97e-02 1.09e+00</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  probs </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, group, estimate, std.error, statistic, p.value, conf.low, conf.high, gear, mpg, am, vs</span></span>
@@ -493,10 +522,10 @@ Note that response levels are identified by the “group” column.</p>
 <span><span class="co"># average predictions</span></span>
 <span><span class="fu"><a href="../reference/predictions.html">avg_predictions</a></span><span class="op">(</span><span class="va">nom</span>, type <span class="op">=</span> <span class="st">"probs"</span>, by <span class="op">=</span> <span class="st">"group"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Group Estimate Std. Error    z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;      3     0.47      0.040 11.6   &lt;0.001 0.390   0.55</span></span>
-<span><span class="co">#&gt;      4     0.38      0.061  6.1   &lt;0.001 0.255   0.50</span></span>
-<span><span class="co">#&gt;      5     0.16      0.046  3.4   &lt;0.001 0.066   0.25</span></span>
+<span><span class="co">#&gt;  Group Estimate Std. Error     z Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
+<span><span class="co">#&gt;      3    0.469     0.0404 11.60   &lt;0.001 0.3895  0.548</span></span>
+<span><span class="co">#&gt;      4    0.375     0.0614  6.11   &lt;0.001 0.2546  0.495</span></span>
+<span><span class="co">#&gt;      5    0.156     0.0462  3.38   &lt;0.001 0.0656  0.247</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  probs </span></span>
 <span><span class="co">#&gt; Columns: type, group, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
@@ -505,16 +534,16 @@ Note that response levels are identified by the “group” column.</p>
 in the output of <code><a href="../reference/predictions.html">predictions()</a></code>, and the data frame must
 also include a <code>by</code> column of labels. In this example, we
 “collapse” response groups:</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">by</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
 <span>    group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"3"</span>, <span class="st">"4"</span>, <span class="st">"5"</span><span class="op">)</span>,</span>
 <span>    by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"3,4"</span>, <span class="st">"3,4"</span>, <span class="st">"5"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">nom</span>, type <span class="op">=</span> <span class="st">"probs"</span>, by <span class="op">=</span> <span class="va">by</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Estimate Std. Error    z Pr(&gt;|z|) 2.5 % 97.5 %  By</span></span>
-<span><span class="co">#&gt;      0.42      0.023 18.2   &lt;0.001 0.377   0.47 3,4</span></span>
-<span><span class="co">#&gt;      0.16      0.046  3.4   &lt;0.001 0.066   0.25 5  </span></span>
+<span><span class="co">#&gt;  Estimate Std. Error     z Pr(&gt;|z|)  2.5 % 97.5 %  By</span></span>
+<span><span class="co">#&gt;     0.422     0.0231 18.25   &lt;0.001 0.3766  0.467 3,4</span></span>
+<span><span class="co">#&gt;     0.156     0.0462  3.38   &lt;0.001 0.0656  0.247 5  </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  probs </span></span>
 <span><span class="co">#&gt; Columns: type, estimate, std.error, statistic, p.value, conf.low, conf.high, by</span></span></code></pre></div>
@@ -522,18 +551,18 @@ also include a <code>by</code> column of labels. In this example, we
 <code>hypothesis</code> argument. For example, here we compute the
 difference between average adjusted predictions for the 3 and 4 response
 levels, compared to the 5 response level:</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">nom</span>, type <span class="op">=</span> <span class="st">"probs"</span>, by <span class="op">=</span> <span class="va">by</span>, hypothesis <span class="op">=</span> <span class="st">"sequential"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     Term Estimate Std. Error    z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  5 - 3,4    -0.27      0.069 -3.8   &lt;0.001  -0.4  -0.13</span></span>
+<span><span class="co">#&gt;     Term Estimate Std. Error     z Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
+<span><span class="co">#&gt;  5 - 3,4   -0.266     0.0694 -3.83   &lt;0.001 -0.402  -0.13</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  probs </span></span>
 <span><span class="co">#&gt; Columns: type, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>We can also use more complicated aggregations. Here, we compute the
 predicted probability of outcome levels for each value of
 <code>cyl</code>, by collapsing the “3” and “4” outcome levels:</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">nom</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/nnet/man/multinom.html" class="external-link">multinom</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">gear</span><span class="op">)</span> <span class="op">~</span> <span class="va">mpg</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">cyl</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">mtcars</span>, trace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">by</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/expand.grid.html" class="external-link">expand.grid</a></span><span class="op">(</span></span>
@@ -548,37 +577,37 @@ predicted probability of outcome levels for each value of
 <span></span>
 <span><span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">nom</span>, by <span class="op">=</span> <span class="va">by</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Estimate Std. Error   z Pr(&gt;|z|)  2.5 % 97.5 %                      By</span></span>
-<span><span class="co">#&gt;      0.41      0.058 7.1   &lt;0.001  0.296   0.52 3/4 Gears &amp; 4 Cylinders</span></span>
-<span><span class="co">#&gt;      0.43      0.066 6.5   &lt;0.001  0.299   0.56 3/4 Gears &amp; 6 Cylinders</span></span>
-<span><span class="co">#&gt;      0.43      0.046 9.3   &lt;0.001  0.339   0.52 3/4 Gears &amp; 8 Cylinders</span></span>
-<span><span class="co">#&gt;      0.18      0.116 1.6     0.12 -0.046   0.41 5 Gears &amp; 4 Cylinders  </span></span>
-<span><span class="co">#&gt;      0.14      0.132 1.1     0.28 -0.116   0.40 5 Gears &amp; 6 Cylinders  </span></span>
-<span><span class="co">#&gt;      0.14      0.092 1.6     0.12 -0.037   0.32 5 Gears &amp; 8 Cylinders  </span></span>
+<span><span class="co">#&gt;  Estimate Std. Error    z Pr(&gt;|z|)   2.5 % 97.5 %                      By</span></span>
+<span><span class="co">#&gt;     0.409     0.0580 7.06   &lt;0.001  0.2956  0.523 3/4 Gears &amp; 4 Cylinders</span></span>
+<span><span class="co">#&gt;     0.429     0.0661 6.49   &lt;0.001  0.2991  0.558 3/4 Gears &amp; 6 Cylinders</span></span>
+<span><span class="co">#&gt;     0.429     0.0458 9.35   &lt;0.001  0.3387  0.518 3/4 Gears &amp; 8 Cylinders</span></span>
+<span><span class="co">#&gt;     0.182     0.1159 1.57    0.117 -0.0457  0.409 5 Gears &amp; 4 Cylinders  </span></span>
+<span><span class="co">#&gt;     0.143     0.1321 1.08    0.280 -0.1161  0.402 5 Gears &amp; 6 Cylinders  </span></span>
+<span><span class="co">#&gt;     0.143     0.0917 1.56    0.119 -0.0368  0.323 5 Gears &amp; 8 Cylinders  </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  probs </span></span>
 <span><span class="co">#&gt; Columns: type, estimate, std.error, statistic, p.value, conf.low, conf.high, by</span></span></code></pre></div>
 <p>And we can then compare the different groups using the
 <code>hypothesis</code> argument:</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">nom</span>, by <span class="op">=</span> <span class="va">by</span>, hypothesis <span class="op">=</span> <span class="st">"pairwise"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;                                               Term Estimate Std. Error        z Pr(&gt;|z|)   2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  3/4 Gears &amp; 4 Cylinders - 3/4 Gears &amp; 6 Cylinders -1.9e-02      0.088 -0.21984    0.826 -0.1916   0.15</span></span>
-<span><span class="co">#&gt;  3/4 Gears &amp; 4 Cylinders - 3/4 Gears &amp; 8 Cylinders -1.9e-02      0.074 -0.26105    0.794 -0.1641   0.13</span></span>
-<span><span class="co">#&gt;  3/4 Gears &amp; 4 Cylinders - 5 Gears &amp; 4 Cylinders    2.3e-01      0.174  1.30948    0.190 -0.1131   0.57</span></span>
-<span><span class="co">#&gt;  3/4 Gears &amp; 4 Cylinders - 5 Gears &amp; 6 Cylinders    2.7e-01      0.144  1.84619    0.065 -0.0164   0.55</span></span>
-<span><span class="co">#&gt;  3/4 Gears &amp; 4 Cylinders - 5 Gears &amp; 8 Cylinders    2.7e-01      0.108  2.45512    0.014  0.0537   0.48</span></span>
-<span><span class="co">#&gt;  3/4 Gears &amp; 6 Cylinders - 3/4 Gears &amp; 8 Cylinders  2.8e-05      0.080  0.00035    1.000 -0.1576   0.16</span></span>
-<span><span class="co">#&gt;  3/4 Gears &amp; 6 Cylinders - 5 Gears &amp; 4 Cylinders    2.5e-01      0.133  1.85141    0.064 -0.0145   0.51</span></span>
-<span><span class="co">#&gt;  3/4 Gears &amp; 6 Cylinders - 5 Gears &amp; 6 Cylinders    2.9e-01      0.198  1.44154    0.149 -0.1027   0.67</span></span>
-<span><span class="co">#&gt;  3/4 Gears &amp; 6 Cylinders - 5 Gears &amp; 8 Cylinders    2.9e-01      0.113  2.52763    0.011  0.0641   0.51</span></span>
-<span><span class="co">#&gt;  3/4 Gears &amp; 8 Cylinders - 5 Gears &amp; 4 Cylinders    2.5e-01      0.125  1.98136    0.048  0.0027   0.49</span></span>
-<span><span class="co">#&gt;  3/4 Gears &amp; 8 Cylinders - 5 Gears &amp; 6 Cylinders    2.9e-01      0.140  2.04263    0.041  0.0116   0.56</span></span>
-<span><span class="co">#&gt;  3/4 Gears &amp; 8 Cylinders - 5 Gears &amp; 8 Cylinders    2.9e-01      0.138  2.07675    0.038  0.0161   0.56</span></span>
-<span><span class="co">#&gt;  5 Gears &amp; 4 Cylinders - 5 Gears &amp; 6 Cylinders      3.9e-02      0.176  0.21984    0.826 -0.3059   0.38</span></span>
-<span><span class="co">#&gt;  5 Gears &amp; 4 Cylinders - 5 Gears &amp; 8 Cylinders      3.9e-02      0.148  0.26105    0.794 -0.2511   0.33</span></span>
-<span><span class="co">#&gt;  5 Gears &amp; 6 Cylinders - 5 Gears &amp; 8 Cylinders     -5.7e-05      0.161 -0.00035    1.000 -0.3153   0.32</span></span>
+<span><span class="co">#&gt;                                               Term  Estimate Std. Error         z Pr(&gt;|z|)    2.5 % 97.5 %</span></span>
+<span><span class="co">#&gt;  3/4 Gears &amp; 4 Cylinders - 3/4 Gears &amp; 6 Cylinders -1.93e-02     0.0879 -0.219838   0.8260 -0.19158  0.153</span></span>
+<span><span class="co">#&gt;  3/4 Gears &amp; 4 Cylinders - 3/4 Gears &amp; 8 Cylinders -1.93e-02     0.0739 -0.261054   0.7941 -0.16414  0.126</span></span>
+<span><span class="co">#&gt;  3/4 Gears &amp; 4 Cylinders - 5 Gears &amp; 4 Cylinders    2.28e-01     0.1739  1.309479   0.1904 -0.11312  0.569</span></span>
+<span><span class="co">#&gt;  3/4 Gears &amp; 4 Cylinders - 5 Gears &amp; 6 Cylinders    2.66e-01     0.1443  1.846188   0.0649 -0.01642  0.549</span></span>
+<span><span class="co">#&gt;  3/4 Gears &amp; 4 Cylinders - 5 Gears &amp; 8 Cylinders    2.66e-01     0.1085  2.455117   0.0141  0.05371  0.479</span></span>
+<span><span class="co">#&gt;  3/4 Gears &amp; 6 Cylinders - 3/4 Gears &amp; 8 Cylinders  2.84e-05     0.0804  0.000353   0.9997 -0.15757  0.158</span></span>
+<span><span class="co">#&gt;  3/4 Gears &amp; 6 Cylinders - 5 Gears &amp; 4 Cylinders    2.47e-01     0.1334  1.851410   0.0641 -0.01449  0.509</span></span>
+<span><span class="co">#&gt;  3/4 Gears &amp; 6 Cylinders - 5 Gears &amp; 6 Cylinders    2.86e-01     0.1982  1.441537   0.1494 -0.10275  0.674</span></span>
+<span><span class="co">#&gt;  3/4 Gears &amp; 6 Cylinders - 5 Gears &amp; 8 Cylinders    2.86e-01     0.1130  2.527631   0.0115  0.06415  0.507</span></span>
+<span><span class="co">#&gt;  3/4 Gears &amp; 8 Cylinders - 5 Gears &amp; 4 Cylinders    2.47e-01     0.1247  1.981364   0.0476  0.00267  0.491</span></span>
+<span><span class="co">#&gt;  3/4 Gears &amp; 8 Cylinders - 5 Gears &amp; 6 Cylinders    2.86e-01     0.1399  2.042634   0.0411  0.01156  0.560</span></span>
+<span><span class="co">#&gt;  3/4 Gears &amp; 8 Cylinders - 5 Gears &amp; 8 Cylinders    2.86e-01     0.1375  2.076746   0.0378  0.01606  0.555</span></span>
+<span><span class="co">#&gt;  5 Gears &amp; 4 Cylinders - 5 Gears &amp; 6 Cylinders      3.86e-02     0.1758  0.219838   0.8260 -0.30588  0.383</span></span>
+<span><span class="co">#&gt;  5 Gears &amp; 4 Cylinders - 5 Gears &amp; 8 Cylinders      3.86e-02     0.1478  0.261054   0.7941 -0.25112  0.328</span></span>
+<span><span class="co">#&gt;  5 Gears &amp; 6 Cylinders - 5 Gears &amp; 8 Cylinders     -5.68e-05     0.1608 -0.000353   0.9997 -0.31526  0.315</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  probs </span></span>
 <span><span class="co">#&gt; Columns: type, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
@@ -587,22 +616,22 @@ predicted probability of outcome levels for each value of
 <h3 id="bayesian-models">Bayesian models<a class="anchor" aria-label="anchor" href="#bayesian-models"></a>
 </h3>
 <p>The same strategy works for bayesian models:</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/paul-buerkner/brms" class="external-link">brms</a></span><span class="op">)</span></span>
 <span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/brms/man/brm.html" class="external-link">brm</a></span><span class="op">(</span><span class="va">am</span> <span class="op">~</span> <span class="va">mpg</span> <span class="op">*</span> <span class="va">vs</span>, data <span class="op">=</span> <span class="va">mtcars</span>, family <span class="op">=</span> <span class="va">bernoulli</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">mod</span>, by <span class="op">=</span> <span class="st">"vs"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  vs Estimate 2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;   0     0.33  0.18   0.51</span></span>
-<span><span class="co">#&gt;   1     0.50  0.37   0.67</span></span>
+<span><span class="co">#&gt;   0    0.327 0.182  0.507</span></span>
+<span><span class="co">#&gt;   1    0.499 0.366  0.672</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: type, vs, estimate, conf.low, conf.high</span></span></code></pre></div>
 <p>The results above show the median of the posterior distribution of
 group-wise means. Note that we take the mean of predicted values for
 each MCMC draw before computing quantiles. This is equivalent to:</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">draws</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://mc-stan.org/rstantools/reference/posterior_epred.html" class="external-link">posterior_epred</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/Matrix/man/colSums.html" class="external-link">rowMeans</a></span><span class="op">(</span><span class="va">draws</span><span class="op">[</span>, <span class="va">mtcars</span><span class="op">$</span><span class="va">vs</span> <span class="op">==</span> <span class="fl">0</span><span class="op">]</span><span class="op">)</span>, probs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">.5</span>, <span class="fl">.025</span>, <span class="fl">.975</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt;       50%      2.5%     97.5% </span></span>
@@ -620,7 +649,7 @@ archive</a>. Then, we create a variable called
 <code>certified_fresh</code> for movies with a rating of at least 8.
 Finally, we discard some outliers and fit a logistic regression
 model:</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="st">"https://vincentarelbundock.github.io/Rdatasets/csv/ggplot2movies/movies.csv"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>style <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html" class="external-link">case_when</a></span><span class="op">(</span><span class="va">Action</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">~</span> <span class="st">"Action"</span>,</span>
@@ -635,24 +664,24 @@ model:</p>
 <p>We can plot adjusted predictions, conditional on the
 <code>length</code> variable using the <code>plot_predictions</code>
 function:</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm</a></span><span class="op">(</span><span class="va">certified_fresh</span> <span class="op">~</span> <span class="va">length</span>, data <span class="op">=</span> <span class="va">dat</span>, family <span class="op">=</span> <span class="va">binomial</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/plot_predictions.html">plot_predictions</a></span><span class="op">(</span><span class="va">mod</span>, condition <span class="op">=</span> <span class="st">"length"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="predictions_files/figure-html/unnamed-chunk-26-1.png" width="576"></p>
+<p><img src="predictions_files/figure-html/unnamed-chunk-28-1.png" width="576"></p>
 <p>We can also introduce another condition which will display a
 categorical variable like <code>style</code> in different colors. This
 can be useful in models with interactions:</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm</a></span><span class="op">(</span><span class="va">certified_fresh</span> <span class="op">~</span> <span class="va">length</span> <span class="op">*</span> <span class="va">style</span>, data <span class="op">=</span> <span class="va">dat</span>, family <span class="op">=</span> <span class="va">binomial</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/plot_predictions.html">plot_predictions</a></span><span class="op">(</span><span class="va">mod</span>, condition <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"length"</span>, <span class="st">"style"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="predictions_files/figure-html/unnamed-chunk-27-1.png" width="576"></p>
+<p><img src="predictions_files/figure-html/unnamed-chunk-29-1.png" width="576"></p>
 <p>Since the output of <code><a href="../reference/plot_predictions.html">plot_predictions()</a></code> is a
 <code>ggplot2</code> object, it is very easy to customize. For example,
 we can add points for the actual observations of our dataset like
 so:</p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/slowkow/ggrepel" class="external-link">ggrepel</a></span><span class="op">)</span></span>
 <span></span>
@@ -668,12 +697,12 @@ so:</p>
 <span>                    data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">mt</span>, <span class="va">hp</span> <span class="op">&gt;</span> <span class="fl">250</span><span class="op">)</span>,</span>
 <span>                    nudge_y <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_classic</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="predictions_files/figure-html/unnamed-chunk-28-1.png" width="576"></p>
+<p><img src="predictions_files/figure-html/unnamed-chunk-30-1.png" width="576"></p>
 <p>We can also use <code><a href="../reference/plot_predictions.html">plot_predictions()</a></code> in models with
 multinomial outcomes or grouped coefficients. For example, notice that
 when we call <code>draw=FALSE</code>, the result includes a
 <code>group</code> column:</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://www.stats.ox.ac.uk/pub/MASS4/" class="external-link">MASS</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
@@ -694,13 +723,13 @@ when we call <code>draw=FALSE</code>, the result includes a
 <span><span class="co">#&gt; 5     5 probs     3 0.9402691 0.06238682  15.07160  2.490123e-51 0.8179932  1.062545    3 12.31837</span></span>
 <span><span class="co">#&gt; 6     6 probs     3 0.9283274 0.06930549  13.39472  6.492421e-41 0.7924911  1.064164    3 12.79796</span></span></code></pre></div>
 <p>Now we use the <code>group</code> column:</p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_predictions.html">plot_predictions</a></span><span class="op">(</span></span>
 <span>    <span class="va">mod</span>,</span>
 <span>    type <span class="op">=</span> <span class="st">"probs"</span>,</span>
 <span>    condition <span class="op">=</span> <span class="st">"mpg"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">group</span><span class="op">)</span></span></code></pre></div>
-<p><img src="predictions_files/figure-html/unnamed-chunk-30-1.png" width="576"></p>
+<p><img src="predictions_files/figure-html/unnamed-chunk-32-1.png" width="576"></p>
 </div>
 <div class="section level2">
 <h2 id="prediction-types">Prediction types<a class="anchor" aria-label="anchor" href="#prediction-types"></a>
@@ -716,42 +745,42 @@ different outcomes.</p>
 <code>"link"</code>, but users should refer to the documentation of the
 <code>predict</code> of the package they used to fit the model to know
 what values are allowable. documentation.</p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm</a></span><span class="op">(</span><span class="va">am</span> <span class="op">~</span> <span class="va">mpg</span>, family <span class="op">=</span> <span class="va">binomial</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span>
 <span><span class="va">pred</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">mod</span>, type <span class="op">=</span> <span class="st">"response"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">pred</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Estimate Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;      0.46    0.738  0.26   0.68</span></span>
-<span><span class="co">#&gt;      0.46    0.738  0.26   0.68</span></span>
-<span><span class="co">#&gt;      0.60    0.471  0.34   0.81</span></span>
-<span><span class="co">#&gt;      0.49    0.945  0.27   0.71</span></span>
-<span><span class="co">#&gt;      0.30    0.073  0.14   0.52</span></span>
-<span><span class="co">#&gt;      0.26    0.040  0.11   0.49</span></span>
+<span><span class="co">#&gt;  Estimate Std. Error    z Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
+<span><span class="co">#&gt;     0.461     0.1158 3.98  &lt; 0.001 0.2340  0.688</span></span>
+<span><span class="co">#&gt;     0.461     0.1158 3.98  &lt; 0.001 0.2340  0.688</span></span>
+<span><span class="co">#&gt;     0.598     0.1324 4.52  &lt; 0.001 0.3384  0.857</span></span>
+<span><span class="co">#&gt;     0.492     0.1196 4.11  &lt; 0.001 0.2573  0.726</span></span>
+<span><span class="co">#&gt;     0.297     0.1005 2.95  0.00314 0.0999  0.494</span></span>
+<span><span class="co">#&gt;     0.260     0.0978 2.66  0.00787 0.0682  0.452</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  link </span></span>
-<span><span class="co">#&gt; Columns: rowid, type, estimate, p.value, conf.low, conf.high, am, mpg</span></span>
+<span><span class="co">#&gt; Prediction type:  response </span></span>
+<span><span class="co">#&gt; Columns: rowid, type, estimate, std.error, statistic, p.value, conf.low, conf.high, am, mpg</span></span>
 <span></span>
 <span><span class="va">pred</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">mod</span>, type <span class="op">=</span> <span class="st">"link"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">pred</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Estimate Std. Error      z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;    -0.156       0.47 -0.334    0.738 -1.07  0.758</span></span>
-<span><span class="co">#&gt;    -0.156       0.47 -0.334    0.738 -1.07  0.758</span></span>
-<span><span class="co">#&gt;     0.397       0.55  0.720    0.471 -0.68  1.476</span></span>
-<span><span class="co">#&gt;    -0.033       0.48 -0.069    0.945 -0.97  0.905</span></span>
-<span><span class="co">#&gt;    -0.862       0.48 -1.790    0.073 -1.81  0.082</span></span>
-<span><span class="co">#&gt;    -1.046       0.51 -2.057    0.040 -2.04 -0.050</span></span>
+<span><span class="co">#&gt;  Estimate Std. Error       z Pr(&gt;|z|)  2.5 %  97.5 %</span></span>
+<span><span class="co">#&gt;   -0.1559      0.466 -0.3345   0.7380 -1.070  0.7578</span></span>
+<span><span class="co">#&gt;   -0.1559      0.466 -0.3345   0.7380 -1.070  0.7578</span></span>
+<span><span class="co">#&gt;    0.3967      0.551  0.7204   0.4713 -0.683  1.4761</span></span>
+<span><span class="co">#&gt;   -0.0331      0.479 -0.0692   0.9448 -0.971  0.9049</span></span>
+<span><span class="co">#&gt;   -0.8621      0.482 -1.7903   0.0734 -1.806  0.0817</span></span>
+<span><span class="co">#&gt;   -1.0463      0.509 -2.0575   0.0396 -2.043 -0.0496</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  link </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, estimate, std.error, statistic, p.value, conf.low, conf.high, am, mpg</span></span></code></pre></div>
 <p>We can also plot predictions on different outcome scales:</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_predictions.html">plot_predictions</a></span><span class="op">(</span><span class="va">mod</span>, condition <span class="op">=</span> <span class="st">"mpg"</span>, type <span class="op">=</span> <span class="st">"response"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="predictions_files/figure-html/unnamed-chunk-32-1.png" width="576"></p>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<p><img src="predictions_files/figure-html/unnamed-chunk-34-1.png" width="576"></p>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_predictions.html">plot_predictions</a></span><span class="op">(</span><span class="va">mod</span>, condition <span class="op">=</span> <span class="st">"mpg"</span>, type <span class="op">=</span> <span class="st">"link"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="predictions_files/figure-html/unnamed-chunk-33-1.png" width="576"></p>
+<p><img src="predictions_files/figure-html/unnamed-chunk-35-1.png" width="576"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
