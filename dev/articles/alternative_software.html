@@ -290,7 +290,7 @@ estimate a model and compute pairwise contrasts by subgroup using
 <span><span class="co">#&gt; resp = no:</span></span>
 <span><span class="co">#&gt;  contrast      estimate     SE  df z.ratio p.value</span></span>
 <span><span class="co">#&gt;  scold - curse  -0.0152 0.1097 Inf  -0.139  0.8898</span></span>
-<span><span class="co">#&gt;  shout - curse  -0.2533 0.1022 Inf  -2.479  0.0132</span></span>
+<span><span class="co">#&gt;  shout - curse  -0.2533 0.1022 Inf  -2.478  0.0132</span></span>
 <span><span class="co">#&gt;  shout - scold  -0.2381 0.0886 Inf  -2.686  0.0072</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; resp = perhaps:</span></span>
@@ -380,13 +380,13 @@ argument:</p>
 <span>    type <span class="op">=</span> <span class="st">"link"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;   Term                  Contrast    resp Estimate Std. Error      z Pr(&gt;|z|)  2.5 %   97.5 %</span></span>
-<span><span class="co">#&gt;  btype mean(scold) - mean(curse) no       -0.0152     0.1097 -0.139  0.88976 -0.230  0.19972</span></span>
-<span><span class="co">#&gt;  btype mean(scold) - mean(curse) perhaps  -0.2393     0.1178 -2.031  0.04221 -0.470 -0.00842</span></span>
-<span><span class="co">#&gt;  btype mean(scold) - mean(curse) yes       0.0391     0.1292  0.302  0.76239 -0.214  0.29234</span></span>
-<span><span class="co">#&gt;  btype mean(shout) - mean(curse) no       -0.2533     0.1022 -2.479  0.01319 -0.454 -0.05300</span></span>
-<span><span class="co">#&gt;  btype mean(shout) - mean(curse) perhaps  -0.0834     0.1330 -0.627  0.53090 -0.344  0.17737</span></span>
+<span><span class="co">#&gt;  btype mean(scold) - mean(curse) no       -0.0152     0.1097 -0.139  0.88977 -0.230  0.19975</span></span>
+<span><span class="co">#&gt;  btype mean(scold) - mean(curse) perhaps  -0.2393     0.1178 -2.031  0.04222 -0.470 -0.00841</span></span>
+<span><span class="co">#&gt;  btype mean(scold) - mean(curse) yes       0.0391     0.1292  0.302  0.76239 -0.214  0.29235</span></span>
+<span><span class="co">#&gt;  btype mean(shout) - mean(curse) no       -0.2533     0.1022 -2.478  0.01320 -0.454 -0.05297</span></span>
+<span><span class="co">#&gt;  btype mean(shout) - mean(curse) perhaps  -0.0834     0.1330 -0.627  0.53092 -0.344  0.17738</span></span>
 <span><span class="co">#&gt;  btype mean(shout) - mean(curse) yes       0.5802     0.1784  3.252  0.00115  0.230  0.92987</span></span>
-<span><span class="co">#&gt;  btype mean(shout) - mean(scold) no       -0.2381     0.0886 -2.686  0.00723 -0.412 -0.06436</span></span>
+<span><span class="co">#&gt;  btype mean(shout) - mean(scold) no       -0.2381     0.0886 -2.686  0.00723 -0.412 -0.06435</span></span>
 <span><span class="co">#&gt;  btype mean(shout) - mean(scold) perhaps   0.1559     0.1358  1.148  0.25103 -0.110  0.42215</span></span>
 <span><span class="co">#&gt;  btype mean(shout) - mean(scold) yes       0.5411     0.1888  2.866  0.00416  0.171  0.91116</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -561,12 +561,12 @@ benefits of <code>marginaleffects</code> over these packages are:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">mar</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    mpg cyl disp  hp drat    wt  qsec vs am gear carb   fitted se.fitted   dydx_cyl    dydx_hp   dydx_wt Var_dydx_cyl  Var_dydx_hp Var_dydx_wt X_weights X_at_number</span></span>
-<span><span class="co">#&gt; 1 21.0   6  160 110 3.90 2.620 16.46  0  1    4    4 22.82043 0.6876212 -0.9416168 -0.0180381 -3.166973    0.3035123 0.0001410453   0.5484517        NA           1</span></span>
-<span><span class="co">#&gt; 2 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4 22.01285 0.6056817 -0.9416168 -0.0180381 -3.166973    0.3035123 0.0001410453   0.5484517        NA           1</span></span>
-<span><span class="co">#&gt; 3 22.8   4  108  93 3.85 2.320 18.61  1  1    4    1 25.96040 0.7349593 -0.9416168 -0.0180381 -3.166973    0.3035123 0.0001410453   0.5484517        NA           1</span></span>
-<span><span class="co">#&gt; 4 21.4   6  258 110 3.08 3.215 19.44  1  0    3    1 20.93608 0.5800910 -0.9416168 -0.0180381 -3.166973    0.3035123 0.0001410453   0.5484517        NA           1</span></span>
-<span><span class="co">#&gt; 5 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2 17.16780 0.8322986 -0.9416168 -0.0180381 -3.166973    0.3035123 0.0001410453   0.5484517        NA           1</span></span>
-<span><span class="co">#&gt; 6 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1 20.25036 0.6638322 -0.9416168 -0.0180381 -3.166973    0.3035123 0.0001410453   0.5484517        NA           1</span></span>
+<span><span class="co">#&gt; 1 21.0   6  160 110 3.90 2.620 16.46  0  1    4    4 22.82043 0.6876212 -0.9416168 -0.0180381 -3.166973    0.3035079 0.0001410453   0.5484518        NA           1</span></span>
+<span><span class="co">#&gt; 2 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4 22.01285 0.6056817 -0.9416168 -0.0180381 -3.166973    0.3035079 0.0001410453   0.5484518        NA           1</span></span>
+<span><span class="co">#&gt; 3 22.8   4  108  93 3.85 2.320 18.61  1  1    4    1 25.96040 0.7349593 -0.9416168 -0.0180381 -3.166973    0.3035079 0.0001410453   0.5484518        NA           1</span></span>
+<span><span class="co">#&gt; 4 21.4   6  258 110 3.08 3.215 19.44  1  0    3    1 20.93608 0.5800910 -0.9416168 -0.0180381 -3.166973    0.3035079 0.0001410453   0.5484518        NA           1</span></span>
+<span><span class="co">#&gt; 5 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2 17.16780 0.8322986 -0.9416168 -0.0180381 -3.166973    0.3035079 0.0001410453   0.5484518        NA           1</span></span>
+<span><span class="co">#&gt; 6 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1 20.25036 0.6638322 -0.9416168 -0.0180381 -3.166973    0.3035079 0.0001410453   0.5484518        NA           1</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">mfx</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -589,14 +589,14 @@ benefits of <code>marginaleffects</code> over these packages are:</p>
 <code class="sourceCode R"><span><span class="va">mar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/margins/man/margins.html" class="external-link">margins</a></span><span class="op">(</span><span class="va">mod</span>, data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="fu">prediction</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/prediction/man/mean_or_mode.html" class="external-link">mean_or_mode</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span><span class="op">)</span>, unit_ses <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">mar</span><span class="op">)</span></span>
 <span><span class="co">#&gt;        mpg    cyl     disp       hp     drat      wt     qsec     vs      am   gear   carb   fitted se.fitted   dydx_cyl    dydx_hp   dydx_wt Var_dydx_cyl  Var_dydx_hp Var_dydx_wt SE_dydx_cyl SE_dydx_hp SE_dydx_wt X_weights X_at_number</span></span>
-<span><span class="co">#&gt; 1 20.09062 6.1875 230.7219 146.6875 3.596563 3.21725 17.84875 0.4375 0.40625 3.6875 2.8125 20.09062 0.4439832 -0.9416168 -0.0180381 -3.166973    0.3035082 0.0001410452   0.5484409   0.5509157 0.01187625  0.7405679        NA           1</span></span>
+<span><span class="co">#&gt; 1 20.09062 6.1875 230.7219 146.6875 3.596563 3.21725 17.84875 0.4375 0.40625 3.6875 2.8125 20.09062 0.4439832 -0.9416168 -0.0180381 -3.166973    0.3035082 0.0001410452     0.54846   0.5509157 0.01187624  0.7405808        NA           1</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/slopes.html">slopes</a></span><span class="op">(</span><span class="va">mod</span>, newdata <span class="op">=</span> <span class="st">"mean"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Term Estimate Std. Error     z Pr(&gt;|z|)   2.5 %   97.5 %</span></span>
 <span><span class="co">#&gt;   cyl   -0.942     0.5509 -1.71   0.0874 -2.0214  0.13815</span></span>
 <span><span class="co">#&gt;   hp    -0.018     0.0119 -1.52   0.1288 -0.0413  0.00524</span></span>
-<span><span class="co">#&gt;   wt    -3.167     0.7406 -4.28   &lt;0.001 -4.6185 -1.71547</span></span>
+<span><span class="co">#&gt;   wt    -3.167     0.7406 -4.28   &lt;0.001 -4.6185 -1.71548</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, term, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, cyl, hp, wt</span></span></code></pre></div>
@@ -619,14 +619,14 @@ compute 64 unit-level marginal effects estimates:</p>
 <span><span class="va">mar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/margins/man/margins.html" class="external-link">margins</a></span><span class="op">(</span><span class="va">mod</span>, at <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>cyl <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">6</span>, <span class="fl">8</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mar</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  factor    cyl     AME     SE       z      p   lower   upper</span></span>
-<span><span class="co">#&gt;     cyl 4.0000  0.0381 0.5998  0.0636 0.9493 -1.1374  1.2137</span></span>
+<span><span class="co">#&gt;     cyl 4.0000  0.0381 0.5999  0.0636 0.9493 -1.1376  1.2139</span></span>
 <span><span class="co">#&gt;     cyl 6.0000  0.0381 0.5999  0.0636 0.9493 -1.1376  1.2139</span></span>
 <span><span class="co">#&gt;     cyl 8.0000  0.0381 0.5999  0.0636 0.9493 -1.1376  1.2139</span></span>
 <span><span class="co">#&gt;      hp 4.0000 -0.0878 0.0267 -3.2937 0.0010 -0.1400 -0.0355</span></span>
 <span><span class="co">#&gt;      hp 6.0000 -0.0499 0.0154 -3.2397 0.0012 -0.0800 -0.0197</span></span>
 <span><span class="co">#&gt;      hp 8.0000 -0.0120 0.0108 -1.1065 0.2685 -0.0332  0.0092</span></span>
 <span><span class="co">#&gt;      wt 4.0000 -3.1198 0.6613 -4.7175 0.0000 -4.4160 -1.8236</span></span>
-<span><span class="co">#&gt;      wt 6.0000 -3.1198 0.6613 -4.7176 0.0000 -4.4160 -1.8236</span></span>
+<span><span class="co">#&gt;      wt 6.0000 -3.1198 0.6613 -4.7175 0.0000 -4.4160 -1.8236</span></span>
 <span><span class="co">#&gt;      wt 8.0000 -3.1198 0.6613 -4.7175 0.0000 -4.4160 -1.8236</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/slopes.html">avg_slopes</a></span><span class="op">(</span></span>
