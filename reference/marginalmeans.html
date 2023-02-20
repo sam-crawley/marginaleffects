@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.9.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.10.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,7 +47,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1><code>marginal_means()</code> is an alias to <code>marginal_means()</code></h1>
-      <small class="dont-index">Source: <a href="https://github.com/vincentarelbundock/marginaleffects/blob/HEAD/R/marginalmeans.R" class="external-link"><code>R/marginalmeans.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/vincentarelbundock/marginaleffects/blob/HEAD/R/marginal_means.R" class="external-link"><code>R/marginal_means.R</code></a></small>
       <div class="d-none name"><code>marginalmeans.Rd</code></div>
     </div>
 
@@ -60,7 +60,7 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">marginalmeans</span><span class="op">(</span></span>
 <span>  <span class="va">model</span>,</span>
 <span>  variables <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  variables_grid <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  newdata <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  vcov <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  conf_level <span class="op">=</span> <span class="fl">0.95</span>,</span>
 <span>  type <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -81,20 +81,16 @@
 
 
 <dt>variables</dt>
-<dd><p>character vector Categorical predictors over which to
-compute marginal means. <code>NULL</code> calculates marginal means for all logical,
-character, or factor variables in the dataset used to fit <code>model</code>. Set
-<code>cross=TRUE</code> to compute marginal means at combinations of the
-predictors specified in the <code>variables</code> argument.</p></dd>
+<dd><p>Focal variables</p><ul><li><p>Character vector of variable names: compute marginal means for each category of the listed variables.</p></li>
+<li><p><code>NULL</code>: calculate marginal means for all logical, character, or factor variables in the dataset used to fit <code>model</code>. Hint:  Set <code>cross=TRUE</code> to compute marginal means for combinations of focal variables.</p></li>
+</ul></dd>
 
 
-<dt>variables_grid</dt>
-<dd><p>character vector Categorical predictors used to
-construct the prediction grid over which adjusted predictions are averaged
-(character vector). <code>NULL</code> creates a grid with all combinations of all
-categorical predictors. This grid can be very large when there are many
-variables and many response levels, so it is advisable to select a limited
-number of variables in the <code>variables</code> and <code>variables_grid</code> arguments.</p></dd>
+<dt>newdata</dt>
+<dd><p>Grid of predictor values over which we marginalize.</p><ul><li><p><code>NULL</code> create a grid with all combinations of all categorical predictors in the model. Warning: can be expensive.</p></li>
+<li><p>Character vector: subset of categorical variables to use when building the balanced grid of predictors. Other variables are held to their mean or mode.</p></li>
+<li><p>Data frame: A data frame which includes all the predictors in the original model. The full dataset is replicated once for every combination of the focal variables in the <code>variables</code> argument, using the <code><a href="datagrid.html">datagridcf()</a></code> function.</p></li>
+</ul></dd>
 
 
 <dt>vcov</dt>
@@ -128,7 +124,7 @@ on the link scale before backtransforming them using the inverse link function.<
 
 
 <dt>transform_post</dt>
-<dd><p>(experimental) A function applied to unit-level adjusted predictions and confidence intervals just before the function returns results. For bayesian models, this function is applied to individual draws from the posterior distribution, before computing summaries.</p></dd>
+<dd><p>A function applied to unit-level adjusted predictions and confidence intervals just before the function returns results. For bayesian models, this function is applied to individual draws from the posterior distribution, before computing summaries.</p></dd>
 
 
 <dt>cross</dt>
@@ -160,9 +156,9 @@ on the link scale before backtransforming them using the inverse link function.<
 
 
 <dt>wts</dt>
-<dd><p>character value. Weights to use in the averaging.</p><ul><li><p>"equal": each combination of variables in <code>variables_grid</code> gets an equal weight.</p></li>
-<li><p>"cells": each combination of values for the variables in the <code>variables_grid</code> gets a weight proportional to its frequency in the original data.</p></li>
-<li><p>"proportional": each combination of values for the variables in the <code>variables_grid</code> -- except for those in the <code>variables</code> argument -- gets a weight proportional to its frequency in the original data.</p></li>
+<dd><p>character value. Weights to use in the averaging.</p><ul><li><p>"equal": each combination of variables in <code>newdata</code> gets equal weight.</p></li>
+<li><p>"cells": each combination of values for the variables in the <code>newdata</code> gets a weight proportional to its frequency in the original data.</p></li>
+<li><p>"proportional": each combination of values for the variables in <code>newdata</code> -- except for those in the <code>variables</code> argument -- gets a weight proportional to its frequency in the original data.</p></li>
 </ul></dd>
 
 
@@ -193,8 +189,8 @@ combination.</p>
     <p>This function begins by calling the <code>predictions</code> function to obtain a
 grid of predictors, and adjusted predictions for each cell. The grid
 includes all combinations of the categorical variables listed in the
-<code>variables</code> and <code>variables_grid</code> arguments, or all combinations of the
-categorical variables used to fit the model if <code>variables_grid</code> is <code>NULL</code>.
+<code>variables</code> and <code>newdata</code> arguments, or all combinations of the
+categorical variables used to fit the model if <code>newdata</code> is <code>NULL</code>.
 In the prediction grid, numeric variables are held at their means.</p>
 <p>After constructing the grid and filling the grid with adjusted predictions,
 <code>marginal_means</code> computes marginal means for the variables listed in the
@@ -207,12 +203,26 @@ popular <code>emmeans</code> package, which provides similar but more advanced
 functionality: https://vincentarelbundock.github.io/marginaleffects/</p>
     </div>
     <div class="section level2">
+    <h2 id="standard-errors-using-the-delta-method">Standard errors using the delta method<a class="anchor" aria-label="anchor" href="#standard-errors-using-the-delta-method"></a></h2>
+    
+
+
+<p>Standard errors for all quantities estimated by <code>marginaleffects</code> can be obtained via the delta method. This requires differentiating a function with respect to the coefficients in the model using a finite difference approach. In some models, the delta method standard errors can be sensitive to various aspects of the numeric differentiation strategy, including the step size. By default, the step size is set to <code>1e-8</code>, or to <code>1e-4</code> times the smallest absolute model coefficient, whichever is largest.</p>
+<p><code>marginaleffects</code> can delegate numeric differentiation to the <code>numDeriv</code> package, which allows more flexibility. To do this, users can pass arguments to the <code><a href="https://rdrr.io/pkg/numDeriv/man/jacobian.html" class="external-link">numDeriv::jacobian</a></code> function through a global option. For example:</p><ul><li><p><code>options(marginaleffects_numDeriv = list(method = "simple", method.args = list(eps = 1e-6)))</code></p></li>
+<li><p><code>options(marginaleffects_numDeriv = list(method = "Richardson", method.args = list(eps = 1e-5)))</code></p></li>
+<li><p><code>options(marginaleffects_numDeriv = NULL)</code></p></li>
+</ul><p>See the "Standard Errors and Confidence Intervals" vignette on the <code>marginaleffects</code> website for more details on the computation of standard errors:</p>
+<p>https://vincentarelbundock.github.io/marginaleffects/articles/uncertainty.html</p>
+<p>Note that the <code><a href="inferences.html">inferences()</a></code> function can be used to compute uncertainty estimates using a bootstrap or simulation-based inference. See the vignette:</p>
+<p>https://vincentarelbundock.github.io/marginaleffects/articles/bootstrap.html</p>
+    </div>
+    <div class="section level2">
     <h2 id="model-specific-arguments">Model-Specific Arguments<a class="anchor" aria-label="anchor" href="#model-specific-arguments"></a></h2>
     
 
 
 <p>Some model types allow model-specific arguments to modify the nature of
-marginal effects, predictions, marginal means, and contrasts.</p><table class="table table"><tr><td>Package</td><td>Class</td><td>Argument</td><td>Documentation</td></tr><tr><td><code>brms</code></td><td><code>brmsfit</code></td><td><code>ndraws</code></td><td><a href="https://rdrr.io/pkg/brms/man/posterior_predict.brmsfit.html" class="external-link">brms::posterior_predict</a></td></tr><tr><td></td><td></td><td><code>re_formula</code></td><td></td></tr><tr><td><code>lme4</code></td><td><code>merMod</code></td><td><code>include_random</code></td><td><a href="https://easystats.github.io/insight/reference/get_predicted.html" class="external-link">insight::get_predicted</a></td></tr><tr><td></td><td></td><td><code>re.form</code></td><td><a href="https://rdrr.io/pkg/lme4/man/predict.merMod.html" class="external-link">lme4::predict.merMod</a></td></tr><tr><td></td><td></td><td><code>allow.new.levels</code></td><td><a href="https://rdrr.io/pkg/lme4/man/predict.merMod.html" class="external-link">lme4::predict.merMod</a></td></tr><tr><td><code>glmmTMB</code></td><td><code>glmmTMB</code></td><td><code>re.form</code></td><td><a href="https://rdrr.io/pkg/glmmTMB/man/predict.glmmTMB.html" class="external-link">glmmTMB::predict.glmmTMB</a></td></tr><tr><td></td><td></td><td><code>allow.new.levels</code></td><td><a href="https://rdrr.io/pkg/glmmTMB/man/predict.glmmTMB.html" class="external-link">glmmTMB::predict.glmmTMB</a></td></tr><tr><td></td><td></td><td><code>zitype</code></td><td><a href="https://rdrr.io/pkg/glmmTMB/man/predict.glmmTMB.html" class="external-link">glmmTMB::predict.glmmTMB</a></td></tr><tr><td><code>mgcv</code></td><td><code>bam</code></td><td><code>exclude</code></td><td><a href="https://rdrr.io/pkg/mgcv/man/predict.bam.html" class="external-link">mgcv::predict.bam</a></td></tr><tr><td><code>robustlmm</code></td><td><code>rlmerMod</code></td><td><code>re.form</code></td><td><a href="https://rdrr.io/pkg/robustlmm/man/rlmerMod-class.html" class="external-link">robustlmm::predict.rlmerMod</a></td></tr><tr><td></td><td></td><td><code>allow.new.levels</code></td><td><a href="https://rdrr.io/pkg/robustlmm/man/rlmerMod-class.html" class="external-link">robustlmm::predict.rlmerMod</a></td></tr></table></div>
+marginal effects, predictions, marginal means, and contrasts.</p><table class="table table"><tr><td>Package</td><td>Class</td><td>Argument</td><td>Documentation</td></tr><tr><td><code>brms</code></td><td><code>brmsfit</code></td><td><code>ndraws</code></td><td><a href="https://rdrr.io/pkg/brms/man/posterior_predict.brmsfit.html" class="external-link">brms::posterior_predict</a></td></tr><tr><td></td><td></td><td><code>re_formula</code></td><td></td></tr><tr><td><code>lme4</code></td><td><code>merMod</code></td><td><code>include_random</code></td><td><a href="https://easystats.github.io/insight/reference/get_predicted.html" class="external-link">insight::get_predicted</a></td></tr><tr><td></td><td></td><td><code>re.form</code></td><td><a href="https://rdrr.io/pkg/lme4/man/predict.merMod.html" class="external-link">lme4::predict.merMod</a></td></tr><tr><td></td><td></td><td><code>allow.new.levels</code></td><td><a href="https://rdrr.io/pkg/lme4/man/predict.merMod.html" class="external-link">lme4::predict.merMod</a></td></tr><tr><td><code>glmmTMB</code></td><td><code>glmmTMB</code></td><td><code>re.form</code></td><td><a href="https://rdrr.io/pkg/glmmTMB/man/predict.glmmTMB.html" class="external-link">glmmTMB::predict.glmmTMB</a></td></tr><tr><td></td><td></td><td><code>allow.new.levels</code></td><td><a href="https://rdrr.io/pkg/glmmTMB/man/predict.glmmTMB.html" class="external-link">glmmTMB::predict.glmmTMB</a></td></tr><tr><td></td><td></td><td><code>zitype</code></td><td><a href="https://rdrr.io/pkg/glmmTMB/man/predict.glmmTMB.html" class="external-link">glmmTMB::predict.glmmTMB</a></td></tr><tr><td><code>mgcv</code></td><td><code>bam</code></td><td><code>exclude</code></td><td><a href="https://rdrr.io/pkg/mgcv/man/predict.bam.html" class="external-link">mgcv::predict.bam</a></td></tr><tr><td><code>robustlmm</code></td><td><code>rlmerMod</code></td><td><code>re.form</code></td><td><a href="https://rdrr.io/pkg/robustlmm/man/rlmerMod-class.html" class="external-link">robustlmm::predict.rlmerMod</a></td></tr><tr><td></td><td></td><td><code>allow.new.levels</code></td><td><a href="https://rdrr.io/pkg/robustlmm/man/rlmerMod-class.html" class="external-link">robustlmm::predict.rlmerMod</a></td></tr><tr><td><code>MCMCglmm</code></td><td><code>MCMCglmm</code></td><td><code>ndraws</code></td><td></td></tr></table></div>
     <div class="section level2">
     <h2 id="bayesian-posterior-summaries">Bayesian posterior summaries<a class="anchor" aria-label="anchor" href="#bayesian-posterior-summaries"></a></h2>
     
@@ -252,13 +262,13 @@ posterior using the function supplied to the
 <span class="r-in"><span>  <span class="va">mod</span>,</span></span>
 <span class="r-in"><span>  variables <span class="op">=</span> <span class="st">"cyl"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Term Value  Mean Std. Error     z   Pr(&gt;|z|) 2.5 % 97.5 %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   cyl     4 23.11      1.658 13.94 &lt; 2.22e-16 19.86  26.36</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   cyl     6 20.38      1.337 15.25 &lt; 2.22e-16 17.76  23.01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   cyl     8 16.21      1.073 15.11 &lt; 2.22e-16 14.11  18.31</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Term Value Mean Std. Error    z Pr(&gt;|z|) 2.5 % 97.5 %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   cyl     4 23.1       1.66 13.9   &lt;0.001  19.9   26.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   cyl     6 20.4       1.34 15.2   &lt;0.001  17.8   23.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   cyl     8 16.2       1.07 15.1   &lt;0.001  14.1   18.3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Results averaged over levels of: cyl, carb, am </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Results averaged over levels of: carb, am, cyl </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: type, term, value, cyl, estimate, std.error, statistic, p.value, conf.low, conf.high </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
@@ -270,12 +280,12 @@ posterior using the function supplied to the
 <span class="r-in"><span>  variables <span class="op">=</span> <span class="st">"cyl"</span>,</span></span>
 <span class="r-in"><span>  by <span class="op">=</span> <span class="va">by</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     By  Mean Std. Error     z   Pr(&gt;|z|) 2.5 % 97.5 %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  4 &amp; 6 21.75      1.132 19.21 &lt; 2.22e-16 19.53  23.97</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      8 16.21      1.073 15.11 &lt; 2.22e-16 14.11  18.31</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     By Mean Std. Error    z Pr(&gt;|z|) 2.5 % 97.5 %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  4 &amp; 6 21.7       1.13 19.2   &lt;0.001  19.5   24.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  8     16.2       1.07 15.1   &lt;0.001  14.1   18.3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Results averaged over levels of: cyl, carb, am </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Results averaged over levels of: carb, am, cyl </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: by, estimate, std.error, statistic, p.value, conf.low, conf.high </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
@@ -285,11 +295,11 @@ posterior using the function supplied to the
 <span class="r-in"><span>  by <span class="op">=</span> <span class="va">by</span>,</span></span>
 <span class="r-in"><span>  hypothesis <span class="op">=</span> <span class="st">"pairwise"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       Term  Mean Std. Error    z   Pr(&gt;|z|) 2.5 % 97.5 %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  4 &amp; 6 - 8 5.538      1.513 3.66 0.00025192 2.573  8.504</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Term Mean Std. Error    z Pr(&gt;|z|) 2.5 % 97.5 %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  4 &amp; 6 - 8 5.54       1.51 3.66   &lt;0.001  2.57    8.5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Results averaged over levels of: cyl, carb, am </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Results averaged over levels of: carb, am, cyl </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
@@ -298,25 +308,25 @@ posterior using the function supplied to the
 <span class="r-in"><span>  variables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"cyl"</span>, <span class="st">"carb"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  cross <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Mean Std. Error      z   Pr(&gt;|z|)  2.5 % 97.5 %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  25.82      1.264 20.426 &lt; 2.22e-16 23.340  28.29</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  25.59      1.167 21.932 &lt; 2.22e-16 23.302  27.88</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  25.34      2.365 10.714 &lt; 2.22e-16 20.704  29.97</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  21.88      1.901 11.508 &lt; 2.22e-16 18.152  25.60</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  20.29      3.766  5.388 7.1424e-08 12.910  27.67</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  19.77      3.814  5.182 2.1948e-07 12.290  27.24</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  23.09      1.765 13.079 &lt; 2.22e-16 19.629  26.55</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  22.86      1.867 12.241 &lt; 2.22e-16 19.200  26.52</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  22.61      2.365  9.560 &lt; 2.22e-16 17.975  27.25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  19.15      1.338 14.307 &lt; 2.22e-16 16.526  21.77</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  17.56      3.004  5.847 5.0001e-09 11.676  23.45</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  17.04      3.481  4.894 9.8786e-07 10.214  23.86</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  18.91      1.942  9.740 &lt; 2.22e-16 15.108  22.72</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  18.69      1.571 11.898 &lt; 2.22e-16 15.608  21.76</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  18.44      1.831 10.069 &lt; 2.22e-16 14.848  22.03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  14.98      1.195 12.528 &lt; 2.22e-16 12.632  17.32</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  13.39      3.356  3.989 6.6223e-05  6.811  19.97</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  12.86      3.004  4.282 1.8486e-05  6.976  18.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mean Std. Error     z Pr(&gt;|z|) 2.5 % 97.5 %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  25.8       1.26 20.43   &lt;0.001 23.34   28.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  25.6       1.17 21.93   &lt;0.001 23.30   27.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  25.3       2.37 10.71   &lt;0.001 20.70   30.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  21.9       1.90 11.51   &lt;0.001 18.15   25.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  20.3       3.77  5.39   &lt;0.001 12.91   27.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  19.8       3.81  5.18   &lt;0.001 12.29   27.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  23.1       1.77 13.08   &lt;0.001 19.63   26.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  22.9       1.87 12.24   &lt;0.001 19.20   26.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  22.6       2.37  9.56   &lt;0.001 17.98   27.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  19.1       1.34 14.31   &lt;0.001 16.53   21.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  17.6       3.00  5.85   &lt;0.001 11.68   23.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  17.0       3.48  4.89   &lt;0.001 10.21   23.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  18.9       1.94  9.74   &lt;0.001 15.11   22.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  18.7       1.57 11.90   &lt;0.001 15.61   21.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  18.4       1.83 10.07   &lt;0.001 14.85   22.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  15.0       1.20 12.53   &lt;0.001 12.63   17.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  13.4       3.36  3.99   &lt;0.001  6.81   20.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  12.9       3.00  4.28   &lt;0.001  6.98   18.8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Results averaged over levels of: am </span>
@@ -342,18 +352,18 @@ posterior using the function supplied to the
 <span class="r-in"><span><span class="co"># Compute and summarize marginal means</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="marginal_means.html">marginal_means</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Term Value  Mean Std. Error      z   Pr(&gt;|z|) 2.5 % 97.5 %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  carb     1 21.99      1.345 16.350 &lt; 2.22e-16 19.35  24.63</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  carb     2 21.48      1.025 20.955 &lt; 2.22e-16 19.47  23.49</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  carb     3 20.55      1.780 11.549 &lt; 2.22e-16 17.06  24.04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  carb     4 18.82      1.042 18.065 &lt; 2.22e-16 16.77  20.86</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  carb     6 18.47      3.019  6.118 9.4743e-10 12.55  24.39</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  carb     8 21.62      4.055  5.332 9.6936e-08 13.68  29.57</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    am FALSE 17.87      1.244 14.366 &lt; 2.22e-16 15.43  20.31</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    am  TRUE 23.11      0.974 23.724 &lt; 2.22e-16 21.20  25.02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Term Value Mean Std. Error     z Pr(&gt;|z|) 2.5 % 97.5 %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  carb 1     22.0      1.345 16.35   &lt;0.001  19.4   24.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  carb 2     21.5      1.025 20.95   &lt;0.001  19.5   23.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  carb 3     20.6      1.780 11.55   &lt;0.001  17.1   24.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  carb 4     18.8      1.042 18.06   &lt;0.001  16.8   20.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  carb 6     18.5      3.019  6.12   &lt;0.001  12.6   24.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  carb 8     21.6      4.055  5.33   &lt;0.001  13.7   29.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  am   FALSE 17.9      1.244 14.37   &lt;0.001  15.4   20.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  am   TRUE  23.1      0.974 23.72   &lt;0.001  21.2   25.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Results averaged over levels of: am, carb </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Results averaged over levels of: hp, am, carb </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: type, term, value, estimate, std.error, statistic, p.value, conf.low, conf.high </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
@@ -362,21 +372,21 @@ posterior using the function supplied to the
 <span class="r-in"><span><span class="va">lc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="marginal_means.html">marginal_means</a></span><span class="op">(</span><span class="va">mod</span>, variables <span class="op">=</span> <span class="st">"carb"</span>, hypothesis <span class="op">=</span> <span class="st">"b2 = b1"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Term    Mean Std. Error      z Pr(&gt;|z|)  2.5 % 97.5 %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  b2=b1 -0.5143      1.478 -0.348  0.72786 -3.411  2.382</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Term   Mean Std. Error      z Pr(&gt;|z|) 2.5 % 97.5 %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  b2=b1 -0.514       1.48 -0.348    0.728 -3.41   2.38</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Results averaged over levels of: carb, am </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Results averaged over levels of: am, carb </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="marginal_means.html">marginal_means</a></span><span class="op">(</span><span class="va">mod</span>, variables <span class="op">=</span> <span class="st">"carb"</span>, hypothesis <span class="op">=</span> <span class="va">lc</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    Term    Mean Std. Error      z Pr(&gt;|z|)  2.5 % 97.5 %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  custom -0.5143      1.478 -0.348  0.72786 -3.411  2.382</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Term   Mean Std. Error      z Pr(&gt;|z|) 2.5 % 97.5 %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  custom -0.514       1.48 -0.348    0.728 -3.41   2.38</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Results averaged over levels of: carb, am </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Results averaged over levels of: am, carb </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
@@ -389,12 +399,12 @@ posterior using the function supplied to the
 <span class="r-in"><span>  dimnames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="cn">NULL</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="marginal_means.html">marginal_means</a></span><span class="op">(</span><span class="va">mod</span>, variables <span class="op">=</span> <span class="st">"carb"</span>, hypothesis <span class="op">=</span> <span class="va">lc</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Term    Mean Std. Error      z Pr(&gt;|z|)   2.5 % 97.5 %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     A  1.1989      6.150  0.195  0.84542 -10.854 13.252</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     B -0.5143      1.478 -0.348  0.72786  -3.411  2.382</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Term   Mean Std. Error      z Pr(&gt;|z|)  2.5 % 97.5 %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     A  1.199       6.15  0.195    0.845 -10.85  13.25</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     B -0.514       1.48 -0.348    0.728  -3.41   2.38</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Results averaged over levels of: carb, am </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Results averaged over levels of: am, carb </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
