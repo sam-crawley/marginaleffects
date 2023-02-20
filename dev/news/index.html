@@ -65,7 +65,8 @@
 <code>effect</code> argument is renamed to <code>variables</code> in <code><a href="../reference/plot_slopes.html">plot_slopes()</a></code> and <code><a href="../reference/plot_comparisons.html">plot_comparisons()</a></code>. This improves consistency with the analogous <code><a href="../reference/slopes.html">slopes()</a></code> and <code><a href="../reference/comparisons.html">comparisons()</a></code> functions.</li>
 <li>The plotting vignette was completely re-written.</li>
 </ul><p>Other:</p>
-<ul><li>
+<ul><li>Use the <code>numDeriv</code> package for numeric differentiation in the calculation of delta method standard error. This global option is passed to <code><a href="https://rdrr.io/pkg/numDeriv/man/jacobian.html" class="external-link">numDeriv::jacobian</a></code>: `options(marginaleffects_numDeriv=</li>
+<li>
 <code><a href="../reference/inferences.html">inferences()</a></code> supports multiple imputation.</li>
 <li>Major performance improvements for many functions. Thanks to Etienne Bacher.</li>
 <li>The <code>variables_grid</code> argument in <code><a href="../reference/marginal_means.html">marginal_means()</a></code> is renamed to <code>newdata</code>. Backward compatibility is maintained.</li>
@@ -86,8 +87,11 @@
 <code><a href="../reference/datagrid.html">datagrid()</a></code> and <code>plot_*()</code> functions are faster in datasets with many extraneous columns.</li>
 <li>Do not backtransform GLM predictions if <code>type="response"</code> is specified explicitly.</li>
 </ul><p>Bugfixes:</p>
-<ul><li>
-<code>brms</code> models with multivariate outcome collapsed categories in <code><a href="../reference/comparisons.html">comparisons()</a></code>. Issue <a href="https://github.com/vincentarelbundock/marginaleffects/issues/639" class="external-link">#639</a></li>
+<ul><li>Standard errors could be inaccurate in models with non-linear components (and interactions) when some of the coefficients were very small. This was related to the step size used for numerical differentiation for the delta method. Issue 684.</li>
+<li>
+<code>avg_predictions(by =)</code> did not work when the dataset included a column named <code>term</code>. Issue 683.</li>
+<li>
+<code>brms</code> models with multivariate outcome collapsed categories in <code><a href="../reference/comparisons.html">comparisons()</a></code>. Issue 639.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.9.0" id="marginaleffects-090">marginaleffects 0.9.0<a class="anchor" aria-label="anchor" href="#marginaleffects-090"></a></h2><p class="text-muted">CRAN release: 2023-02-01</p>
