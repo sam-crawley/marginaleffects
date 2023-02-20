@@ -789,12 +789,12 @@ periods:</p>
 <span>    id.vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"trt"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">did</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    id trt time          y</span></span>
-<span><span class="co">#&gt; 1:  1   1  pre -0.6823259</span></span>
-<span><span class="co">#&gt; 2:  2   0  pre  0.3620986</span></span>
-<span><span class="co">#&gt; 3:  3   0  pre  0.1219320</span></span>
-<span><span class="co">#&gt; 4:  4   1  pre  0.4208630</span></span>
-<span><span class="co">#&gt; 5:  5   1  pre  1.3803794</span></span>
-<span><span class="co">#&gt; 6:  6   1  pre -0.4995789</span></span></code></pre></div>
+<span><span class="co">#&gt; 1:  1   0  pre -1.9222628</span></span>
+<span><span class="co">#&gt; 2:  2   1  pre  0.3551282</span></span>
+<span><span class="co">#&gt; 3:  3   1  pre  0.9361070</span></span>
+<span><span class="co">#&gt; 4:  4   0  pre -0.4132467</span></span>
+<span><span class="co">#&gt; 5:  5   0  pre  1.2803952</span></span>
+<span><span class="co">#&gt; 6:  6   1  pre  1.3610502</span></span></code></pre></div>
 <p>Then, we estimate a linear model with a multiple interaction between
 the time and the treatment indicators. We also compute contrasts at the
 mean for each treatment level:</p>
@@ -807,8 +807,8 @@ mean for each treatment level:</p>
 <span>    variables <span class="op">=</span> <span class="st">"time"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Term   Contrast Estimate Std. Error     z Pr(&gt;|z|)  2.5 % 97.5 % trt</span></span>
-<span><span class="co">#&gt;  time post - pre   0.0441     0.0763 0.578    0.563 -0.105  0.194   0</span></span>
-<span><span class="co">#&gt;  time post - pre   0.3853     0.0740 5.204   &lt;0.001  0.240  0.530   1</span></span>
+<span><span class="co">#&gt;  time post - pre   0.0132     0.0756 0.175    0.861 -0.135  0.161   0</span></span>
+<span><span class="co">#&gt;  time post - pre   0.2587     0.0773 3.349   &lt;0.001  0.107  0.410   1</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, y, time, trt</span></span></code></pre></div>
@@ -821,8 +821,8 @@ the Diff-in-Diff estimate:</p>
 <span>    newdata <span class="op">=</span> <span class="fu"><a href="../reference/datagrid.html">datagrid</a></span><span class="op">(</span>trt <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">1</span><span class="op">)</span>,</span>
 <span>    hypothesis <span class="op">=</span> <span class="st">"pairwise"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;           Term Estimate Std. Error     z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  Row 1 - Row 2   -0.341      0.106 -3.21  0.00133 -0.55 -0.133</span></span>
+<span><span class="co">#&gt;           Term Estimate Std. Error     z Pr(&gt;|z|)  2.5 %  97.5 %</span></span>
+<span><span class="co">#&gt;  Row 1 - Row 2   -0.246      0.108 -2.27   0.0231 -0.457 -0.0337</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: type, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
