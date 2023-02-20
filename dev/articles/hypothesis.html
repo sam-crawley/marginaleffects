@@ -788,13 +788,13 @@ periods:</p>
 <span>    variable.name <span class="op">=</span> <span class="st">"time"</span>,</span>
 <span>    id.vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"trt"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">did</span><span class="op">)</span></span>
-<span><span class="co">#&gt;    id trt time          y</span></span>
-<span><span class="co">#&gt; 1:  1   1  pre  1.6602844</span></span>
-<span><span class="co">#&gt; 2:  2   0  pre  0.8104187</span></span>
-<span><span class="co">#&gt; 3:  3   1  pre -1.5849490</span></span>
-<span><span class="co">#&gt; 4:  4   0  pre -1.3579656</span></span>
-<span><span class="co">#&gt; 5:  5   1  pre  1.3687738</span></span>
-<span><span class="co">#&gt; 6:  6   1  pre -0.9251560</span></span></code></pre></div>
+<span><span class="co">#&gt;    id trt time           y</span></span>
+<span><span class="co">#&gt; 1:  1   1  pre  1.97620037</span></span>
+<span><span class="co">#&gt; 2:  2   0  pre -0.03369965</span></span>
+<span><span class="co">#&gt; 3:  3   0  pre  0.65650223</span></span>
+<span><span class="co">#&gt; 4:  4   0  pre  0.66777238</span></span>
+<span><span class="co">#&gt; 5:  5   1  pre -0.23296992</span></span>
+<span><span class="co">#&gt; 6:  6   1  pre  1.02252778</span></span></code></pre></div>
 <p>Then, we estimate a linear model with a multiple interaction between
 the time and the treatment indicators. We also compute contrasts at the
 mean for each treatment level:</p>
@@ -806,9 +806,9 @@ mean for each treatment level:</p>
 <span>    newdata <span class="op">=</span> <span class="fu"><a href="../reference/datagrid.html">datagrid</a></span><span class="op">(</span>trt <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">1</span><span class="op">)</span>,</span>
 <span>    variables <span class="op">=</span> <span class="st">"time"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Term   Contrast Estimate Std. Error     z Pr(&gt;|z|)  2.5 % 97.5 % trt</span></span>
-<span><span class="co">#&gt;  time post - pre   0.0327     0.0790 0.414    0.679 -0.122  0.187   0</span></span>
-<span><span class="co">#&gt;  time post - pre   0.2736     0.0725 3.775   &lt;0.001  0.132  0.416   1</span></span>
+<span><span class="co">#&gt;  Term   Contrast Estimate Std. Error      z Pr(&gt;|z|)   2.5 % 97.5 % trt</span></span>
+<span><span class="co">#&gt;  time post - pre  -0.0354     0.0773 -0.458  0.64667 -0.1869  0.116   0</span></span>
+<span><span class="co">#&gt;  time post - pre   0.2461     0.0768  3.203  0.00136  0.0955  0.397   1</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, y, time, trt</span></span></code></pre></div>
@@ -822,7 +822,7 @@ the Diff-in-Diff estimate:</p>
 <span>    hypothesis <span class="op">=</span> <span class="st">"pairwise"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;           Term Estimate Std. Error     z Pr(&gt;|z|)  2.5 %  97.5 %</span></span>
-<span><span class="co">#&gt;  Row 1 - Row 2   -0.241      0.107 -2.25   0.0246 -0.451 -0.0308</span></span>
+<span><span class="co">#&gt;  Row 1 - Row 2   -0.282      0.109 -2.58  0.00979 -0.495 -0.0679</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: type, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
