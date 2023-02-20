@@ -27,7 +27,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.9.0.9050</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.9.0.9051</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -789,12 +789,12 @@ periods:</p>
 <span>    id.vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"trt"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">did</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    id trt time          y</span></span>
-<span><span class="co">#&gt; 1:  1   1  pre  1.1114702</span></span>
-<span><span class="co">#&gt; 2:  2   0  pre  0.8885014</span></span>
-<span><span class="co">#&gt; 3:  3   1  pre -1.0581615</span></span>
-<span><span class="co">#&gt; 4:  4   1  pre  1.4299956</span></span>
-<span><span class="co">#&gt; 5:  5   1  pre -0.1556436</span></span>
-<span><span class="co">#&gt; 6:  6   1  pre  2.6241401</span></span></code></pre></div>
+<span><span class="co">#&gt; 1:  1   0  pre -1.2105089</span></span>
+<span><span class="co">#&gt; 2:  2   1  pre  0.1812061</span></span>
+<span><span class="co">#&gt; 3:  3   1  pre  1.5410207</span></span>
+<span><span class="co">#&gt; 4:  4   1  pre  0.4679877</span></span>
+<span><span class="co">#&gt; 5:  5   0  pre  1.2408157</span></span>
+<span><span class="co">#&gt; 6:  6   0  pre -0.2479753</span></span></code></pre></div>
 <p>Then, we estimate a linear model with a multiple interaction between
 the time and the treatment indicators. We also compute contrasts at the
 mean for each treatment level:</p>
@@ -807,8 +807,8 @@ mean for each treatment level:</p>
 <span>    variables <span class="op">=</span> <span class="st">"time"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Term   Contrast Estimate Std. Error      z Pr(&gt;|z|)  2.5 % 97.5 % trt</span></span>
-<span><span class="co">#&gt;  time post - pre  -0.0449     0.0798 -0.562    0.574 -0.201  0.112   0</span></span>
-<span><span class="co">#&gt;  time post - pre   0.2994     0.0798  3.751   &lt;0.001  0.143  0.456   1</span></span>
+<span><span class="co">#&gt;  time post - pre  -0.0201     0.0785 -0.256    0.798 -0.174  0.134   0</span></span>
+<span><span class="co">#&gt;  time post - pre   0.3663     0.0787  4.654   &lt;0.001  0.212  0.521   1</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, y, time, trt</span></span></code></pre></div>
@@ -822,7 +822,7 @@ the Diff-in-Diff estimate:</p>
 <span>    hypothesis <span class="op">=</span> <span class="st">"pairwise"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;           Term Estimate Std. Error     z Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  Row 1 - Row 2   -0.344      0.113 -3.05  0.00229 -0.566 -0.123</span></span>
+<span><span class="co">#&gt;  Row 1 - Row 2   -0.386      0.111 -3.48   &lt;0.001 -0.604 -0.168</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: type, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>

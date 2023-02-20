@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.9.0.9050</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.9.0.9051</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,8 +85,8 @@
 <li><p>Function which returns a numeric vector or a set of unique categorical values</p></li>
 <li><p>Shortcut strings for common reference values: "minmax", "quartile", "threenum"</p></li>
 </ul></li>
-<li><p>1: x-axis. 2: color. 3: facets.</p></li>
-<li><p>Numeric variables in position 2 and 3 are summarized by Tukey's five numbers <code><a href="https://rdrr.io/r/stats/fivenum.html" class="external-link">?stats::fivenum</a></code></p></li>
+<li><p>1: x-axis. 2: color/shape. 3: facets.</p></li>
+<li><p>Numeric variables in positions 2 and 3 are summarized by Tukey's five numbers <code><a href="https://rdrr.io/r/stats/fivenum.html" class="external-link">?stats::fivenum</a></code></p></li>
 </ul></dd>
 
 
@@ -125,7 +125,7 @@ the <code>marginaleffects:::type_dictionary</code> dataframe.</p></dd>
 
 
 <dt>transform_post</dt>
-<dd><p>(experimental) A function applied to unit-level adjusted predictions and confidence intervals just before the function returns results. For bayesian models, this function is applied to individual draws from the posterior distribution, before computing summaries.</p></dd>
+<dd><p>A function applied to unit-level adjusted predictions and confidence intervals just before the function returns results. For bayesian models, this function is applied to individual draws from the posterior distribution, before computing summaries.</p></dd>
 
 
 <dt>points</dt>
