@@ -56,42 +56,52 @@
 <ul><li><code><a href="https://rdrr.io/pkg/MCMCglmm/man/MCMCglmm.html" class="external-link">MCMCglmm::MCMCglmm</a></code></li>
 <li><code><a href="https://rdrr.io/pkg/Rchoice/man/hetprob.html" class="external-link">Rchoice::hetprob</a></code></li>
 <li><code><a href="https://rdrr.io/pkg/Rchoice/man/ivpml.html" class="external-link">Rchoice::ivpml</a></code></li>
-</ul><p>Plotting functions improvements:</p>
+</ul><p>Plot improvements:</p>
 <ul><li>New <code>by</code> argument to display marginal estimates by subgroup.</li>
 <li>New <code>rug</code> argument to display tick marks in the margins.</li>
 <li>New <code>points</code> argument to display a scatter plot.</li>
 <li>New <code>gray</code> argument to plot in grayscale.</li>
 <li>
 <code>effect</code> argument is renamed to <code>variables</code> in <code><a href="../reference/plot_slopes.html">plot_slopes()</a></code> and <code><a href="../reference/plot_comparisons.html">plot_comparisons()</a></code>. This improves consistency with the analogous <code><a href="../reference/slopes.html">slopes()</a></code> and <code><a href="../reference/comparisons.html">comparisons()</a></code> functions.</li>
-<li>The plotting vignette was completely re-written.</li>
+<li>The plotting vignette was re-written.</li>
 </ul><p>Other:</p>
-<ul><li>Use the <code>numDeriv</code> package for numeric differentiation in the calculation of delta method standard error. This global option is passed to <code><a href="https://rdrr.io/pkg/numDeriv/man/jacobian.html" class="external-link">numDeriv::jacobian</a></code>: `options(marginaleffects_numDeriv=</li>
-<li>
-<code><a href="../reference/inferences.html">inferences()</a></code> supports multiple imputation.</li>
-<li>Major performance improvements for many functions. Thanks to Etienne Bacher.</li>
-<li>The <code>variables_grid</code> argument in <code><a href="../reference/marginal_means.html">marginal_means()</a></code> is renamed to <code>newdata</code>. Backward compatibility is maintained.</li>
+<ul><li>Major performance improvements for many functions. Thanks to Etienne Bacher.</li>
+<li>Support multiple imputation with <code>mice</code> <code>mira</code> objects. The multiple imputation vignette was rewritten.</li>
+<li>The <code>variables_grid</code> argument in <code><a href="../reference/marginal_means.html">marginal_means()</a></code> is renamed <code>newdata</code>. Backward compatibility is maintained.</li>
 <li>
 <code>avg_*()</code> returns an informative error when <code>vcov</code> is “satterthwaite” or “kenward-roger”</li>
 <li>“satterthwaite” and “kenward-roger” are now supported when <code>newdata</code> is not <code>NULL</code>
-</li>
-<li>
-<code>print.marginaleffects</code> now prints all columns supplied to <code>newdata</code>
 </li>
 <li>Informative error when <code>hypothesis</code> includes a <code>b#</code> larger than the available number of estimates.</li>
 <li>
 <code>avg_predictions(model, variables = "x")</code> computes average counterfactual predictions by subgroups of <code>x</code>
 </li>
 <li>
-<code><a href="../reference/hypotheses.html">hypotheses()</a></code> now works on lists and in calls to <code><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply()</a></code>, <code><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">purrr::map()</a></code>, etc.</li>
-<li>
 <code><a href="../reference/datagrid.html">datagrid()</a></code> and <code>plot_*()</code> functions are faster in datasets with many extraneous columns.</li>
-<li>Do not backtransform GLM predictions if <code>type="response"</code> is specified explicitly.</li>
+<li>In <code>predictions(type = NULL)</code> with <code><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm()</a></code> and <code>Gam()</code> we first make predictions on the link scale and then backtransform them. Setting <code>type="response"</code> explicitly makes predictions directly on the response scale without backtransformation.</li>
+<li>Standard errors now supported for more <code>glmmTMB</code> models.</li>
+<li>Use the <code>numDeriv</code> package for numeric differentiation in the calculation of delta method standard error. A global option can now be passed to <code><a href="https://rdrr.io/pkg/numDeriv/man/jacobian.html" class="external-link">numDeriv::jacobian</a></code>:
+<ul><li><code>options(marginaleffects_numDeriv = list(method = "simple", method.args = list(eps = 1e-6)))</code></li>
+<li><code>options(marginaleffects_numDeriv = list(method = "Richardson", method.args = list(eps = 1e-6)))</code></li>
+<li><code>options(marginaleffects_numDeriv = NULL)</code></li>
+</ul></li>
+<li>Print:
+<ul><li>Print fewer significant digits.</li>
+<li>
+<code>print.marginaleffects</code> now prints all columns supplied to <code>newdata</code>
+</li>
+<li>Less redundant labels when using <code>hypothesis</code>
+</li>
+</ul></li>
+<li>Many improvements to documentation.</li>
 </ul><p>Bugfixes:</p>
-<ul><li>Standard errors could be inaccurate in models with non-linear components (and interactions) when some of the coefficients were very small. This was related to the step size used for numerical differentiation for the delta method. Issue 684.</li>
+<ul><li>Standard errors could be inaccurate in models with non-linear components (and interactions) when some of the coefficients were very small. This was related to the step size used for numerical differentiation for the delta method. Issue <a href="https://github.com/vincentarelbundock/marginaleffects/issues/684" class="external-link">#684</a>.</li>
 <li>
-<code>avg_predictions(by =)</code> did not work when the dataset included a column named <code>term</code>. Issue 683.</li>
+<code>avg_predictions(by =)</code> did not work when the dataset included a column named <code>term</code>. Issue <a href="https://github.com/vincentarelbundock/marginaleffects/issues/683" class="external-link">#683</a>.</li>
 <li>
-<code>brms</code> models with multivariate outcome collapsed categories in <code><a href="../reference/comparisons.html">comparisons()</a></code>. Issue 639.</li>
+<code>brms</code> models with multivariate outcome collapsed categories in <code><a href="../reference/comparisons.html">comparisons()</a></code>. Issue <a href="https://github.com/vincentarelbundock/marginaleffects/issues/639" class="external-link">#639</a>.</li>
+<li>
+<code><a href="../reference/hypotheses.html">hypotheses()</a></code> now works on lists and in calls to <code><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply()</a></code>, <code><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">purrr::map()</a></code>, etc. Issue <a href="https://github.com/vincentarelbundock/marginaleffects/issues/660" class="external-link">#660</a>.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.9.0" id="marginaleffects-090">marginaleffects 0.9.0<a class="anchor" aria-label="anchor" href="#marginaleffects-090"></a></h2><p class="text-muted">CRAN release: 2023-02-01</p>
