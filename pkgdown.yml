@@ -5,6 +5,7 @@ articles:
   alternative_software: alternative_software.html
   bootstrap: bootstrap.html
   brms: brms.html
+  categorical: categorical.html
   comparisons: comparisons.html
   elasticity: elasticity.html
   experiments: experiments.html
@@ -18,7 +19,6 @@ articles:
   logit: logit.html
   marginaleffects: marginaleffects.html
   marginalmeans: marginalmeans.html
-  mlogit: mlogit.html
   multiple_imputation: multiple_imputation.html
   performance: performance.html
   plot: plot.html
@@ -28,7 +28,7 @@ articles:
   supported_models: supported_models.html
   tables: tables.html
   uncertainty: uncertainty.html
-last_built: 2023-02-20T16:36Z
+last_built: 2023-02-21T22:34Z
 urls:
   reference: https://vincentarelbundock.github.io/marginaleffects/reference
   article: https://vincentarelbundock.github.io/marginaleffects/articles

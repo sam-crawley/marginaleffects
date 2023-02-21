@@ -52,10 +52,13 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.10.0" id="marginaleffects-0100">marginaleffects 0.10.0<a class="anchor" aria-label="anchor" href="#marginaleffects-0100"></a></h2>
-<p>New models supported:</p>
+<p>Performance:</p>
+<ul><li>2-4x faster execution for many calls. Thanks to Etienne Bacher.</li>
+</ul><p>New models supported:</p>
 <ul><li><code><a href="https://rdrr.io/pkg/MCMCglmm/man/MCMCglmm.html" class="external-link">MCMCglmm::MCMCglmm</a></code></li>
 <li><code><a href="https://rdrr.io/pkg/Rchoice/man/hetprob.html" class="external-link">Rchoice::hetprob</a></code></li>
 <li><code><a href="https://rdrr.io/pkg/Rchoice/man/ivpml.html" class="external-link">Rchoice::ivpml</a></code></li>
+<li>Multiple imputation using <code>mice</code> and any package which can return a list of imputed data frames (e.g., <code>Amelia</code>, <code>missRanger</code>, etc.)</li>
 </ul><p>Plot improvements:</p>
 <ul><li>New <code>by</code> argument to display marginal estimates by subgroup.</li>
 <li>New <code>rug</code> argument to display tick marks in the margins.</li>
@@ -64,8 +67,7 @@
 <li>The <code>effect</code> argument is renamed to <code>variables</code> in <code><a href="../reference/plot_slopes.html">plot_slopes()</a></code> and <code><a href="../reference/plot_comparisons.html">plot_comparisons()</a></code>. This improves consistency with the analogous <code><a href="../reference/slopes.html">slopes()</a></code> and <code><a href="../reference/comparisons.html">comparisons()</a></code> functions.</li>
 <li>The plotting vignette was re-written.</li>
 </ul><p>Other:</p>
-<ul><li>Performance improvements for many functions. Thanks to Etienne Bacher.</li>
-<li>Support multiple imputation with <code>mice</code> <code>mira</code> objects. The multiple imputation vignette was rewritten.</li>
+<ul><li>Support multiple imputation with <code>mice</code> <code>mira</code> objects. The multiple imputation vignette was rewritten.</li>
 <li>The <code>variables_grid</code> argument in <code><a href="../reference/marginal_means.html">marginal_means()</a></code> is renamed <code>newdata</code>. Backward compatibility is maintained.</li>
 <li>
 <code>avg_*()</code> returns an informative error when <code>vcov</code> is “satterthwaite” or “kenward-roger”</li>
