@@ -6,12 +6,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="marginaleffects">
-<title>Multinomial Logit and Discrete Choice Models • marginaleffects</title>
+<title>Categorical outcomes • marginaleffects</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Multinomial Logit and Discrete Choice Models">
+<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Categorical outcomes">
 <meta property="og:description" content="marginaleffects">
 <meta name="robots" content="noindex">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -69,38 +69,76 @@
 
 
 
-
-<div class="row">
+<script src="categorical_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="" class="logo" alt=""><h1>Multinomial Logit and Discrete Choice Models</h1>
+      <img src="" class="logo" alt=""><h1>Categorical outcomes</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/vincentarelbundock/marginaleffects/blob/HEAD/vignettes/mlogit.Rmd" class="external-link"><code>vignettes/mlogit.Rmd</code></a></small>
-      <div class="d-none name"><code>mlogit.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/vincentarelbundock/marginaleffects/blob/HEAD/vignettes/categorical.Rmd" class="external-link"><code>vignettes/categorical.Rmd</code></a></small>
+      <div class="d-none name"><code>categorical.Rmd</code></div>
     </div>
 
     
     
-<p>Several packages in the <code>R</code> ecosystem allow users to
-estimate multinomial logit model and discrete choice models. This case
-study illustrates the use of <code>marginaleffects</code> with the
-<code>nnet</code> and <code>mlogit</code> packages.</p>
+<p>Several packages in the <code>R</code> ecosystem allow users to estimate models for ordered or discrete choice, such as ordered probit or multinomial logit. This case study illustrates the use of <code>marginaleffects</code> with the <code>MASS</code>, <code>nnet</code>, and <code>mlogit</code> packages.</p>
 <p>We begin by loading two libraries:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://vincentarelbundock.github.io/marginaleffects/">marginaleffects</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
+<h2 id="masspolr-function">
+<code>MASS::polr</code> function<a class="anchor" aria-label="anchor" href="#masspolr-function"></a>
+</h2>
+<p>Consider a simple ordered logit model in which we predict the number of gears of a car based its miles per gallon and horsepower:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://www.stats.ox.ac.uk/pub/MASS4/" class="external-link">MASS</a></span><span class="op">)</span></span>
+<span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/MASS/man/polr.html" class="external-link">polr</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">gear</span><span class="op">)</span> <span class="op">~</span> <span class="va">mpg</span> <span class="op">+</span> <span class="va">hp</span>, data <span class="op">=</span> <span class="va">mtcars</span>, Hess <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<p>Now, consider a car with 25 miles per gallon and 110 horsepower. The expected predicted probability for each outcome level (gear) for this car is:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">mod</span>, newdata <span class="op">=</span> <span class="fu"><a href="../reference/datagrid.html">datagrid</a></span><span class="op">(</span>mpg <span class="op">=</span> <span class="fl">25</span>, hp <span class="op">=</span> <span class="fl">110</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Group Estimate Std. Error    z Pr(&gt;|z|)  2.5 % 97.5 % mpg  hp</span></span>
+<span><span class="co">#&gt;      3    0.203     0.0959 2.12   0.0339 0.0155  0.391  25 110</span></span>
+<span><span class="co">#&gt;      4    0.578     0.1229 4.70   &lt;0.001 0.3373  0.819  25 110</span></span>
+<span><span class="co">#&gt;      5    0.218     0.1007 2.17   0.0302 0.0209  0.416  25 110</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Prediction type:  probs </span></span>
+<span><span class="co">#&gt; Columns: rowid, type, group, estimate, std.error, statistic, p.value, conf.low, conf.high, gear, mpg, hp</span></span></code></pre></div>
+<p>Since the <code>gear</code> is categorical, we make one prediction for each level of the outcome.</p>
+<p>Now consider the marginal effects (aka slopes or partial derivatives) for the same car:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/slopes.html">slopes</a></span><span class="op">(</span><span class="va">mod</span>, variables <span class="op">=</span> <span class="st">"mpg"</span>, newdata <span class="op">=</span> <span class="fu"><a href="../reference/datagrid.html">datagrid</a></span><span class="op">(</span>mpg <span class="op">=</span> <span class="fl">25</span>, hp <span class="op">=</span> <span class="fl">110</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Group Term Estimate Std. Error       z Pr(&gt;|z|)    2.5 %  97.5 % mpg  hp</span></span>
+<span><span class="co">#&gt;      3  mpg -0.06041     0.0169 -3.5809   &lt;0.001 -0.09347 -0.0273  25 110</span></span>
+<span><span class="co">#&gt;      4  mpg -0.00321     0.0335 -0.0958   0.9237 -0.06896  0.0625  25 110</span></span>
+<span><span class="co">#&gt;      5  mpg  0.06362     0.0301  2.1132   0.0346  0.00461  0.1226  25 110</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Prediction type:  probs </span></span>
+<span><span class="co">#&gt; Columns: rowid, type, group, term, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, gear, mpg, hp</span></span></code></pre></div>
+<p>Again, <code>marginaleffects</code> produces one estimate of the slope for each outcome level. For a small step size <span class="math inline">\(\varepsilon\)</span>, the printed quantities are estimated as:</p>
+<p><span class="math display">\[\frac{P(gear=3|mpg=25+\varepsilon, hp=110)-P(gear=3|mpg=25-\varepsilon, hp=110)}{2 \cdot \varepsilon}\]</span> <span class="math display">\[\frac{P(gear=4|mpg=25+\varepsilon, hp=110)-P(gear=4|mpg=25-\varepsilon, hp=110)}{2 \cdot \varepsilon}\]</span> <span class="math display">\[\frac{P(gear=5|mpg=25+\varepsilon, hp=110)-P(gear=5|mpg=25-\varepsilon, hp=110)}{2 \cdot \varepsilon}\]</span></p>
+<p>When we call <code><a href="../reference/slopes.html">avg_slopes()</a></code>, <code>marginaleffects</code> will repeat the same computation for every row of the original dataset, and then report the average slope for each level of the outcome:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/slopes.html">avg_slopes</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Group Term Estimate Std. Error     z Pr(&gt;|z|)     2.5 %   97.5 %</span></span>
+<span><span class="co">#&gt;      3  hp  -0.00377   0.001514 -2.49  0.01283 -0.006735 -0.00080</span></span>
+<span><span class="co">#&gt;      4  hp   0.00201   0.000957  2.10  0.03545  0.000137  0.00389</span></span>
+<span><span class="co">#&gt;      5  hp   0.00175   0.000833  2.11  0.03522  0.000122  0.00339</span></span>
+<span><span class="co">#&gt;      3  mpg -0.07014   0.015480 -4.53  &lt; 0.001 -0.100479 -0.03980</span></span>
+<span><span class="co">#&gt;      4  mpg  0.03747   0.013857  2.70  0.00685  0.010311  0.06463</span></span>
+<span><span class="co">#&gt;      5  mpg  0.03267   0.009572  3.41  &lt; 0.001  0.013907  0.05143</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Prediction type:  probs </span></span>
+<span><span class="co">#&gt; Columns: type, group, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
+</div>
+<div class="section level2">
 <h2 id="nnet-package">
 <code>nnet</code> package<a class="anchor" aria-label="anchor" href="#nnet-package"></a>
 </h2>
-<p>The <code>multinom</code> function of the <code>nnet</code> package
-allows users to fit log-linear models via neural networks. The
-<code>data</code> used for this function is a data frame with one
-observation per row, and the response variable is coded a factor. All
-the <code>marginaleffects</code> package function work seamlessly with
-this model. For example, we can estimate a model and compute average
-marginal effects as follows:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<p>The <code>multinom</code> function of the <code>nnet</code> package allows users to fit log-linear models via neural networks. The <code>data</code> used for this function is a data frame with one observation per row, and the response variable is coded a factor. All the <code>marginaleffects</code> package function work seamlessly with this model. For example, we can estimate a model and compute average marginal effects as follows:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://www.stats.ox.ac.uk/pub/MASS4/" class="external-link">nnet</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
@@ -126,38 +164,31 @@ marginal effects as follows:</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  probs </span></span>
 <span><span class="co">#&gt; Columns: type, group, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
-<p>Notice that in such models, we get one marginal effect for each term,
-for each level of the response variable. For this reason, we should use
-<code>"group"</code> in the <code>condition</code> argument (or
-<code>facet_*()</code> function) when calling one of the plotting
-functions:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<p>Notice that in such models, we get one marginal effect for each term, for each level of the response variable. For this reason, we should use <code>"group"</code> in the <code>condition</code> argument (or <code>facet_*()</code> function) when calling one of the plotting functions:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/plot_predictions.html">plot_predictions</a></span><span class="op">(</span><span class="va">mod</span>, condition <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"mpg"</span>, <span class="st">"group"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"probs"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="mlogit_files/figure-html/unnamed-chunk-4-1.png" width="100%"></p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<p><img src="categorical_files/figure-html/unnamed-chunk-8-1.png" width="100%"></p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="../reference/plot_predictions.html">plot_predictions</a></span><span class="op">(</span><span class="va">mod</span>, condition <span class="op">=</span> <span class="st">"mpg"</span>, type <span class="op">=</span> <span class="st">"probs"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">group</span><span class="op">)</span></span></code></pre></div>
-<p><img src="mlogit_files/figure-html/unnamed-chunk-4-2.png" width="100%"></p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<p><img src="categorical_files/figure-html/unnamed-chunk-8-2.png" width="100%"></p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="../reference/plot_comparisons.html">plot_comparisons</a></span><span class="op">(</span></span>
 <span>    <span class="va">mod</span>,</span>
 <span>    variables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>mpg <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">30</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>    condition <span class="op">=</span> <span class="st">"group"</span>,</span>
 <span>    type <span class="op">=</span> <span class="st">"probs"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="mlogit_files/figure-html/unnamed-chunk-4-3.png" width="100%"></p>
+<p><img src="categorical_files/figure-html/unnamed-chunk-8-3.png" width="100%"></p>
 </div>
 <div class="section level2">
 <h2 id="mlogit-package">
 <code>mlogit</code> package<a class="anchor" aria-label="anchor" href="#mlogit-package"></a>
 </h2>
-<p>The <code>mlogit</code> package uses <code>data</code> in a slightly
-different structure, with one row per observation-choice combination.
-For example, this data on choice of travel mode includes 4 rows per
-individual, one for each mode of transportation:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<p>The <code>mlogit</code> package uses <code>data</code> in a slightly different structure, with one row per observation-choice combination. For example, this data on choice of travel mode includes 4 rows per individual, one for each mode of transportation:</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st">"AER"</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://cran.r-project.org/package=mlogit" class="external-link">"mlogit"</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
@@ -188,22 +219,11 @@ individual, one for each mode of transportation:</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: type, group, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
-<p>Note that the <code>slopes</code> function will always return
-estimates of zero for regressors before the vertical bar in the formula.
-This is because the <code><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict()</a></code> function supplied by the
-<code>mlogit</code> package does not produce different predictions for
-different values of these variables.</p>
-<p>To compute different kinds of marginal effects, we can construct
-customized data frames and feed them to the <code>newdata</code>
-argument of the <code>slopes</code> function.</p>
-<p><strong>Important:</strong> The <code>newdata</code> argument for
-<code>mlogit</code> models must be a “balanced” data frame, that is, it
-must have a number of rows that is a multiple of the number of
-choices.</p>
-<p>If we want to compute the slope of the response function (marginal
-effects) when each of the predictors is fixed to its global mean, we can
-do:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<p>Note that the <code>slopes</code> function will always return estimates of zero for regressors before the vertical bar in the formula. This is because the <code><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict()</a></code> function supplied by the <code>mlogit</code> package does not produce different predictions for different values of these variables.</p>
+<p>To compute different kinds of marginal effects, we can construct customized data frames and feed them to the <code>newdata</code> argument of the <code>slopes</code> function.</p>
+<p><strong>Important:</strong> The <code>newdata</code> argument for <code>mlogit</code> models must be a “balanced” data frame, that is, it must have a number of rows that is a multiple of the number of choices.</p>
+<p>If we want to compute the slope of the response function (marginal effects) when each of the predictors is fixed to its global mean, we can do:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">nd</span> <span class="op">&lt;-</span> <span class="va">TravelMode</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html" class="external-link">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"wait"</span>, <span class="st">"gcost"</span>, <span class="st">"income"</span>, <span class="st">"size"</span><span class="op">)</span>,</span>
 <span>              <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
@@ -218,7 +238,7 @@ do:</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Group   Term  Estimate Std. Error     z Pr(&gt;|z|)     2.5 %    97.5 %</span></span>
 <span><span class="co">#&gt;  air   income  6.66e-03   2.42e-03  2.75  0.00603  1.91e-03  1.14e-02</span></span>
-<span><span class="co">#&gt;  bus   income -1.14e-03   9.43e-04 -1.21  0.22639 -2.99e-03  7.08e-04</span></span>
+<span><span class="co">#&gt;  bus   income -1.14e-03   9.43e-04 -1.21  0.22638 -2.99e-03  7.08e-04</span></span>
 <span><span class="co">#&gt;  car   income  6.48e-06   2.02e-05  0.32  0.74893 -3.32e-05  4.62e-05</span></span>
 <span><span class="co">#&gt;  train income -5.52e-03   1.91e-03 -2.89  0.00383 -9.26e-03 -1.78e-03</span></span>
 <span><span class="co">#&gt;  air   size   -1.69e-01   5.88e-02 -2.88  0.00394 -2.85e-01 -5.43e-02</span></span>
@@ -228,10 +248,8 @@ do:</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: type, group, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
-<p>If we want to compute marginal effects with the <code>gcost</code>
-and <code>wait</code> fixed at their mean value, <em>conditional</em> on
-the choice of transportation mode:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<p>If we want to compute marginal effects with the <code>gcost</code> and <code>wait</code> fixed at their mean value, <em>conditional</em> on the choice of transportation mode:</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">nd</span> <span class="op">&lt;-</span> <span class="va">TravelMode</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">mode</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html" class="external-link">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"wait"</span>, <span class="st">"gcost"</span>, <span class="st">"income"</span>, <span class="st">"size"</span><span class="op">)</span>, <span class="va">mean</span><span class="op">)</span><span class="op">)</span></span>
@@ -251,16 +269,15 @@ the choice of transportation mode:</p>
 <span><span class="co">#&gt;  bus   income -0.000713    0.00146 -0.489  0.62481 -0.003570  0.00214</span></span>
 <span><span class="co">#&gt;  car   income  0.005445    0.00229  2.382  0.01721  0.000965  0.00993</span></span>
 <span><span class="co">#&gt;  train income -0.010747    0.00256 -4.202  &lt; 0.001 -0.015760 -0.00573</span></span>
-<span><span class="co">#&gt;  air   size   -0.232927    0.05659 -4.116  &lt; 0.001 -0.343848 -0.12201</span></span>
+<span><span class="co">#&gt;  air   size   -0.232927    0.05659 -4.116  &lt; 0.001 -0.343846 -0.12201</span></span>
 <span><span class="co">#&gt;  bus   size    0.020440    0.03436  0.595  0.55195 -0.046908  0.08779</span></span>
 <span><span class="co">#&gt;  car   size    0.067820    0.04123  1.645  0.09996 -0.012984  0.14862</span></span>
-<span><span class="co">#&gt;  train size    0.144668    0.04774  3.030  0.00244  0.051102  0.23823</span></span>
+<span><span class="co">#&gt;  train size    0.144668    0.04774  3.030  0.00244  0.051101  0.23823</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: type, group, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
-<p>We can also explore more complex alternatives. Here, for example,
-only one alternative is affected by cost reduction:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<p>We can also explore more complex alternatives. Here, for example, only one alternative is affected by cost reduction:</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">nd</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/datagrid.html">datagrid</a></span><span class="op">(</span>mode <span class="op">=</span> <span class="va">TravelMode</span><span class="op">$</span><span class="va">mode</span>, newdata <span class="op">=</span> <span class="va">TravelMode</span><span class="op">)</span></span>
 <span><span class="va">nd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="va">nd</span>, gcost <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span> <span class="op">==</span> <span class="va">i</span>, <span class="fl">30</span>, <span class="va">gcost</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">nd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html" class="external-link">bind_rows</a></span><span class="op">(</span><span class="va">nd</span><span class="op">)</span></span>
@@ -290,7 +307,7 @@ only one alternative is affected by cost reduction:</p>
 <span><span class="co">#&gt;  bus   income -1.33e-03   1.30e-03 -1.020    0.308 -3.88e-03  0.001222</span></span>
 <span><span class="co">#&gt;  car   income  2.66e-05   4.31e-05  0.617    0.537 -5.79e-05  0.000111</span></span>
 <span><span class="co">#&gt;  train income -6.94e-03   1.86e-03 -3.735   &lt;0.001 -1.06e-02 -0.003298</span></span>
-<span><span class="co">#&gt;  air   size   -2.12e-01   6.02e-02 -3.526   &lt;0.001 -3.31e-01 -0.094366</span></span>
+<span><span class="co">#&gt;  air   size   -2.12e-01   6.02e-02 -3.526   &lt;0.001 -3.31e-01 -0.094365</span></span>
 <span><span class="co">#&gt;  bus   size    6.06e-02   3.79e-02  1.600    0.110 -1.37e-02  0.134911</span></span>
 <span><span class="co">#&gt;  car   size    2.38e-03   1.57e-03  1.512    0.131 -7.04e-04  0.005459</span></span>
 <span><span class="co">#&gt;  train size    1.49e-01   4.28e-02  3.489   &lt;0.001  6.55e-02  0.233392</span></span>

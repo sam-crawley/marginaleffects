@@ -13,6 +13,9 @@
     <loc>https://vincentarelbundock.github.io/marginaleffects/dev/articles/brms.html</loc>
   </url>
   <url>
+    <loc>https://vincentarelbundock.github.io/marginaleffects/dev/articles/categorical.html</loc>
+  </url>
+  <url>
     <loc>https://vincentarelbundock.github.io/marginaleffects/dev/articles/comparisons.html</loc>
   </url>
   <url>
@@ -53,9 +56,6 @@
   </url>
   <url>
     <loc>https://vincentarelbundock.github.io/marginaleffects/dev/articles/marginalmeans.html</loc>
-  </url>
-  <url>
-    <loc>https://vincentarelbundock.github.io/marginaleffects/dev/articles/mlogit.html</loc>
   </url>
   <url>
     <loc>https://vincentarelbundock.github.io/marginaleffects/dev/articles/multiple_imputation.html</loc>
