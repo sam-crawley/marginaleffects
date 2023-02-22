@@ -27,7 +27,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.9.9102</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -788,13 +788,13 @@ periods:</p>
 <span>    variable.name <span class="op">=</span> <span class="st">"time"</span>,</span>
 <span>    id.vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"trt"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">did</span><span class="op">)</span></span>
-<span><span class="co">#&gt;    id trt time           y</span></span>
-<span><span class="co">#&gt; 1:  1   1  pre  1.13737322</span></span>
-<span><span class="co">#&gt; 2:  2   0  pre  0.66995779</span></span>
-<span><span class="co">#&gt; 3:  3   0  pre -1.36436142</span></span>
-<span><span class="co">#&gt; 4:  4   1  pre  0.01247487</span></span>
-<span><span class="co">#&gt; 5:  5   0  pre -1.40346519</span></span>
-<span><span class="co">#&gt; 6:  6   1  pre  0.75468661</span></span></code></pre></div>
+<span><span class="co">#&gt;    id trt time          y</span></span>
+<span><span class="co">#&gt; 1:  1   0  pre -1.7004282</span></span>
+<span><span class="co">#&gt; 2:  2   1  pre  1.2976310</span></span>
+<span><span class="co">#&gt; 3:  3   0  pre -1.0521628</span></span>
+<span><span class="co">#&gt; 4:  4   0  pre -0.4482272</span></span>
+<span><span class="co">#&gt; 5:  5   1  pre  0.3560824</span></span>
+<span><span class="co">#&gt; 6:  6   0  pre  0.7693611</span></span></code></pre></div>
 <p>Then, we estimate a linear model with a multiple interaction between
 the time and the treatment indicators. We also compute contrasts at the
 mean for each treatment level:</p>
@@ -806,9 +806,9 @@ mean for each treatment level:</p>
 <span>    newdata <span class="op">=</span> <span class="fu"><a href="../reference/datagrid.html">datagrid</a></span><span class="op">(</span>trt <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">1</span><span class="op">)</span>,</span>
 <span>    variables <span class="op">=</span> <span class="st">"time"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Term   Contrast Estimate Std. Error     z Pr(&gt;|z|)  2.5 %   97.5 % trt</span></span>
-<span><span class="co">#&gt;  time post - pre   -0.151      0.076 -1.99   0.0464 -0.300 -0.00243   0</span></span>
-<span><span class="co">#&gt;  time post - pre    0.314      0.077  4.09   &lt;0.001  0.164  0.46527   1</span></span>
+<span><span class="co">#&gt;  Term   Contrast Estimate Std. Error     z Pr(&gt;|z|)  2.5 % 97.5 % trt</span></span>
+<span><span class="co">#&gt;  time post - pre    0.050     0.0811 0.617    0.537 -0.109  0.209   0</span></span>
+<span><span class="co">#&gt;  time post - pre    0.311     0.0762 4.084   &lt;0.001  0.162  0.460   1</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, y, time, trt</span></span></code></pre></div>
@@ -821,8 +821,8 @@ the Diff-in-Diff estimate:</p>
 <span>    newdata <span class="op">=</span> <span class="fu"><a href="../reference/datagrid.html">datagrid</a></span><span class="op">(</span>trt <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">1</span><span class="op">)</span>,</span>
 <span>    hypothesis <span class="op">=</span> <span class="st">"pairwise"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;           Term Estimate Std. Error     z Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  Row 1 - Row 2   -0.466      0.108 -4.31   &lt;0.001 -0.678 -0.254</span></span>
+<span><span class="co">#&gt;           Term Estimate Std. Error     z Pr(&gt;|z|)  2.5 %  97.5 %</span></span>
+<span><span class="co">#&gt;  Row 1 - Row 2   -0.261      0.111 -2.35   0.0189 -0.479 -0.0431</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: type, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
