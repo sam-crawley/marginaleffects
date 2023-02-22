@@ -238,27 +238,27 @@ to estimate the standard error.</li>
 <span><span class="va">mod</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/inferences.html">inferences</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"simulation"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Estimate Std. Error    2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  7.84e-01      0.191 2.70e-01  0.977</span></span>
-<span><span class="co">#&gt;  7.84e-01      0.160 3.60e-01  0.966</span></span>
-<span><span class="co">#&gt;  8.98e-01      0.142 4.45e-01  0.992</span></span>
-<span><span class="co">#&gt;  8.74e-01      0.237 1.64e-01  0.995</span></span>
-<span><span class="co">#&gt;  1.31e-02      0.182 8.06e-05  0.719</span></span>
+<span><span class="co">#&gt;  7.84e-01      0.198 2.63e-01  0.972</span></span>
+<span><span class="co">#&gt;  7.84e-01      0.170 3.27e-01  0.958</span></span>
+<span><span class="co">#&gt;  8.98e-01      0.141 4.52e-01  0.989</span></span>
+<span><span class="co">#&gt;  8.74e-01      0.235 1.71e-01  0.995</span></span>
+<span><span class="co">#&gt;  1.31e-02      0.191 5.88e-05  0.736</span></span>
 <span><span class="co">#&gt; --- 22 rows omitted. See ?avg_predictions and ?print.marginaleffects --- </span></span>
-<span><span class="co">#&gt;  3.83e-01      0.292 2.13e-02  0.957</span></span>
-<span><span class="co">#&gt;  1.21e-06      0.138 3.99e-12  0.491</span></span>
-<span><span class="co">#&gt;  6.89e-03      0.147 4.46e-05  0.576</span></span>
-<span><span class="co">#&gt;  8.07e-11      0.165 2.22e-16  0.779</span></span>
-<span><span class="co">#&gt;  7.95e-01      0.163 3.56e-01  0.968</span></span>
+<span><span class="co">#&gt;  3.83e-01      0.294 1.69e-02  0.955</span></span>
+<span><span class="co">#&gt;  1.21e-06      0.133 1.73e-12  0.507</span></span>
+<span><span class="co">#&gt;  6.89e-03      0.153 2.09e-05  0.633</span></span>
+<span><span class="co">#&gt;  8.07e-11      0.168 2.22e-16  0.878</span></span>
+<span><span class="co">#&gt;  7.95e-01      0.172 3.26e-01  0.963</span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, type, estimate, std.error, conf.low, conf.high, vs, hp, wt, gear</span></span>
 <span></span>
 <span><span class="va">mod</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/slopes.html">avg_slopes</a></span><span class="op">(</span>vcov <span class="op">=</span> <span class="op">~</span><span class="va">gear</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/inferences.html">inferences</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"simulation"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Term Contrast Estimate Std. Error   2.5 %  97.5 %</span></span>
-<span><span class="co">#&gt;  gear    4 - 3 -0.04369    0.05718 -0.0860 0.13586</span></span>
-<span><span class="co">#&gt;  gear    5 - 3 -0.21404    0.26433 -0.4875 0.33236</span></span>
-<span><span class="co">#&gt;  hp      dY/dX -0.00441    0.00427 -0.0115 0.00435</span></span>
-<span><span class="co">#&gt;  wt      dY/dX -0.00184    0.30348 -0.5709 0.71500</span></span>
+<span><span class="co">#&gt;  gear    4 - 3 -0.04180    0.05633 -0.0913 0.13460</span></span>
+<span><span class="co">#&gt;  gear    5 - 3 -0.17825    0.27356 -0.4888 0.33548</span></span>
+<span><span class="co">#&gt;  hp      dY/dX -0.00483    0.00444 -0.0115 0.00451</span></span>
+<span><span class="co">#&gt;  wt      dY/dX  0.01034    0.31399 -0.6117 0.73379</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: type, term, contrast, estimate, std.error, conf.low, conf.high</span></span></code></pre></div>
