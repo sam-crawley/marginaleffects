@@ -539,13 +539,13 @@ Note that response levels are identified by the “group” column.</p>
 <span><span class="co"># first 5 raw predictions</span></span>
 <span><span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">nom</span>, type <span class="op">=</span> <span class="st">"probs"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Group Estimate Std. Error        z Pr(&gt;|z|)     2.5 %   97.5 %</span></span>
-<span><span class="co">#&gt;      3 3.62e-05   2.00e-03   0.0181   0.9856 -3.89e-03 3.96e-03</span></span>
-<span><span class="co">#&gt;      3 3.62e-05   2.00e-03   0.0181   0.9856 -3.89e-03 3.96e-03</span></span>
-<span><span class="co">#&gt;      3 9.35e-08   6.91e-06   0.0135   0.9892 -1.35e-05 1.36e-05</span></span>
-<span><span class="co">#&gt;      3 4.04e-01   1.97e-01   2.0569   0.0397  1.91e-02 7.90e-01</span></span>
-<span><span class="co">#&gt;      3 1.00e+00   1.25e-03 802.4451   &lt;0.001  9.98e-01 1.00e+00</span></span>
-<span><span class="co">#&gt;      3 5.18e-01   2.90e-01   1.7884   0.0737 -4.97e-02 1.09e+00</span></span>
+<span><span class="co">#&gt;  Group Estimate Std. Error      z Pr(&gt;|z|)    2.5 %  97.5 %</span></span>
+<span><span class="co">#&gt;      3 3.62e-05      0.002 0.0181   0.9856 -0.00389 0.00396</span></span>
+<span><span class="co">#&gt;      4 3.37e-01      0.199 1.6959   0.0899 -0.05247 0.72650</span></span>
+<span><span class="co">#&gt;      5 6.63e-01      0.199 3.3360   &lt;0.001  0.27346 1.05245</span></span>
+<span><span class="co">#&gt;      3 3.62e-05      0.002 0.0181   0.9856 -0.00389 0.00396</span></span>
+<span><span class="co">#&gt;      4 3.37e-01      0.199 1.6959   0.0899 -0.05247 0.72650</span></span>
+<span><span class="co">#&gt;      5 6.63e-01      0.199 3.3360   &lt;0.001  0.27346 1.05245</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  probs </span></span>
 <span><span class="co">#&gt; Columns: rowid, group, estimate, std.error, statistic, p.value, conf.low, conf.high, gear, mpg, am, vs</span></span>
@@ -746,13 +746,13 @@ when we call <code>draw=FALSE</code>, the result includes a
 <span>    draw <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   rowid group  estimate  std.error statistic       p.value  conf.low conf.high gear      mpg</span></span>
-<span><span class="co">#&gt; 1     1     3 0.9714990 0.03872773  25.08536 7.185838e-139 0.8955941  1.047404    3 10.40000</span></span>
-<span><span class="co">#&gt; 2     2     3 0.9656724 0.04393256  21.98079 4.397495e-107 0.8795661  1.051779    3 10.87959</span></span>
-<span><span class="co">#&gt; 3     3     3 0.9586759 0.04963084  19.31613  3.930287e-83 0.8614012  1.055951    3 11.35918</span></span>
-<span><span class="co">#&gt; 4     4     3 0.9502914 0.05579948  17.03047  4.880938e-65 0.8409265  1.059656    3 11.83878</span></span>
-<span><span class="co">#&gt; 5     5     3 0.9402691 0.06238682  15.07160  2.490123e-51 0.8179932  1.062545    3 12.31837</span></span>
-<span><span class="co">#&gt; 6     6     3 0.9283274 0.06930549  13.39472  6.492421e-41 0.7924911  1.064164    3 12.79796</span></span></code></pre></div>
+<span><span class="co">#&gt;   rowid group   estimate  std.error  statistic       p.value    conf.low  conf.high gear      mpg</span></span>
+<span><span class="co">#&gt; 1     1     3 0.97149902 0.03872773 25.0853566 7.185838e-139  0.89559406 1.04740399    3 10.40000</span></span>
+<span><span class="co">#&gt; 2     1     4 0.01016604 0.01562936  0.6504448  5.154050e-01 -0.02046695 0.04079902    3 10.40000</span></span>
+<span><span class="co">#&gt; 3     1     5 0.01833494 0.02775956  0.6604909  5.089388e-01 -0.03607280 0.07274268    3 10.40000</span></span>
+<span><span class="co">#&gt; 4     2     3 0.96567236 0.04393256 21.9807894 4.397495e-107  0.87956613 1.05177860    3 10.87959</span></span>
+<span><span class="co">#&gt; 5     2     5 0.02163625 0.03105388  0.6967327  4.859701e-01 -0.03922823 0.08250073    3 10.87959</span></span>
+<span><span class="co">#&gt; 6     2     4 0.01269138 0.01850047  0.6860034  4.927110e-01 -0.02356887 0.04895164    3 10.87959</span></span></code></pre></div>
 <p>Now we use the <code>group</code> column:</p>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_predictions.html">plot_predictions</a></span><span class="op">(</span></span>
