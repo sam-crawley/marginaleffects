@@ -209,10 +209,10 @@ interest: <code>term</code> and <code>contrast</code>.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> gear  mean(4) - mean(3)   0.037<span style="text-decoration: underline;">2</span>    0.137      0.272 0.785       -<span style="color: #BB0000;">0.230</span>     0.305 </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> gear  mean(5) - mean(3)  -<span style="color: #BB0000;">0.340</span>     0.098<span style="text-decoration: underline;">8</span>    -<span style="color: #BB0000;">3.44</span>  0.000<span style="text-decoration: underline;">588</span>    -<span style="color: #BB0000;">0.533</span>    -<span style="color: #BB0000;">0.146</span> </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> mpg   mean(+1)            0.060<span style="text-decoration: underline;">8</span>    0.012<span style="text-decoration: underline;">8</span>     4.74  0.000<span style="text-decoration: underline;">002</span>18   0.035<span style="text-decoration: underline;">6</span>    0.086<span style="text-decoration: underline;">0</span></span></span></code></pre></div>
-<p>We can use the <code>group</code> argument of the
+<p>We can use the <code>shape</code> argument of the
 <code>modelsummary</code> function to structure the table properly:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://vincentarelbundock.github.io/modelsummary/reference/modelsummary.html" class="external-link">modelsummary</a></span><span class="op">(</span><span class="va">cmp</span>, group <span class="op">=</span> <span class="va">term</span> <span class="op">+</span> <span class="va">contrast</span> <span class="op">~</span> <span class="va">model</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://vincentarelbundock.github.io/modelsummary/reference/modelsummary.html" class="external-link">modelsummary</a></span><span class="op">(</span><span class="va">cmp</span>, shape <span class="op">=</span> <span class="va">term</span> <span class="op">+</span> <span class="va">contrast</span> <span class="op">~</span> <span class="va">model</span><span class="op">)</span></span></code></pre></div>
 <table class="table table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead><tr>
 <th style="text-align:left;">
