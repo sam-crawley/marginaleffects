@@ -27,7 +27,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9008</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9009</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -652,8 +652,8 @@ arguments to the <code><a href="https://mc-stan.org/rstantools/reference/posteri
 <span>    by <span class="op">=</span> <span class="st">"x"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  x Estimate 2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  0    0.453 0.338  0.565</span></span>
-<span><span class="co">#&gt;  1    0.552 0.439  0.664</span></span>
+<span><span class="co">#&gt;  0    0.449 0.339  0.567</span></span>
+<span><span class="co">#&gt;  1    0.550 0.436  0.663</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: x, estimate, conf.low, conf.high</span></span></code></pre></div>
@@ -666,8 +666,8 @@ arguments to the <code><a href="https://mc-stan.org/rstantools/reference/posteri
 <span>    allow_new_levels <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>    sample_new_levels <span class="op">=</span> <span class="st">"gaussian"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Term Contrast Estimate  2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;     x    1 - 0    0.097 0.0486  0.164</span></span>
+<span><span class="co">#&gt;  Term Contrast Estimate 2.5 % 97.5 %</span></span>
+<span><span class="co">#&gt;     x    1 - 0   0.0963 0.049   0.16</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: term, contrast, estimate, conf.low, conf.high</span></span></code></pre></div>
@@ -684,8 +684,8 @@ arguments to the <code><a href="https://mc-stan.org/rstantools/reference/posteri
 <span>  contrasts <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="st">"AME x"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  effects <span class="op">=</span> <span class="st">"integrateoutRE"</span><span class="op">)</span></span>
 <span><span class="va">bm</span><span class="op">$</span><span class="va">ContrastSummary</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt;            M        Mdn         LL        UL PercentROPE PercentMID   CI CIType ROPE  MID Label</span></span>
-<span><span class="co">#&gt; 1 0.09842448 0.09598418 0.04695824 0.1612698          NA         NA 0.95    ETI &lt;NA&gt; &lt;NA&gt; AME x</span></span></code></pre></div>
+<span><span class="co">#&gt;            M        Mdn         LL       UL PercentROPE PercentMID   CI CIType ROPE  MID Label</span></span>
+<span><span class="co">#&gt; 1 0.09902716 0.09657324 0.04868925 0.162475          NA         NA 0.95    ETI &lt;NA&gt; &lt;NA&gt; AME x</span></span></code></pre></div>
 <p>See the <a href="https://vincentarelbundock.github.io/marginaleffects/articles/alternative_software.html">alternative
 software vignette</a> for more information on
 <code>brmsmargins</code>.</p>
@@ -714,11 +714,11 @@ variable:</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Group Estimate  2.5 % 97.5 %</span></span>
 <span><span class="co">#&gt;     ec   0.0663 0.0447 0.0930</span></span>
-<span><span class="co">#&gt;     hp   0.0475 0.0302 0.0696</span></span>
-<span><span class="co">#&gt;     gr   0.1491 0.1178 0.1854</span></span>
-<span><span class="co">#&gt;     gc   0.6682 0.6234 0.7121</span></span>
-<span><span class="co">#&gt;     er   0.0664 0.0457 0.0930</span></span>
-<span><span class="co">#&gt;     hp   0.0508 0.0361 0.0683</span></span>
+<span><span class="co">#&gt;     ec   0.0768 0.0590 0.0974</span></span>
+<span><span class="co">#&gt;     ec   0.1030 0.0618 0.1585</span></span>
+<span><span class="co">#&gt;     ec   0.0634 0.0459 0.0838</span></span>
+<span><span class="co">#&gt;     ec   0.0745 0.0574 0.0947</span></span>
+<span><span class="co">#&gt;     ec   0.0709 0.0455 0.1036</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, group, estimate, conf.low, conf.high, depvar, ic.gc, oc.gc</span></span></code></pre></div>
