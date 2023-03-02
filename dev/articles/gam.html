@@ -27,7 +27,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9010</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9011</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -157,7 +157,6 @@ predicted values and uncertainty estimates:</p>
 <span><span class="co">#&gt;     0.231      0.149  1.55   0.1204 -0.0606  0.5232</span></span>
 <span><span class="co">#&gt;     0.753      0.146  5.17   &lt;0.001  0.4675  1.0379</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, estimate, std.error, statistic, p.value, conf.low, conf.high, Y, Group, Time, Subject</span></span></code></pre></div>
 <p>We can easily plot adjusted predictions for different values of a
 regressor using the <code><a href="../reference/plot_predictions.html">plot_predictions()</a></code> function:</p>
@@ -185,7 +184,6 @@ new columns for the slop and uncertainty estimates:</p>
 <span><span class="co">#&gt;  Time   0.0259    0.00120 21.6   &lt;0.001 0.0235 0.0282</span></span>
 <span><span class="co">#&gt;  Time   0.0257    0.00109 23.5   &lt;0.001 0.0236 0.0279</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, term, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, Y, Group, Time, Subject</span></span></code></pre></div>
 <p>We can plot marginal effects for different values of a regressor
 using the <code><a href="../reference/plot_slopes.html">plot_slopes()</a></code> function. This next plot shows the
@@ -212,7 +210,6 @@ function in the <code>marginaleffects</code> package:</p>
 <span><span class="co">#&gt;  Estimate Std. Error    z Pr(&gt;|z|) 2.5 % 97.5 %  Group Time Subject</span></span>
 <span><span class="co">#&gt;      11.7      0.695 16.9   &lt;0.001  10.4   13.1 Adults 1000     a01</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, estimate, std.error, statistic, p.value, conf.low, conf.high, Y, Group, Time, Subject</span></span></code></pre></div>
 <p>See the documentation in <code>?mgcv:::predict.bam</code> for
 details.</p>

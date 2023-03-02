@@ -38,7 +38,7 @@ https://vincentarelbundock.github.io/marginaleffects/
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9010</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9011</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -454,7 +454,6 @@ posterior using the function supplied to the
 <span class="r-out co"><span class="r-pr">#&gt;</span>  gear    4 - 3    0.667      0.117 5.68   &lt;0.001 0.436  0.897</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  gear    5 - 3    1.000      0.157 6.39   &lt;0.001 0.693  1.307</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, am, gear </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
@@ -465,7 +464,6 @@ posterior using the function supplied to the
 <span class="r-out co"><span class="r-pr">#&gt;</span>  gear    4 - 3    0.667      0.117 5.68   &lt;0.001 0.436  0.897</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  gear    5 - 3    1.000      0.157 6.39   &lt;0.001 0.693  1.307</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
@@ -480,7 +478,6 @@ posterior using the function supplied to the
 <span class="r-out co"><span class="r-pr">#&gt;</span>  gear    5 - 3    1.000      0.157 6.39   &lt;0.001 0.693  1.307</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  gear    5 - 3    1.000      0.157 6.39   &lt;0.001 0.693  1.307</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, am, gear </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="fu">comparisons</span><span class="op">(</span><span class="va">mod</span>, newdata <span class="op">=</span> <span class="fu"><a href="datagrid.html">datagrid</a></span><span class="op">(</span>am <span class="op">=</span> <span class="va">unique</span>, gear <span class="op">=</span> <span class="va">max</span><span class="op">)</span><span class="op">)</span></span></span>
@@ -491,7 +488,6 @@ posterior using the function supplied to the
 <span class="r-out co"><span class="r-pr">#&gt;</span>  gear    5 - 3    1.000      0.157 6.39   &lt;0.001 0.693  1.307</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  gear    5 - 3    1.000      0.157 6.39   &lt;0.001 0.693  1.307</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, am, gear </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
@@ -506,7 +502,6 @@ posterior using the function supplied to the
 <span class="r-out co"><span class="r-pr">#&gt;</span>    hp       +1  -0.0452     0.0149 -3.04  0.00239 -0.0744 -0.016  3.7   8  1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    hp       +1  -0.0452     0.0149 -3.04  0.00239 -0.0744 -0.016  3.7   8  0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, drat, cyl, am </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
@@ -560,7 +555,6 @@ posterior using the function supplied to the
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Term Contrast Estimate Std. Error     z Pr(&gt;|z|) 2.5 % 97.5 %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  new_hp   custom    -1.97      0.711 -2.78  0.00547 -3.37 -0.581</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
@@ -571,7 +565,6 @@ posterior using the function supplied to the
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Term Contrast Estimate Pr(&gt;|z|) 2.5 % 97.5 %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   mpg mean(+1)     1.14   &lt;0.001  1.09   1.18</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: term, contrast, estimate, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
@@ -584,7 +577,6 @@ posterior using the function supplied to the
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Term Contrast Estimate Pr(&gt;|z|) 2.5 % 97.5 %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   mpg       +1     1.14   &lt;0.001  1.09   1.18</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: term, contrast, estimate, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="co"># cross contrasts</span></span></span>
@@ -599,7 +591,6 @@ posterior using the function supplied to the
 <span class="r-out co"><span class="r-pr">#&gt;</span>   8 - 4   4 - 3    3.348       6.43  0.521    0.602 -9.25  15.95</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   8 - 4   5 - 3    5.525       5.87  0.942    0.346 -5.98  17.03</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: term, contrast_cyl, contrast_gear, estimate, std.error, statistic, p.value, conf.low, conf.high </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
@@ -613,7 +604,6 @@ posterior using the function supplied to the
 <span class="r-out co"><span class="r-pr">#&gt;</span>  gear    5 - 4    2.628      2.747  0.957   0.3387 -2.76  8.011</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  hp      +10     -0.574      0.225 -2.552   0.0107 -1.02 -0.133</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
@@ -628,7 +618,6 @@ posterior using the function supplied to the
 <span class="r-out co"><span class="r-pr">#&gt;</span>     Term Estimate Std. Error     z Pr(&gt;|z|) 2.5 % 97.5 %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  wt=drat    -6.23       1.05 -5.92   &lt;0.001 -8.29  -4.16</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
@@ -641,7 +630,6 @@ posterior using the function supplied to the
 <span class="r-out co"><span class="r-pr">#&gt;</span>     Term Estimate Std. Error     z Pr(&gt;|z|) 2.5 % 97.5 %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  b1-b2=0    -6.23       1.05 -5.92   &lt;0.001 -8.29  -4.16</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
@@ -654,7 +642,6 @@ posterior using the function supplied to the
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Term Estimate Std. Error     z Pr(&gt;|z|) 2.5 % 97.5 %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  custom    -6.23       1.05 -5.92   &lt;0.001 -8.29  -4.16</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
@@ -672,7 +659,6 @@ posterior using the function supplied to the
 <span class="r-out co"><span class="r-pr">#&gt;</span>  custom    -6.23       1.05 -5.919   &lt;0.001  -8.29  -4.16</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  custom    -5.24       5.62 -0.931    0.352 -16.26   5.78</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
@@ -686,7 +672,6 @@ posterior using the function supplied to the
 <span class="r-out co"><span class="r-pr">#&gt;</span>    hp    +1     -0.0688     0.0182 -3.780   &lt;0.001 -0.104 -0.0331</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    vs    1 - 0  -0.2943     2.3379 -0.126      0.9 -4.877  4.2879</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
@@ -699,7 +684,6 @@ posterior using the function supplied to the
 <span class="r-out co"><span class="r-pr">#&gt;</span>    hp mean(+1)  1  0  -0.0994     0.0534 -1.86  0.06289 -0.2042  0.00534</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    hp mean(+1)  1  1  -0.1112     0.0463 -2.40  0.01645 -0.2020 -0.02034</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  response </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: term, contrast, vs, am, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
@@ -718,7 +702,6 @@ posterior using the function supplied to the
 <span class="r-out co"><span class="r-pr">#&gt;</span>   vs  3,4  0.102102    0.07334  1.39  0.16386 -0.0416  0.2458</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   vs  5   -0.204204    0.14668 -1.39  0.16386 -0.4917  0.0833</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Prediction type:  probs </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: term, by, estimate, std.error, statistic, p.value, conf.low, conf.high </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>

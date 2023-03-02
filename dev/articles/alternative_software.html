@@ -27,7 +27,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9010</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9011</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -243,7 +243,6 @@ argument would not be necessary.</p>
 <span><span class="co">#&gt;   cyl    8 - 4  -19.542    4367.17 -0.00447    0.996 -8579.0 8539.95</span></span>
 <span><span class="co">#&gt;   cyl    8 - 6  -18.637    4367.17 -0.00427    0.997 -8578.1 8540.85</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  link </span></span>
 <span><span class="co">#&gt; Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, vs, hp, cyl</span></span></code></pre></div>
 <p>Response scale, reference groups:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
@@ -262,7 +261,6 @@ argument would not be necessary.</p>
 <span><span class="co">#&gt;   cyl    6 - 4 -2.22e-01   3.94e-01 -0.564207    0.573 -9.94e-01 5.50e-01</span></span>
 <span><span class="co">#&gt;   cyl    8 - 4 -5.95e-01   5.11e-01 -1.163438    0.245 -1.60e+00 4.07e-01</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, vs, hp, cyl</span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -390,7 +388,6 @@ argument:</p>
 <span><span class="co">#&gt;  btype mean(shout) - mean(scold) perhaps   0.1559     0.1358  1.148  0.25103 -0.110  0.42215</span></span>
 <span><span class="co">#&gt;  btype mean(shout) - mean(scold) yes       0.5411     0.1888  2.866  0.00416  0.171  0.91116</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  link </span></span>
 <span><span class="co">#&gt; Columns: term, contrast, resp, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo</span></span></code></pre></div>
 <p>These results are identical to those produced by <code>emmeans</code>
 (except for <span class="math inline">\(t\)</span> vs. <span class="math inline">\(z\)</span>).</p>
@@ -418,7 +415,6 @@ large grids or for the full original dataset.</p>
 <span><span class="co">#&gt;   cyl    6 - 4 -0.22219      0.394 -0.564    0.573 -0.9940 0.5496 147   4</span></span>
 <span><span class="co">#&gt;   cyl    8 - 4 -0.59469      0.511 -1.163    0.245 -1.5965 0.4071 147   4</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, vs, hp, cyl</span></span></code></pre></div>
 <p>Link scale, user-specified values:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
@@ -435,7 +431,6 @@ large grids or for the full original dataset.</p>
 <span><span class="co">#&gt;   cyl    6 - 4  -0.9049   1.63e+00 -0.55506    0.579    -4.100 2.29e+00 147   4</span></span>
 <span><span class="co">#&gt;   cyl    8 - 4 -19.5418   4.37e+03 -0.00447    0.996 -8579.030 8.54e+03 147   4</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  link </span></span>
 <span><span class="co">#&gt; Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, vs, hp, cyl</span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -561,12 +556,12 @@ benefits of <code>marginaleffects</code> over these packages are:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">mar</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    mpg cyl disp  hp drat    wt  qsec vs am gear carb   fitted se.fitted   dydx_cyl    dydx_hp   dydx_wt Var_dydx_cyl  Var_dydx_hp Var_dydx_wt X_weights X_at_number</span></span>
-<span><span class="co">#&gt; 1 21.0   6  160 110 3.90 2.620 16.46  0  1    4    4 22.82043 0.6876212 -0.9416168 -0.0180381 -3.166973    0.3035079 0.0001410453   0.5484518        NA           1</span></span>
-<span><span class="co">#&gt; 2 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4 22.01285 0.6056817 -0.9416168 -0.0180381 -3.166973    0.3035079 0.0001410453   0.5484518        NA           1</span></span>
-<span><span class="co">#&gt; 3 22.8   4  108  93 3.85 2.320 18.61  1  1    4    1 25.96040 0.7349593 -0.9416168 -0.0180381 -3.166973    0.3035079 0.0001410453   0.5484518        NA           1</span></span>
-<span><span class="co">#&gt; 4 21.4   6  258 110 3.08 3.215 19.44  1  0    3    1 20.93608 0.5800910 -0.9416168 -0.0180381 -3.166973    0.3035079 0.0001410453   0.5484518        NA           1</span></span>
-<span><span class="co">#&gt; 5 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2 17.16780 0.8322986 -0.9416168 -0.0180381 -3.166973    0.3035079 0.0001410453   0.5484518        NA           1</span></span>
-<span><span class="co">#&gt; 6 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1 20.25036 0.6638322 -0.9416168 -0.0180381 -3.166973    0.3035079 0.0001410453   0.5484518        NA           1</span></span>
+<span><span class="co">#&gt; 1 21.0   6  160 110 3.90 2.620 16.46  0  1    4    4 22.82043 0.6876212 -0.9416168 -0.0180381 -3.166973    0.3035123 0.0001410453   0.5484517        NA           1</span></span>
+<span><span class="co">#&gt; 2 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4 22.01285 0.6056817 -0.9416168 -0.0180381 -3.166973    0.3035123 0.0001410453   0.5484517        NA           1</span></span>
+<span><span class="co">#&gt; 3 22.8   4  108  93 3.85 2.320 18.61  1  1    4    1 25.96040 0.7349593 -0.9416168 -0.0180381 -3.166973    0.3035123 0.0001410453   0.5484517        NA           1</span></span>
+<span><span class="co">#&gt; 4 21.4   6  258 110 3.08 3.215 19.44  1  0    3    1 20.93608 0.5800910 -0.9416168 -0.0180381 -3.166973    0.3035123 0.0001410453   0.5484517        NA           1</span></span>
+<span><span class="co">#&gt; 5 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2 17.16780 0.8322986 -0.9416168 -0.0180381 -3.166973    0.3035123 0.0001410453   0.5484517        NA           1</span></span>
+<span><span class="co">#&gt; 6 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1 20.25036 0.6638322 -0.9416168 -0.0180381 -3.166973    0.3035123 0.0001410453   0.5484517        NA           1</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">mfx</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -578,7 +573,6 @@ benefits of <code>marginaleffects</code> over these packages are:</p>
 <span><span class="co">#&gt;   cyl   -0.942      0.551 -1.71   0.0874 -2.02  0.138</span></span>
 <span><span class="co">#&gt;   cyl   -0.942      0.551 -1.71   0.0874 -2.02  0.138</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, term, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, cyl, hp, wt</span></span>
 <span><span class="va">nd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>cyl <span class="op">=</span> <span class="fl">4</span>, hp <span class="op">=</span> <span class="fl">110</span>, wt <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -589,16 +583,15 @@ benefits of <code>marginaleffects</code> over these packages are:</p>
 <code class="sourceCode R"><span><span class="va">mar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/margins/man/margins.html" class="external-link">margins</a></span><span class="op">(</span><span class="va">mod</span>, data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="fu">prediction</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/prediction/man/mean_or_mode.html" class="external-link">mean_or_mode</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span><span class="op">)</span>, unit_ses <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">mar</span><span class="op">)</span></span>
 <span><span class="co">#&gt;        mpg    cyl     disp       hp     drat      wt     qsec     vs      am   gear   carb   fitted se.fitted   dydx_cyl    dydx_hp   dydx_wt Var_dydx_cyl  Var_dydx_hp Var_dydx_wt SE_dydx_cyl SE_dydx_hp SE_dydx_wt X_weights X_at_number</span></span>
-<span><span class="co">#&gt; 1 20.09062 6.1875 230.7219 146.6875 3.596563 3.21725 17.84875 0.4375 0.40625 3.6875 2.8125 20.09062 0.4439832 -0.9416168 -0.0180381 -3.166973    0.3035082 0.0001410452     0.54846   0.5509157 0.01187624  0.7405808        NA           1</span></span>
+<span><span class="co">#&gt; 1 20.09062 6.1875 230.7219 146.6875 3.596563 3.21725 17.84875 0.4375 0.40625 3.6875 2.8125 20.09062 0.4439832 -0.9416168 -0.0180381 -3.166973    0.3035082 0.0001410452   0.5484409   0.5509157 0.01187625  0.7405679        NA           1</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/slopes.html">slopes</a></span><span class="op">(</span><span class="va">mod</span>, newdata <span class="op">=</span> <span class="st">"mean"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Term Estimate Std. Error     z Pr(&gt;|z|)   2.5 %   97.5 %</span></span>
 <span><span class="co">#&gt;   cyl   -0.942     0.5509 -1.71   0.0874 -2.0214  0.13815</span></span>
 <span><span class="co">#&gt;   hp    -0.018     0.0119 -1.52   0.1288 -0.0413  0.00524</span></span>
-<span><span class="co">#&gt;   wt    -3.167     0.7406 -4.28   &lt;0.001 -4.6185 -1.71548</span></span>
+<span><span class="co">#&gt;   wt    -3.167     0.7406 -4.28   &lt;0.001 -4.6185 -1.71547</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, term, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, cyl, hp, wt</span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -619,14 +612,14 @@ compute 64 unit-level marginal effects estimates:</p>
 <span><span class="va">mar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/margins/man/margins.html" class="external-link">margins</a></span><span class="op">(</span><span class="va">mod</span>, at <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>cyl <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">6</span>, <span class="fl">8</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mar</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  factor    cyl     AME     SE       z      p   lower   upper</span></span>
-<span><span class="co">#&gt;     cyl 4.0000  0.0381 0.5999  0.0636 0.9493 -1.1376  1.2139</span></span>
+<span><span class="co">#&gt;     cyl 4.0000  0.0381 0.5998  0.0636 0.9493 -1.1374  1.2137</span></span>
 <span><span class="co">#&gt;     cyl 6.0000  0.0381 0.5999  0.0636 0.9493 -1.1376  1.2139</span></span>
 <span><span class="co">#&gt;     cyl 8.0000  0.0381 0.5999  0.0636 0.9493 -1.1376  1.2139</span></span>
 <span><span class="co">#&gt;      hp 4.0000 -0.0878 0.0267 -3.2937 0.0010 -0.1400 -0.0355</span></span>
 <span><span class="co">#&gt;      hp 6.0000 -0.0499 0.0154 -3.2397 0.0012 -0.0800 -0.0197</span></span>
 <span><span class="co">#&gt;      hp 8.0000 -0.0120 0.0108 -1.1065 0.2685 -0.0332  0.0092</span></span>
 <span><span class="co">#&gt;      wt 4.0000 -3.1198 0.6613 -4.7175 0.0000 -4.4160 -1.8236</span></span>
-<span><span class="co">#&gt;      wt 6.0000 -3.1198 0.6613 -4.7175 0.0000 -4.4160 -1.8236</span></span>
+<span><span class="co">#&gt;      wt 6.0000 -3.1198 0.6613 -4.7176 0.0000 -4.4160 -1.8236</span></span>
 <span><span class="co">#&gt;      wt 8.0000 -3.1198 0.6613 -4.7175 0.0000 -4.4160 -1.8236</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/slopes.html">avg_slopes</a></span><span class="op">(</span></span>
@@ -645,7 +638,6 @@ compute 64 unit-level marginal effects estimates:</p>
 <span><span class="co">#&gt;   wt  mean(dY/dX)   6  -3.1198     0.6613 -4.7175   &lt;0.001 -4.4160 -1.82365</span></span>
 <span><span class="co">#&gt;   wt  mean(dY/dX)   8  -3.1198     0.6613 -4.7175   &lt;0.001 -4.4160 -1.82365</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: term, contrast, cyl, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo</span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -674,7 +666,6 @@ similar:</p>
 <span><span class="co">#&gt;      17.3      0.744 23.2   &lt;0.001  15.8   18.7</span></span>
 <span><span class="co">#&gt;      19.5      0.644 30.3   &lt;0.001  18.3   20.8</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, estimate, std.error, statistic, p.value, conf.low, conf.high, mpg, cyl, hp, wt</span></span></code></pre></div>
 </div>
 </div>
@@ -736,7 +727,6 @@ cyl |  -.9416168   .5509164    -1.71   0.098    -2.070118    .1868842
 <span><span class="co">#&gt;   hp    -0.018     0.0119 -1.52   0.1288 -0.0413  0.00524</span></span>
 <span><span class="co">#&gt;   wt    -3.167     0.7406 -4.28   &lt;0.001 -4.6185 -1.71547</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>Note that <code>Stata</code> reports t statistics while
 <code>marginaleffects</code> reports Z. This produces slightly different
@@ -816,7 +806,6 @@ the <code>by</code> argument to average within groups:</p>
 <span><span class="co">#&gt;    hp mean(dY/dX)   6  -0.0214     0.0388 -0.551  0.58188 -0.0975  0.0547</span></span>
 <span><span class="co">#&gt;    hp mean(dY/dX)   8  -0.0134     0.0125 -1.074  0.28278 -0.0380  0.0111</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: term, contrast, cyl, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo</span></span></code></pre></div>
 <p>This is equivalent to taking the group-wise mean of observation-level
 marginal effects (without the <code>by</code> argument):</p>
@@ -911,7 +900,6 @@ argument of <code><a href="https://rdrr.io/r/base/summary.html" class="external-
 <span><span class="co">#&gt;    6     18.9       1.29 14.65   &lt;0.001  16.4   21.4</span></span>
 <span><span class="co">#&gt;    8     18.3       1.12 16.31   &lt;0.001  16.1   20.5</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: cyl, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span></span>
@@ -1009,7 +997,6 @@ show highlight parallels and differences in syntax.</p>
 <span><span class="co">#&gt;   am     1 - 0  -0.2660 -0.4206 -0.0739</span></span>
 <span><span class="co">#&gt;   mpg    dY/dX   0.0701  0.0544  0.0916</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: term, contrast, estimate, conf.low, conf.high</span></span></code></pre></div>
 <p>The <code>mpg</code> element of the <code>Effect</code> column from
 <code>marginaleffects</code> matches the the <code>M</code> column of
@@ -1085,7 +1072,6 @@ the output from <code>brmsmargins</code>.</p>
 <span><span class="co">#&gt;  Term Contrast Estimate  2.5 % 97.5 %</span></span>
 <span><span class="co">#&gt;     x    1 - 0    0.111 0.0796   0.14</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: term, contrast, estimate, conf.low, conf.high</span></span></code></pre></div>
 </div>
 <div class="section level4">
@@ -1108,7 +1094,6 @@ the output from <code>brmsmargins</code>.</p>
 <span><span class="co">#&gt;  Term Contrast Estimate  2.5 % 97.5 %</span></span>
 <span><span class="co">#&gt;     x    1 - 0    0.101 0.0626  0.143</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: term, contrast, estimate, conf.low, conf.high</span></span></code></pre></div>
 </div>
 </div>
@@ -1163,7 +1148,6 @@ the output from <code>brmsmargins</code>.</p>
 <span><span class="co">#&gt;   grp    1 - 0     1.01 0.348   1.68</span></span>
 <span><span class="co">#&gt;   x      dY/dX     1.63 0.756   2.50</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: term, contrast, estimate, conf.low, conf.high</span></span></code></pre></div>
 </div>
 <div class="section level4">
@@ -1194,7 +1178,6 @@ function and the <code>variables</code> argument:</p>
 <span><span class="co">#&gt;  Term Contrast Estimate 2.5 % 97.5 %</span></span>
 <span><span class="co">#&gt;   grp    1 - 0      4.9   4.4   5.42</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: term, contrast, estimate, conf.low, conf.high</span></span></code></pre></div>
 </div>
 <div class="section level4">
@@ -1217,7 +1200,6 @@ function and the <code>variables</code> argument:</p>
 <span><span class="co">#&gt;   grp    1 - 0     4.90   4.4   5.42</span></span>
 <span><span class="co">#&gt;   x      dY/dX     4.44   3.5   5.45</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: term, contrast, estimate, conf.low, conf.high</span></span></code></pre></div>
 </div>
 </div>

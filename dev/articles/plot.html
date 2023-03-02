@@ -27,7 +27,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9010</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9011</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -148,7 +148,6 @@ different values of flipper length and species:</p>
 <span><span class="co">#&gt;      5597        155 36.0   &lt;0.001  5292   5901           43.9 Biscoe               231 Gentoo   </span></span>
 <span><span class="co">#&gt;      4086        469  8.7   &lt;0.001  3166   5006           43.9 Biscoe               231 Chinstrap</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, estimate, std.error, statistic, p.value, conf.low, conf.high, body_mass_g, bill_length_mm, island, flipper_length_mm, species</span></span></code></pre></div>
 <p>The <code>condition</code> argument of the
 <code><a href="../reference/plot_predictions.html">plot_predictions()</a></code> function can be used to build meaningful
@@ -188,7 +187,6 @@ predictors. For example:</p>
 <span><span class="co">#&gt;  Chinstrap     3733       40.5  92.2   &lt;0.001  3654   3812</span></span>
 <span><span class="co">#&gt;  Gentoo        5076       30.1 168.5   &lt;0.001  5017   5135</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: species, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>We can plot those predictions by using the analogous command:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
@@ -206,7 +204,6 @@ variables:</p>
 <span><span class="co">#&gt;  Chinstrap Dream         3733       40.5  92.2   &lt;0.001  3654   3812</span></span>
 <span><span class="co">#&gt;  Gentoo    Biscoe        5076       30.1 168.5   &lt;0.001  5017   5135</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: species, island, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>Note that certain species only live on certain islands. Visually:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
@@ -236,7 +233,6 @@ variable(s) of interest using an additional argument:</p>
 <span><span class="co">#&gt;  flipper_length_mm       +1     51.7       8.70 5.95   &lt;0.001 34.68   68.8           43.9 Biscoe Gentoo   </span></span>
 <span><span class="co">#&gt;  flipper_length_mm       +1     15.9      11.37 1.40   0.1610 -6.34   38.2           43.9 Biscoe Chinstrap</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, body_mass_g, bill_length_mm, island, flipper_length_mm, species</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/plot_comparisons.html">plot_comparisons</a></span><span class="op">(</span><span class="va">mod</span>,</span>
@@ -418,7 +414,7 @@ the <code>draw</code> argument:</p>
 <span><span class="co">#&gt;   rowid  estimate      p.value  conf.low conf.high  Survived   SexCode     Age PClass</span></span>
 <span><span class="co">#&gt; 1     1 0.8679723 0.0013307148 0.6754794 0.9540527 0.4140212 0.3809524 0.17000    1st</span></span>
 <span><span class="co">#&gt; 2     2 0.8956789 0.0001333343 0.7401973 0.9627887 0.4140212 0.3809524 0.17000    2nd</span></span>
-<span><span class="co">#&gt; 3     3 0.4044513 0.2667759616 0.2554245 0.5734603 0.4140212 0.3809524 0.17000    3rd</span></span>
+<span><span class="co">#&gt; 3     3 0.4044513 0.2667759617 0.2554245 0.5734603 0.4140212 0.3809524 0.17000    3rd</span></span>
 <span><span class="co">#&gt; 4     4 0.8631027 0.0011563593 0.6749549 0.9503543 0.4140212 0.3809524 1.61551    1st</span></span>
 <span><span class="co">#&gt; 5     5 0.8813224 0.0001728862 0.7228529 0.9548415 0.4140212 0.3809524 1.61551    2nd</span></span>
 <span><span class="co">#&gt; 6     6 0.3934924 0.1899483112 0.2535791 0.5533716 0.4140212 0.3809524 1.61551    3rd</span></span></code></pre></div>
@@ -477,7 +473,6 @@ For example,</p>
 <span><span class="co">#&gt;      5   0.1245     0.0698 1.78   0.0744 -0.0123  0.261</span></span>
 <span><span class="co">#&gt;      5   0.3779     0.3244 1.17   0.2440 -0.2579  1.014</span></span>
 <span><span class="co">#&gt;      5   0.0667     0.0458 1.46   0.1455 -0.0231  0.157</span></span>
-<span><span class="co">#&gt; Prediction type:  probs </span></span>
 <span><span class="co">#&gt; Columns: rowid, group, estimate, std.error, statistic, p.value, conf.low, conf.high, gear, mpg, hp</span></span></code></pre></div>
 <p>We can plot those estimates in the same way as before, by specifying
 <code>group</code> as one of the conditional variable, or by adding that
@@ -524,7 +519,6 @@ are accessible via standard <code>R</code> operators. For example:</p>
 <span><span class="co">#&gt;    6     19.7      0.871 22.7   &lt;0.001  18.0   21.5</span></span>
 <span><span class="co">#&gt;    8     15.1      0.616 24.5   &lt;0.001  13.9   16.3</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: cyl, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span>
 <span></span>
 <span><span class="va">p</span><span class="op">$</span><span class="va">estimate</span></span>

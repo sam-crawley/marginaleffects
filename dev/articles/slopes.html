@@ -27,7 +27,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9010</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9011</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -178,7 +178,6 @@ archive</a>, and estimate a GLM model:</p>
 <span><span class="co">#&gt;  bill_length_mm    dY/dX   0.0509    0.01350 3.77  &lt; 0.001 0.02444 0.0773</span></span>
 <span><span class="co">#&gt;  bill_length_mm    dY/dX   0.0165    0.00770 2.14  0.03202 0.00142 0.0316</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, large_penguin, bill_length_mm, flipper_length_mm, species</span></span></code></pre></div>
 </div>
 <div class="section level2">
@@ -227,7 +226,6 @@ on the full <code>data.frame</code> shown above, but the
 <span><span class="co">#&gt;  species           Chinstrap - Adelie  -0.4148    0.05659 -7.330   &lt;0.001 -0.52570 -0.3039</span></span>
 <span><span class="co">#&gt;  species           Gentoo - Adelie      0.0617    0.10688  0.577    0.564 -0.14778  0.2712</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>Note that since marginal effects are derivatives, they are only
 properly defined for continuous numeric variables. When the model also
@@ -271,7 +269,6 @@ marginal effects of Bill Length for each Species, we do:</p>
 <span><span class="co">#&gt;  bill_length_mm mean(dY/dX) Chinstrap  0.03680    0.00976 3.77   &lt;0.001  0.0177 0.05594</span></span>
 <span><span class="co">#&gt;  bill_length_mm mean(dY/dX) Gentoo     0.00287    0.00284 1.01    0.312 -0.0027 0.00844</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: term, contrast, species, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo</span></span></code></pre></div>
 <p>This is equivalent to manually taking the mean of the
 observation-level marginal effect for each species sub-group:</p>
@@ -331,7 +328,6 @@ individuals:</p>
 <span><span class="co">#&gt;  species           Gentoo - Adelie      0.1591    0.30242  0.526   0.5988 -0.43361  0.75185           43.9               180  Adelie</span></span>
 <span><span class="co">#&gt;  species           Gentoo - Adelie      0.1591    0.30242  0.526   0.5988 -0.43361  0.75185           43.9               180  Gentoo</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, large_penguin, bill_length_mm, flipper_length_mm, species</span></span></code></pre></div>
 <p>When variables are omitted from the <code>datagrid</code> call, they
 will automatically be set at their mean or mode (depending on variable
@@ -356,7 +352,6 @@ effects:</p>
 <span><span class="co">#&gt;  species           Chinstrap - Adelie  -0.8070    0.07636 -10.569   &lt;0.001 -0.95670 -0.6574</span></span>
 <span><span class="co">#&gt;  species           Gentoo - Adelie      0.0829    0.11453   0.723    0.469 -0.14161  0.3073</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, large_penguin, bill_length_mm, flipper_length_mm, species</span></span></code></pre></div>
 </div>
 <div class="section level2">
@@ -465,13 +460,12 @@ simulated data:</p>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">estimate</span>, <span class="va">truth</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Estimate</span></span>
-<span><span class="co">#&gt;    -7.002</span></span>
-<span><span class="co">#&gt;    -3.002</span></span>
-<span><span class="co">#&gt;     0.999</span></span>
-<span><span class="co">#&gt;     5.000</span></span>
-<span><span class="co">#&gt;     9.000</span></span>
+<span><span class="co">#&gt;    -7.009</span></span>
+<span><span class="co">#&gt;    -3.006</span></span>
+<span><span class="co">#&gt;     0.998</span></span>
+<span><span class="co">#&gt;     5.001</span></span>
+<span><span class="co">#&gt;     9.005</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  </span></span>
 <span><span class="co">#&gt; Columns: estimate, truth</span></span></code></pre></div>
 <p>We can plot conditional adjusted predictions with
 <code>plot_predictions</code> function:</p>
@@ -516,7 +510,6 @@ learned in grade school: dividing rise over run.</p>
 <span><span class="co">#&gt;  Term Estimate Std. Error     z Pr(&gt;|z|)  2.5 %  97.5 %</span></span>
 <span><span class="co">#&gt;    hp   -0.112     0.0126 -8.92   &lt;0.001 -0.137 -0.0874</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>Now, consider the fact that our model includes an interaction between
 <code>hp</code> and <code>qsec</code>. This means that the slope will
@@ -537,7 +530,6 @@ actually differ based on the value of the moderator variable
 <span><span class="co">#&gt;    hp  -0.1093     0.0123 -8.92   &lt;0.001 -0.133 -0.0853 147 17.7</span></span>
 <span><span class="co">#&gt;    hp  -0.1325     0.0154 -8.60   &lt;0.001 -0.163 -0.1023 147 18.9</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, term, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, qsec</span></span></code></pre></div>
 <p>As we see in the graph, all three slopes are negative, but the Q3
 slope is steepest.</p>
@@ -576,7 +568,6 @@ what values are allowable. documentation.</p>
 <span><span class="co">#&gt;  Term Estimate Std. Error    z Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
 <span><span class="co">#&gt;   mpg   0.0465    0.00887 5.24   &lt;0.001 0.0291 0.0639</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/slopes.html">avg_slopes</a></span><span class="op">(</span><span class="va">mod</span>, type <span class="op">=</span> <span class="st">"link"</span><span class="op">)</span></span>
@@ -584,7 +575,6 @@ what values are allowable. documentation.</p>
 <span><span class="co">#&gt;  Term Estimate Std. Error    z Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
 <span><span class="co">#&gt;   mpg    0.307      0.115 2.67  0.00751 0.0819  0.532</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  link </span></span>
 <span><span class="co">#&gt; Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 </div>
 

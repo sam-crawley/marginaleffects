@@ -27,7 +27,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9010</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9011</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -231,7 +231,6 @@ them:</p>
 <span><span class="co">#&gt;    tx SK - tPA 0.036812   0.010361 3.55  &lt; 0.001 0.016505 0.05712</span></span>
 <span><span class="co">#&gt;    tx SK - tPA 0.022969   0.006976 3.29  &lt; 0.001 0.009297 0.03664</span></span>
 <span><span class="co">#&gt;    tx SK - tPA 0.049707   0.012843 3.87  &lt; 0.001 0.024535 0.07488</span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, day30, tx, age, Killip, sysbp, pulse, pmi, miloc, sex</span></span></code></pre></div>
 <p>Population-averaged (aka “marginal”) adjusted risk difference (<a href="https://vincentarelbundock.github.io/marginaleffects/articles/gformula.html">see
 this vignette</a>) can be obtained using the <code>avg_*()</code>
@@ -242,7 +241,6 @@ functions or using the <code>by</code> argument:</p>
 <span><span class="co">#&gt;  Term Contrast Estimate Std. Error    z Pr(&gt;|z|)   2.5 % 97.5 %</span></span>
 <span><span class="co">#&gt;    tx SK - tPA   0.0111    0.00277 4.01   &lt;0.001 0.00566 0.0165</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>The <code><a href="../reference/comparisons.html">comparisons()</a></code> function above computed the predicted
 probability of mortality (<code>day30==1</code>) for each observed row
@@ -262,7 +260,6 @@ population-averaged (marginal) adjusted risk <em>ratios</em>:</p>
 <span><span class="co">#&gt;  Term                 Contrast Estimate Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
 <span><span class="co">#&gt;    tx ln(mean(SK) / mean(tPA))     1.18   &lt;0.001  1.08   1.28</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: term, contrast, estimate, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo</span></span></code></pre></div>
 <p>Population-averaged (marginal) odds ratios:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
@@ -275,7 +272,6 @@ population-averaged (marginal) adjusted risk <em>ratios</em>:</p>
 <span><span class="co">#&gt;  Term                 Contrast Estimate Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
 <span><span class="co">#&gt;    tx ln(odds(SK) / odds(tPA))     1.19   &lt;0.001  1.09    1.3</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: term, contrast, estimate, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo</span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -301,7 +297,6 @@ probabilities for each patient, i.e., unit-level.</p>
 <span><span class="co">#&gt;    tx SK - tPA 0.036812   0.010361 3.55  &lt; 0.001 0.016505 0.05712</span></span>
 <span><span class="co">#&gt;    tx SK - tPA 0.022969   0.006976 3.29  &lt; 0.001 0.009297 0.03664</span></span>
 <span><span class="co">#&gt;    tx SK - tPA 0.049707   0.012843 3.87  &lt; 0.001 0.024535 0.07488</span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, day30, tx, age, Killip, sysbp, pulse, pmi, miloc, sex</span></span></code></pre></div>
 <p>Show the predicted probability for individual patients under both
 treatment alternatives.</p>

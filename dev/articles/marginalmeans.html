@@ -27,7 +27,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9010</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9011</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -209,7 +209,6 @@ easily:</p>
 <span><span class="co">#&gt;   am  FALSE 18.3      0.785 23.3   &lt;0.001  16.8   19.9</span></span>
 <span><span class="co">#&gt;   am  TRUE  22.5      0.834 26.9   &lt;0.001  20.8   24.1</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Results averaged over levels of: hp, cyl, am </span></span>
 <span><span class="co">#&gt; Columns: term, value, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>We could obtain the same results with the <code>by</code> argument of
@@ -225,7 +224,6 @@ across some predictors:</p>
 <span><span class="co">#&gt;  FALSE     18.3      0.785 23.3   &lt;0.001  16.8   19.9</span></span>
 <span><span class="co">#&gt;   TRUE     22.5      0.834 26.9   &lt;0.001  20.8   24.1</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: am, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span></span>
@@ -238,7 +236,6 @@ across some predictors:</p>
 <span><span class="co">#&gt;    6     19.0       1.07 17.7   &lt;0.001  16.9   21.1</span></span>
 <span><span class="co">#&gt;    8     19.4       1.38 14.1   &lt;0.001  16.7   22.1</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: cyl, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>The same results can be achieved using the <a href="https://cran.r-project.org/package=emmeans" class="external-link">powerful
 <code>emmeans</code> package</a>:</p>
@@ -310,7 +307,6 @@ using the Delta Method:</p>
 <span><span class="co">#&gt;  Sex    female 0.738     0.0207 35.68   &lt;0.001 0.698  0.779</span></span>
 <span><span class="co">#&gt;  Sex    male   0.235     0.0203 11.62   &lt;0.001 0.196  0.275</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Results averaged over levels of: Sex, PClass </span></span>
 <span><span class="co">#&gt; Columns: term, value, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>When the model is linear or on the link scale, it also produces
@@ -328,7 +324,6 @@ confidence intervals:</p>
 <span><span class="co">#&gt;  Sex    female  1.6407      0.206   7.984   &lt;0.001  1.238  2.043</span></span>
 <span><span class="co">#&gt;  Sex    male   -1.3399      0.124 -10.828   &lt;0.001 -1.582 -1.097</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  link </span></span>
 <span><span class="co">#&gt; Results averaged over levels of: Sex, PClass </span></span>
 <span><span class="co">#&gt; Columns: term, value, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>It is easy to transform those link-scale marginal means with
@@ -347,7 +342,6 @@ arbitrary functions using the <code>transform_post</code> argument:</p>
 <span><span class="co">#&gt;  Sex    female 0.838   &lt;0.001 0.775  0.885</span></span>
 <span><span class="co">#&gt;  Sex    male   0.208   &lt;0.001 0.170  0.250</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  link </span></span>
 <span><span class="co">#&gt; Results averaged over levels of: Sex, PClass </span></span>
 <span><span class="co">#&gt; Columns: term, value, estimate, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p><code><a href="../reference/marginal_means.html">marginal_means()</a></code> defaults to reporting EMMs for each
@@ -369,7 +363,6 @@ category individually, without cross-margins:</p>
 <span><span class="co">#&gt;  Sex    female 0.741     0.0240 30.8   &lt;0.001 0.694  0.788</span></span>
 <span><span class="co">#&gt;  Sex    male   0.253     0.0203 12.5   &lt;0.001 0.213  0.293</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Results averaged over levels of: Sex, PClass </span></span>
 <span><span class="co">#&gt; Columns: term, value, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>We can force the cross:</p>
@@ -387,7 +380,6 @@ category individually, without cross-margins:</p>
 <span><span class="co">#&gt;  0.2051     0.0308  6.66   &lt;0.001 0.1448 0.2655</span></span>
 <span><span class="co">#&gt;  0.0702     0.0135  5.18   &lt;0.001 0.0436 0.0967</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
 <span><span class="co">#&gt; Columns: Sex, PClass, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 </div>
 <div class="section level2">
@@ -413,7 +405,6 @@ category individually, without cross-margins:</p>
 <span><span class="co">#&gt;  (4 &amp; 6) 3.86   &lt;0.001  2.86   5.22</span></span>
 <span><span class="co">#&gt;  (8)     3.59   &lt;0.001  2.11   6.13</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  link </span></span>
 <span><span class="co">#&gt; Results averaged over levels of: vs, am, cyl </span></span>
 <span><span class="co">#&gt; Columns: by, estimate, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>And we can use the <code>hypothesis</code> argument to compare those
@@ -424,7 +415,6 @@ new collapsed subgroups:</p>
 <span><span class="co">#&gt;           Term Mean Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
 <span><span class="co">#&gt;  (4 &amp; 6) - (8) 1.07    0.848 0.515   2.24</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  link </span></span>
 <span><span class="co">#&gt; Results averaged over levels of: vs, am, cyl </span></span>
 <span><span class="co">#&gt; Columns: term, estimate, p.value, conf.low, conf.high</span></span></code></pre></div>
 </div>
@@ -472,7 +462,6 @@ results:</p>
 <span><span class="co">#&gt;   am      1 4.34   &lt;0.001  3.14   6.01</span></span>
 <span><span class="co">#&gt;   vs      1 3.75   &lt;0.001  2.47   5.69</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  link </span></span>
 <span><span class="co">#&gt; Results averaged over levels of: cyl, vs, am </span></span>
 <span><span class="co">#&gt; Columns: term, value, estimate, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>Thanks to those tidiers, we can also present the results in the style
