@@ -129,7 +129,7 @@ the ratio of predictions is 1 rather than 0:</p>
 <span>    <span class="va">mod</span>,</span>
 <span>    newdata <span class="op">=</span> <span class="st">"mean"</span>,</span>
 <span>    variables <span class="op">=</span> <span class="st">"hp"</span>,</span>
-<span>    transform_pre <span class="op">=</span> <span class="st">"ratio"</span>,</span>
+<span>    comparison <span class="op">=</span> <span class="st">"ratio"</span>,</span>
 <span>    hypothesis <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -138,7 +138,7 @@ the ratio of predictions is 1 rather than 0:</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, am, hp, drat</span></span></code></pre></div>
 <p>Warning: Z statistics and p values are computed <em>before</em>
-applying functions in <code>transform_post</code>.</p>
+applying functions in <code>transform</code>.</p>
 </div>
 <div class="section level2">
 <h2 id="hypothesis-tests-with-the-delta-method">Hypothesis tests with the delta method<a class="anchor" aria-label="anchor" href="#hypothesis-tests-with-the-delta-method"></a>
@@ -443,7 +443,7 @@ unit-level quantities; or one of their cousins
 <code><a href="../reference/predictions.html">avg_predictions()</a></code>, <code><a href="../reference/comparisons.html">avg_comparisons()</a></code>, or
 <code><a href="../reference/slopes.html">avg_slopes()</a></code> to aggregate the unit-level quantities into
 “Average Marginal Effects” or “Average Contrasts.” We can also use the
-<code>transform_pre</code> argument to emulate the behavior of the
+<code>comparison</code> argument to emulate the behavior of the
 <code>avg_*()</code> functions.</p>
 <p>First, note that these three commands produce the same results:</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
@@ -460,7 +460,7 @@ unit-level quantities; or one of their cousins
 <span><span class="fu"><a href="../reference/comparisons.html">comparisons</a></span><span class="op">(</span></span>
 <span>    <span class="va">mod</span>,</span>
 <span>    variables <span class="op">=</span> <span class="st">"vs"</span>,</span>
-<span>    transform_pre <span class="op">=</span> <span class="st">"differenceavg"</span><span class="op">)</span></span>
+<span>    comparison <span class="op">=</span> <span class="st">"differenceavg"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Term          Contrast Estimate Std. Error    z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
 <span><span class="co">#&gt;    vs mean(1) - mean(0)     6.93       1.26 5.49   &lt;0.001  4.46    9.4</span></span>
@@ -475,7 +475,7 @@ test between average marginal effects:</p>
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/comparisons.html">comparisons</a></span><span class="op">(</span></span>
 <span>    <span class="va">mod</span>,</span>
 <span>    hypothesis <span class="op">=</span> <span class="st">"am = vs"</span>,</span>
-<span>    transform_pre <span class="op">=</span> <span class="st">"differenceavg"</span><span class="op">)</span></span>
+<span>    comparison <span class="op">=</span> <span class="st">"differenceavg"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;   Term Estimate Std. Error      z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
 <span><span class="co">#&gt;  am=vs   -0.863       1.94 -0.445    0.656 -4.66   2.94</span></span>
@@ -483,13 +483,13 @@ test between average marginal effects:</p>
 <span><span class="co">#&gt; Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>Computing contrasts between average marginal effects requires a
 little care to obtain the right scale. In particular, we need to specify
-both the <code>variables</code> and the <code>transform_pre</code>:</p>
+both the <code>variables</code> and the <code>comparison</code>:</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/comparisons.html">comparisons</a></span><span class="op">(</span></span>
 <span>    <span class="va">mod</span>,</span>
 <span>    hypothesis <span class="op">=</span> <span class="st">"am = vs"</span>,</span>
 <span>    variables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"am"</span>, <span class="st">"vs"</span><span class="op">)</span>,</span>
-<span>    transform_pre <span class="op">=</span> <span class="st">"dydxavg"</span><span class="op">)</span></span>
+<span>    comparison <span class="op">=</span> <span class="st">"dydxavg"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;   Term Estimate Std. Error      z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
 <span><span class="co">#&gt;  am=vs   -0.863       1.94 -0.445    0.656 -4.66   2.94</span></span>
@@ -755,13 +755,13 @@ periods:</p>
 <span>    variable.name <span class="op">=</span> <span class="st">"time"</span>,</span>
 <span>    id.vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"trt"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">did</span><span class="op">)</span></span>
-<span><span class="co">#&gt;    id trt time           y</span></span>
-<span><span class="co">#&gt; 1:  1   0  pre  1.87107020</span></span>
-<span><span class="co">#&gt; 2:  2   1  pre -0.68565975</span></span>
-<span><span class="co">#&gt; 3:  3   1  pre -0.07652148</span></span>
-<span><span class="co">#&gt; 4:  4   1  pre  0.49380655</span></span>
-<span><span class="co">#&gt; 5:  5   1  pre -0.83350316</span></span>
-<span><span class="co">#&gt; 6:  6   0  pre  1.17579495</span></span></code></pre></div>
+<span><span class="co">#&gt;    id trt time          y</span></span>
+<span><span class="co">#&gt; 1:  1   0  pre -1.5805369</span></span>
+<span><span class="co">#&gt; 2:  2   1  pre -0.6639683</span></span>
+<span><span class="co">#&gt; 3:  3   0  pre -1.0572796</span></span>
+<span><span class="co">#&gt; 4:  4   0  pre -0.5290224</span></span>
+<span><span class="co">#&gt; 5:  5   1  pre -1.6386219</span></span>
+<span><span class="co">#&gt; 6:  6   1  pre  0.2867641</span></span></code></pre></div>
 <p>Then, we estimate a linear model with a multiple interaction between
 the time and the treatment indicators. We also compute contrasts at the
 mean for each treatment level:</p>
@@ -773,9 +773,9 @@ mean for each treatment level:</p>
 <span>    newdata <span class="op">=</span> <span class="fu"><a href="../reference/datagrid.html">datagrid</a></span><span class="op">(</span>trt <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">1</span><span class="op">)</span>,</span>
 <span>    variables <span class="op">=</span> <span class="st">"time"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Term   Contrast Estimate Std. Error      z Pr(&gt;|z|)  2.5 % 97.5 % trt</span></span>
-<span><span class="co">#&gt;  time post - pre  -0.0258     0.0766 -0.336    0.737 -0.176  0.124   0</span></span>
-<span><span class="co">#&gt;  time post - pre   0.2642     0.0773  3.419   &lt;0.001  0.113  0.416   1</span></span>
+<span><span class="co">#&gt;  Term   Contrast Estimate Std. Error    z Pr(&gt;|z|)   2.5 % 97.5 % trt</span></span>
+<span><span class="co">#&gt;  time post - pre    0.122     0.0826 1.48    0.139 -0.0396  0.284   0</span></span>
+<span><span class="co">#&gt;  time post - pre    0.285     0.0803 3.55   &lt;0.001  0.1278  0.443   1</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, y, time, trt</span></span></code></pre></div>
 <p>Finally, we compute pairwise differences between contrasts. This is
@@ -787,8 +787,8 @@ the Diff-in-Diff estimate:</p>
 <span>    newdata <span class="op">=</span> <span class="fu"><a href="../reference/datagrid.html">datagrid</a></span><span class="op">(</span>trt <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">1</span><span class="op">)</span>,</span>
 <span>    hypothesis <span class="op">=</span> <span class="st">"pairwise"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;           Term Estimate Std. Error     z Pr(&gt;|z|)  2.5 %  97.5 %</span></span>
-<span><span class="co">#&gt;  Row 1 - Row 2    -0.29      0.109 -2.66  0.00772 -0.503 -0.0766</span></span>
+<span><span class="co">#&gt;           Term Estimate Std. Error     z Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
+<span><span class="co">#&gt;  Row 1 - Row 2   -0.163      0.115 -1.41    0.158 -0.389  0.063</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 </div>

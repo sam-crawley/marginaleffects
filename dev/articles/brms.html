@@ -643,8 +643,8 @@ arguments to the <code><a href="https://mc-stan.org/rstantools/reference/posteri
 <span>    by <span class="op">=</span> <span class="st">"x"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  x Estimate 2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  0    0.453 0.340  0.566</span></span>
-<span><span class="co">#&gt;  1    0.553 0.439  0.661</span></span>
+<span><span class="co">#&gt;  0    0.452 0.338  0.567</span></span>
+<span><span class="co">#&gt;  1    0.552 0.435  0.667</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Columns: x, estimate, conf.low, conf.high</span></span></code></pre></div>
 <p>We can “integrate out” random effects in the other
@@ -656,8 +656,8 @@ arguments to the <code><a href="https://mc-stan.org/rstantools/reference/posteri
 <span>    allow_new_levels <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>    sample_new_levels <span class="op">=</span> <span class="st">"gaussian"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Term Contrast Estimate  2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;     x    1 - 0   0.0964 0.0482  0.161</span></span>
+<span><span class="co">#&gt;  Term Contrast Estimate 2.5 % 97.5 %</span></span>
+<span><span class="co">#&gt;     x    1 - 0   0.0967 0.048  0.162</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Columns: term, contrast, estimate, conf.low, conf.high</span></span></code></pre></div>
 <p>This is nearly equivalent the <code>brmsmargins</code> command output
@@ -674,7 +674,7 @@ arguments to the <code><a href="https://mc-stan.org/rstantools/reference/posteri
 <span>  effects <span class="op">=</span> <span class="st">"integrateoutRE"</span><span class="op">)</span></span>
 <span><span class="va">bm</span><span class="op">$</span><span class="va">ContrastSummary</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt;            M        Mdn         LL        UL PercentROPE PercentMID   CI CIType ROPE  MID Label</span></span>
-<span><span class="co">#&gt; 1 0.09864167 0.09656873 0.04705257 0.1635562          NA         NA 0.95    ETI &lt;NA&gt; &lt;NA&gt; AME x</span></span></code></pre></div>
+<span><span class="co">#&gt; 1 0.09871359 0.09723033 0.04772076 0.1620306          NA         NA 0.95    ETI &lt;NA&gt; &lt;NA&gt; AME x</span></span></code></pre></div>
 <p>See the <a href="https://vincentarelbundock.github.io/marginaleffects/articles/alternative_software.html">alternative
 software vignette</a> for more information on
 <code>brmsmargins</code>.</p>
@@ -1063,7 +1063,7 @@ returning a data frame with a column of type <code>rvar</code>:</p>
 <span>           seed <span class="op">=</span> <span class="fl">1024</span>, silent <span class="op">=</span> <span class="fl">2</span>, chains <span class="op">=</span> <span class="fl">4</span>, iter <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span></code></pre></div>
 <p>Notice that we can compute average contrasts in two different ways,
 using the <code><a href="../reference/comparisons.html">avg_comparisons()</a></code> function or the
-<code>transform_pre</code> argument:</p>
+<code>comparison</code> argument:</p>
 <div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/comparisons.html">avg_comparisons</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -1073,7 +1073,7 @@ using the <code><a href="../reference/comparisons.html">avg_comparisons()</a></c
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Columns: term, contrast, estimate, conf.low, conf.high</span></span>
 <span></span>
-<span><span class="fu"><a href="../reference/comparisons.html">comparisons</a></span><span class="op">(</span><span class="va">mod</span>, transform_pre <span class="op">=</span> <span class="st">"differenceavg"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/comparisons.html">comparisons</a></span><span class="op">(</span><span class="va">mod</span>, comparison <span class="op">=</span> <span class="st">"differenceavg"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Term Contrast Estimate   2.5 %  97.5 %</span></span>
 <span><span class="co">#&gt;   mpg mean(+1)  0.13547 0.07871 0.17472</span></span>
@@ -1085,7 +1085,7 @@ to the second rows of the <code><a href="../reference/comparisons.html">comparis
 <div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/comparisons.html">comparisons</a></span><span class="op">(</span></span>
 <span>    <span class="va">mod</span>,</span>
-<span>    transform_pre <span class="op">=</span> <span class="st">"differenceavg"</span>,</span>
+<span>    comparison <span class="op">=</span> <span class="st">"differenceavg"</span>,</span>
 <span>    hypothesis <span class="op">=</span> <span class="st">"b2 - b1 = 0.2"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;       Term Estimate  2.5 % 97.5 %</span></span>
@@ -1100,7 +1100,7 @@ of draws and N is the number of parameters. We can obtain such a matrix
 using the <code>posterior_draws(x, shape = "DxP")</code>, and we can
 simply add a couple calls to our chain of operations:</p>
 <div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/comparisons.html">avg_comparisons</a></span><span class="op">(</span><span class="va">mod</span>, transform_pre <span class="op">=</span> <span class="st">"differenceavg"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/comparisons.html">avg_comparisons</a></span><span class="op">(</span><span class="va">mod</span>, comparison <span class="op">=</span> <span class="st">"differenceavg"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/posterior_draws.html">posterior_draws</a></span><span class="op">(</span>shape <span class="op">=</span> <span class="st">"DxP"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu">brms</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/brms/man/hypothesis.brmsfit.html" class="external-link">hypothesis</a></span><span class="op">(</span><span class="st">"b2 - b1 &gt; .2"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Hypothesis Tests for class :</span></span>

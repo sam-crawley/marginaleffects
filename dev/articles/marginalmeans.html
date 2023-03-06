@@ -327,12 +327,12 @@ confidence intervals:</p>
 <span><span class="co">#&gt; Results averaged over levels of: Sex, PClass </span></span>
 <span><span class="co">#&gt; Columns: term, value, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>It is easy to transform those link-scale marginal means with
-arbitrary functions using the <code>transform_post</code> argument:</p>
+arbitrary functions using the <code>transform</code> argument:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/marginal_means.html">marginal_means</a></span><span class="op">(</span></span>
 <span>    <span class="va">titanic</span>,</span>
 <span>    type <span class="op">=</span> <span class="st">"link"</span>,</span>
-<span>    transform_post <span class="op">=</span> <span class="fu">insight</span><span class="fu">::</span><span class="fu"><a href="https://easystats.github.io/insight/reference/link_inverse.html" class="external-link">link_inverse</a></span><span class="op">(</span><span class="va">titanic</span><span class="op">)</span>,</span>
+<span>    transform <span class="op">=</span> <span class="fu">insight</span><span class="fu">::</span><span class="fu"><a href="https://easystats.github.io/insight/reference/link_inverse.html" class="external-link">link_inverse</a></span><span class="op">(</span><span class="va">titanic</span><span class="op">)</span>,</span>
 <span>    variables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Sex"</span>, <span class="st">"PClass"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;    Term  Value  Mean Pr(&gt;|z|) 2.5 % 97.5 %</span></span>

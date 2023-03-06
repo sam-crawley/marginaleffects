@@ -146,7 +146,7 @@ following conditions hold:</p>
 </li>
 <li>The model class is <code>glm</code>
 </li>
-<li>The <code>transform_post</code> argument is <code>NULL</code>
+<li>The <code>transform</code> argument is <code>NULL</code>
 </li>
 </ul>
 <p>then <code><a href="../reference/marginal_means.html">marginal_means()</a></code> and <code><a href="../reference/predictions.html">predictions()</a></code>
@@ -235,26 +235,26 @@ to estimate the standard error.</li>
 <span><span class="va">mod</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/inferences.html">inferences</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"simulation"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Estimate Std. Error    2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  7.84e-01      0.193 2.65e-01  0.972</span></span>
-<span><span class="co">#&gt;  7.84e-01      0.163 3.72e-01  0.958</span></span>
-<span><span class="co">#&gt;  8.98e-01      0.142 4.88e-01  0.988</span></span>
-<span><span class="co">#&gt;  8.74e-01      0.238 1.70e-01  0.996</span></span>
-<span><span class="co">#&gt;  1.31e-02      0.184 5.86e-05  0.764</span></span>
+<span><span class="co">#&gt;  7.84e-01      0.193 2.73e-01  0.973</span></span>
+<span><span class="co">#&gt;  7.84e-01      0.166 3.43e-01  0.960</span></span>
+<span><span class="co">#&gt;  8.98e-01      0.138 4.94e-01  0.988</span></span>
+<span><span class="co">#&gt;  8.74e-01      0.241 1.54e-01  0.995</span></span>
+<span><span class="co">#&gt;  1.31e-02      0.194 5.53e-05  0.774</span></span>
 <span><span class="co">#&gt; --- 22 rows omitted. See ?avg_predictions and ?print.marginaleffects --- </span></span>
-<span><span class="co">#&gt;  3.83e-01      0.294 1.54e-02  0.959</span></span>
-<span><span class="co">#&gt;  1.21e-06      0.120 2.76e-12  0.286</span></span>
-<span><span class="co">#&gt;  6.89e-03      0.147 3.12e-05  0.560</span></span>
-<span><span class="co">#&gt;  8.07e-11      0.164 2.22e-16  0.802</span></span>
-<span><span class="co">#&gt;  7.95e-01      0.165 3.61e-01  0.963</span></span>
+<span><span class="co">#&gt;  3.83e-01      0.301 1.81e-02  0.962</span></span>
+<span><span class="co">#&gt;  1.21e-06      0.153 2.09e-12  0.667</span></span>
+<span><span class="co">#&gt;  6.89e-03      0.161 3.10e-05  0.613</span></span>
+<span><span class="co">#&gt;  8.07e-11      0.173 2.22e-16  0.935</span></span>
+<span><span class="co">#&gt;  7.95e-01      0.167 3.43e-01  0.967</span></span>
 <span><span class="co">#&gt; Columns: rowid, estimate, std.error, conf.low, conf.high, vs, hp, wt, gear</span></span>
 <span></span>
 <span><span class="va">mod</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/slopes.html">avg_slopes</a></span><span class="op">(</span>vcov <span class="op">=</span> <span class="op">~</span><span class="va">gear</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/inferences.html">inferences</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"simulation"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Term Contrast Estimate Std. Error   2.5 %  97.5 %</span></span>
-<span><span class="co">#&gt;  gear    4 - 3 -0.04238    0.05468 -0.0890 0.13051</span></span>
-<span><span class="co">#&gt;  gear    5 - 3 -0.20392    0.26748 -0.4874 0.33237</span></span>
-<span><span class="co">#&gt;  hp      dY/dX -0.00477    0.00452 -0.0116 0.00592</span></span>
-<span><span class="co">#&gt;  wt      dY/dX  0.00880    0.32230 -0.7361 0.69033</span></span>
+<span><span class="co">#&gt;  gear    4 - 3 -0.04289    0.05636 -0.0912 0.13979</span></span>
+<span><span class="co">#&gt;  gear    5 - 3 -0.20477    0.26906 -0.4895 0.33615</span></span>
+<span><span class="co">#&gt;  hp      dY/dX -0.00458    0.00436 -0.0112 0.00413</span></span>
+<span><span class="co">#&gt;  wt      dY/dX  0.00285    0.31056 -0.6038 0.70964</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Columns: term, contrast, estimate, std.error, conf.low, conf.high</span></span></code></pre></div>
 <p>Since simulation based inference generates <code>iter</code>
@@ -589,7 +589,7 @@ mean(cmp1$conf.high - cmp1$conf.low)
 #> [1] 0.05572727
 
 # The CI of the average estimate is:
-cmp2 <- comparisons(mod, variables = "hp", transform_pre = "differenceavg")
+cmp2 <- comparisons(mod, variables = "hp", comparison = "differenceavg")
 cmp2$conf.high - cmp2$conf.low
 #> [1] 0.0492053
 ```

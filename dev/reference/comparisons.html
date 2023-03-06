@@ -8,7 +8,7 @@ comparisons(): unit-level (conditional) estimates.
 avg_comparisons(): average (marginal) estimates.
 
 
-variables identifies the focal regressors whose "effect" we are interested in. transform_pre determines how predictions with different regressor values are compared (difference, ratio, odds, etc.). The newdata argument and the datagrid() function control where statistics are evaluated in the predictor space: "at observed values", "at the mean", "at representative values", etc.
+variables identifies the focal regressors whose "effect" we are interested in. comparison determines how predictions with different regressor values are compared (difference, ratio, odds, etc.). The newdata argument and the datagrid() function control where statistics are evaluated in the predictor space: "at observed values", "at the mean", "at representative values", etc.
 See the comparisons vignette and package website for worked examples and case studies:
 https://vincentarelbundock.github.io/marginaleffects/articles/comparisons.html
 https://vincentarelbundock.github.io/marginaleffects/
@@ -22,7 +22,7 @@ comparisons(): unit-level (conditional) estimates.
 avg_comparisons(): average (marginal) estimates.
 
 
-variables identifies the focal regressors whose "effect" we are interested in. transform_pre determines how predictions with different regressor values are compared (difference, ratio, odds, etc.). The newdata argument and the datagrid() function control where statistics are evaluated in the predictor space: "at observed values", "at the mean", "at representative values", etc.
+variables identifies the focal regressors whose "effect" we are interested in. comparison determines how predictions with different regressor values are compared (difference, ratio, odds, etc.). The newdata argument and the datagrid() function control where statistics are evaluated in the predictor space: "at observed values", "at the mean", "at representative values", etc.
 See the comparisons vignette and package website for worked examples and case studies:
 https://vincentarelbundock.github.io/marginaleffects/articles/comparisons.html
 https://vincentarelbundock.github.io/marginaleffects/
@@ -86,7 +86,7 @@ ratio, or some other function. <code>comparisons()</code> can return many quanti
 interest, such as contrasts, differences, risk ratios, changes in log odds,
 slopes, elasticities, etc.</p><ul><li><p><code>comparisons()</code>: unit-level (conditional) estimates.</p></li>
 <li><p><code>avg_comparisons()</code>: average (marginal) estimates.</p></li>
-</ul><p><code>variables</code> identifies the focal regressors whose "effect" we are interested in. <code>transform_pre</code> determines how predictions with different regressor values are compared (difference, ratio, odds, etc.). The <code>newdata</code> argument and the <code><a href="datagrid.html">datagrid()</a></code> function control where statistics are evaluated in the predictor space: "at observed values", "at the mean", "at representative values", etc.</p>
+</ul><p><code>variables</code> identifies the focal regressors whose "effect" we are interested in. <code>comparison</code> determines how predictions with different regressor values are compared (difference, ratio, odds, etc.). The <code>newdata</code> argument and the <code><a href="datagrid.html">datagrid()</a></code> function control where statistics are evaluated in the predictor space: "at observed values", "at the mean", "at representative values", etc.</p>
 <p>See the comparisons vignette and package website for worked examples and case studies:</p><ul><li><p><a href="https://vincentarelbundock.github.io/marginaleffects/articles/comparisons.html">https://vincentarelbundock.github.io/marginaleffects/articles/comparisons.html</a></p></li>
 <li><p><a href="https://vincentarelbundock.github.io/marginaleffects/">https://vincentarelbundock.github.io/marginaleffects/</a></p></li>
 </ul></div>
@@ -97,12 +97,12 @@ slopes, elasticities, etc.</p><ul><li><p><code>comparisons()</code>: unit-level 
 <span>  <span class="va">model</span>,</span>
 <span>  newdata <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  variables <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  comparison <span class="op">=</span> <span class="st">"difference"</span>,</span>
 <span>  type <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  vcov <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  by <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  conf_level <span class="op">=</span> <span class="fl">0.95</span>,</span>
-<span>  transform_pre <span class="op">=</span> <span class="st">"difference"</span>,</span>
-<span>  transform_post <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  transform <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  cross <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  wts <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  hypothesis <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -121,8 +121,8 @@ slopes, elasticities, etc.</p><ul><li><p><code>comparisons()</code>: unit-level 
 <span>  vcov <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  by <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  conf_level <span class="op">=</span> <span class="fl">0.95</span>,</span>
-<span>  transform_pre <span class="op">=</span> <span class="st">"difference"</span>,</span>
-<span>  transform_post <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  comparison <span class="op">=</span> <span class="st">"difference"</span>,</span>
+<span>  transform <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  cross <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  wts <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  hypothesis <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -184,6 +184,15 @@ slopes, elasticities, etc.</p><ul><li><p><code>comparisons()</code>: unit-level 
 </ul></dd>
 
 
+<dt>comparison</dt>
+<dd><p>How should pairs of predictions be compared? Difference, ratio, odds ratio, or user-defined functions.</p><ul><li><p>string: shortcuts to common contrast functions.</p><ul><li><p>Supported shortcuts strings: difference, differenceavg, differenceavgwts, dydx, eyex, eydx, dyex, dydxavg, eyexavg, eydxavg, dyexavg, dydxavgwts, eyexavgwts, eydxavgwts, dyexavgwts, ratio, ratioavg, ratioavgwts, lnratio, lnratioavg, lnratioavgwts, lnor, lnoravg, lnoravgwts, expdydx, expdydxavg, expdydxavgwts</p></li>
+<li><p>See the Comparisons section below for definitions of each transformation.</p></li>
+</ul></li>
+<li><p>function: accept two equal-length numeric vectors of adjusted predictions (<code>hi</code> and <code>lo</code>) and returns a vector of contrasts of the same length, or a unique numeric value.</p><ul><li><p>See the Transformations section below for examples of valid functions.</p></li>
+</ul></li>
+</ul></dd>
+
+
 <dt>type</dt>
 <dd><p>string indicates the type (scale) of the predictions used to
 compute contrasts or slopes. This can differ based on the model
@@ -221,21 +230,12 @@ the <code>marginaleffects:::type_dictionary</code> dataframe.</p></dd>
 <dd><p>numeric value between 0 and 1. Confidence level to use to build a confidence interval.</p></dd>
 
 
-<dt>transform_pre</dt>
-<dd><p>string or function. How should pairs of adjusted predictions be contrasted?</p><ul><li><p>string: shortcuts to common contrast functions.</p><ul><li><p>Supported shortcuts strings: difference, differenceavg, differenceavgwts, dydx, eyex, eydx, dyex, dydxavg, eyexavg, eydxavg, dyexavg, dydxavgwts, eyexavgwts, eydxavgwts, dyexavgwts, ratio, ratioavg, ratioavgwts, lnratio, lnratioavg, lnratioavgwts, lnor, lnoravg, lnoravgwts, expdydx, expdydxavg, expdydxavgwts</p></li>
-<li><p>See the Transformations section below for definitions of each transformation.</p></li>
-</ul></li>
-<li><p>function: accept two equal-length numeric vectors of adjusted predictions (<code>hi</code> and <code>lo</code>) and returns a vector of contrasts of the same length, or a unique numeric value.</p><ul><li><p>See the Transformations section below for examples of valid functions.</p></li>
-</ul></li>
-</ul></dd>
-
-
-<dt>transform_post</dt>
+<dt>transform</dt>
 <dd><p>string or function. Transformation applied to unit-level estimates and confidence intervals just before the function returns results. Functions must accept a vector and return a vector of the same length. Support string shortcuts: "exp", "ln"</p></dd>
 
 
 <dt>cross</dt>
-<dd><p>TRUE or FALSE</p><ul><li><p><code>FALSE</code>: Contrasts represent the change in adjusted predictions when one predictor changes and all other variables are held constant.</p></li>
+<dd><ul><li><p><code>FALSE</code>: Contrasts represent the change in adjusted predictions when one predictor changes and all other variables are held constant.</p></li>
 <li><p><code>TRUE</code>: Contrasts represent the changes in adjusted predictions when all the predictors specified in the <code>variables</code> argument are manipulated simultaneously (a "cross-contrast").</p></li>
 </ul></dd>
 
@@ -249,7 +249,7 @@ contrasts or slopes. These weights only affect the averaging in
 
 
 <dt>hypothesis</dt>
-<dd><p>specify a hypothesis test or custom contrast using a numeric value, vector, or matrix, a string, or a string formula.</p><ul><li><p>Numeric:</p><ul><li><p>Single value: the null hypothesis used in the computation of Z and p (before applying <code>transform_post</code>).</p></li>
+<dd><p>specify a hypothesis test or custom contrast using a numeric value, vector, or matrix, a string, or a string formula.</p><ul><li><p>Numeric:</p><ul><li><p>Single value: the null hypothesis used in the computation of Z and p (before applying <code>transform</code>).</p></li>
 <li><p>Vector: Weights to compute a linear combination of (custom contrast between) estimates. Length equal to the number of rows generated by the same function call, but without the <code>hypothesis</code> argument.</p></li>
 <li><p>Matrix: Each column is a vector of weights, as describe above, used to compute a distinct linear combination of (contrast between) estimates. The column names of the matrix are used as labels in the output.</p></li>
 </ul></li>
@@ -345,7 +345,7 @@ the table below.</p>
 
 
 <p>The following transformations can be applied by supplying one of the shortcut strings to the
-<code>transform_pre</code> argument.
+<code>comparison</code> argument.
 <code>hi</code> is a vector of adjusted predictions for the "high" side of the
 contrast. <code>lo</code> is a vector of adjusted predictions for the "low" side of the
 contrast. <code>y</code> is a vector of adjusted predictions for the original data. <code>x</code>
@@ -560,7 +560,7 @@ posterior using the function supplied to the
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Adjusted Risk Ratio: see the contrasts vignette</span></span></span>
 <span class="r-in"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm</a></span><span class="op">(</span><span class="va">vs</span> <span class="op">~</span> <span class="va">mpg</span>, data <span class="op">=</span> <span class="va">mtcars</span>, family <span class="op">=</span> <span class="va">binomial</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">avg_comparisons</span><span class="op">(</span><span class="va">mod</span>, transform_pre <span class="op">=</span> <span class="st">"lnratioavg"</span>, transform_post <span class="op">=</span> <span class="va">exp</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">avg_comparisons</span><span class="op">(</span><span class="va">mod</span>, comparison <span class="op">=</span> <span class="st">"lnratioavg"</span>, transform <span class="op">=</span> <span class="va">exp</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Term Contrast Estimate Pr(&gt;|z|) 2.5 % 97.5 %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   mpg mean(+1)     1.14   &lt;0.001  1.09   1.18</span>
@@ -568,11 +568,11 @@ posterior using the function supplied to the
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: term, contrast, estimate, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Adjusted Risk Ratio: Manual specification of the `transform_pre`</span></span></span>
+<span class="r-in"><span><span class="co"># Adjusted Risk Ratio: Manual specification of the `comparison`</span></span></span>
 <span class="r-in"><span><span class="fu">avg_comparisons</span><span class="op">(</span></span></span>
 <span class="r-in"><span>     <span class="va">mod</span>,</span></span>
-<span class="r-in"><span>     transform_pre <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">hi</span>, <span class="va">lo</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">hi</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">lo</span><span class="op">)</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>     transform_post <span class="op">=</span> <span class="va">exp</span><span class="op">)</span></span></span>
+<span class="r-in"><span>     comparison <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">hi</span>, <span class="va">lo</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">hi</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">lo</span><span class="op">)</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>     transform <span class="op">=</span> <span class="va">exp</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Term Contrast Estimate Pr(&gt;|z|) 2.5 % 97.5 %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   mpg       +1     1.14   &lt;0.001  1.09   1.18</span>
