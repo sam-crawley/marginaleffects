@@ -27,7 +27,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9016</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9018</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -226,11 +226,11 @@ them:</p>
 <span><span class="co">#&gt;    tx SK - tPA 0.001137   0.000500 2.27  0.02302 0.000157 0.00212</span></span>
 <span><span class="co">#&gt;    tx SK - tPA 0.001366   0.000594 2.30  0.02143 0.000202 0.00253</span></span>
 <span><span class="co">#&gt; --- 30500 rows omitted. See ?avg_comparisons and ?print.marginaleffects --- </span></span>
-<span><span class="co">#&gt;    tx SK - tPA 0.002429   0.000808 3.00  0.00266 0.000844 0.00401</span></span>
-<span><span class="co">#&gt;    tx SK - tPA 0.012130   0.003900 3.11  0.00187 0.004486 0.01977</span></span>
-<span><span class="co">#&gt;    tx SK - tPA 0.036812   0.010361 3.55  &lt; 0.001 0.016505 0.05712</span></span>
-<span><span class="co">#&gt;    tx SK - tPA 0.022969   0.006976 3.29  &lt; 0.001 0.009297 0.03664</span></span>
-<span><span class="co">#&gt;    tx SK - tPA 0.049707   0.012843 3.87  &lt; 0.001 0.024535 0.07488</span></span>
+<span><span class="co">#&gt;    tx SK - tPA 0.002423   0.000806 3.00  0.00266 0.000842 0.00400</span></span>
+<span><span class="co">#&gt;    tx SK - tPA 0.012100   0.003890 3.11  0.00187 0.004477 0.01972</span></span>
+<span><span class="co">#&gt;    tx SK - tPA 0.036740   0.010341 3.55  &lt; 0.001 0.016473 0.05701</span></span>
+<span><span class="co">#&gt;    tx SK - tPA 0.022907   0.006954 3.29  &lt; 0.001 0.009277 0.03654</span></span>
+<span><span class="co">#&gt;    tx SK - tPA 0.049744   0.012848 3.87  &lt; 0.001 0.024561 0.07493</span></span>
 <span><span class="co">#&gt; Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, day30, tx, age, Killip, sysbp, pulse, pmi, miloc, sex</span></span></code></pre></div>
 <p>Population-averaged (aka “marginal”) adjusted risk difference (<a href="https://vincentarelbundock.github.io/marginaleffects/articles/gformula.html">see
 this vignette</a>) can be obtained using the <code>avg_*()</code>
@@ -292,11 +292,11 @@ probabilities for each patient, i.e., unit-level.</p>
 <span><span class="co">#&gt;    tx SK - tPA 0.001137   0.000500 2.27  0.02302 0.000157 0.00212</span></span>
 <span><span class="co">#&gt;    tx SK - tPA 0.001366   0.000594 2.30  0.02143 0.000202 0.00253</span></span>
 <span><span class="co">#&gt; --- 30500 rows omitted. See ?avg_comparisons and ?print.marginaleffects --- </span></span>
-<span><span class="co">#&gt;    tx SK - tPA 0.002429   0.000808 3.00  0.00266 0.000844 0.00401</span></span>
-<span><span class="co">#&gt;    tx SK - tPA 0.012130   0.003900 3.11  0.00187 0.004486 0.01977</span></span>
-<span><span class="co">#&gt;    tx SK - tPA 0.036812   0.010361 3.55  &lt; 0.001 0.016505 0.05712</span></span>
-<span><span class="co">#&gt;    tx SK - tPA 0.022969   0.006976 3.29  &lt; 0.001 0.009297 0.03664</span></span>
-<span><span class="co">#&gt;    tx SK - tPA 0.049707   0.012843 3.87  &lt; 0.001 0.024535 0.07488</span></span>
+<span><span class="co">#&gt;    tx SK - tPA 0.002423   0.000806 3.00  0.00266 0.000842 0.00400</span></span>
+<span><span class="co">#&gt;    tx SK - tPA 0.012100   0.003890 3.11  0.00187 0.004477 0.01972</span></span>
+<span><span class="co">#&gt;    tx SK - tPA 0.036740   0.010341 3.55  &lt; 0.001 0.016473 0.05701</span></span>
+<span><span class="co">#&gt;    tx SK - tPA 0.022907   0.006954 3.29  &lt; 0.001 0.009277 0.03654</span></span>
+<span><span class="co">#&gt;    tx SK - tPA 0.049744   0.012848 3.87  &lt; 0.001 0.024561 0.07493</span></span>
 <span><span class="co">#&gt; Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, day30, tx, age, Killip, sysbp, pulse, pmi, miloc, sex</span></span></code></pre></div>
 <p>Show the predicted probability for individual patients under both
 treatment alternatives.</p>
