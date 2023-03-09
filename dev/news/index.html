@@ -68,7 +68,9 @@
 <li>
 <code>equivalence</code> argument available everywhere.</li>
 </ul><p>Performance:</p>
-<ul><li>Bayesian models with many rows. Thanks to Etienne Bacher. <a href="https://github.com/vincentarelbundock/marginaleffects/issues/694" class="external-link">#694</a></li>
+<ul><li>Much faster results in <code>avg_*()</code> functions for models with only categorical predictors and many rows of data, using deduplication and weights instead of unit-level estimates.</li>
+<li>Faster predictions in <code><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm()</a></code> and <code><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm()</a></code> models using <code>RcppEigen</code>.</li>
+<li>Bayesian models with many rows. Thanks to Etienne Bacher. <a href="https://github.com/vincentarelbundock/marginaleffects/issues/694" class="external-link">#694</a></li>
 <li>Faster predictions, especially with standard errors and large datasets.</li>
 </ul><p>Bugs:</p>
 <ul><li>Support for more models with offsets. Thanks to <a href="https://github.com/mariofiorini" class="external-link">@mariofiorini</a> for report <a href="https://github.com/vincentarelbundock/marginaleffects/issues/705" class="external-link">#705</a>.</li>

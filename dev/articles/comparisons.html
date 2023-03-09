@@ -548,10 +548,10 @@ argument shows that the estimated comparisons differ based on
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/comparisons.html">avg_comparisons</a></span><span class="op">(</span><span class="va">mod</span>, variables <span class="op">=</span> <span class="st">"am"</span>, by <span class="op">=</span> <span class="st">"cyl"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Term          Contrast cyl Estimate Std. Error     z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;    am mean(1) - mean(0)   4     5.18       2.05 2.521   0.0117  1.15   9.20</span></span>
-<span><span class="co">#&gt;    am mean(1) - mean(0)   6     1.44       2.32 0.623   0.5336 -3.10   5.98</span></span>
-<span><span class="co">#&gt;    am mean(1) - mean(0)   8     0.35       2.32 0.151   0.8799 -4.19   4.89</span></span>
+<span><span class="co">#&gt;  Term          Contrast cyl Estimate Std. Error     z Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
+<span><span class="co">#&gt;    am mean(1) - mean(0)   4     3.93       1.57 2.502   0.0124  0.851   7.01</span></span>
+<span><span class="co">#&gt;    am mean(1) - mean(0)   6     2.69       1.69 1.591   0.1117 -0.624   6.00</span></span>
+<span><span class="co">#&gt;    am mean(1) - mean(0)   8     0.35       2.32 0.151   0.8799 -4.189   4.89</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Columns: term, contrast, cyl, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo</span></span></code></pre></div>
 <p>However, using the <code>hypothesis</code> argument for pairwise
@@ -561,9 +561,9 @@ is not statistically significant:</p>
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/comparisons.html">avg_comparisons</a></span><span class="op">(</span><span class="va">mod</span>, variables <span class="op">=</span> <span class="st">"am"</span>, by <span class="op">=</span> <span class="st">"cyl"</span>, hypothesis <span class="op">=</span> <span class="st">"pairwise"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;   Term Estimate Std. Error      z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  4 - 8     4.82       3.09  1.559    0.119 -1.24  10.89</span></span>
-<span><span class="co">#&gt;  6 - 4    -3.73       3.09 -1.206    0.228 -9.80   2.33</span></span>
-<span><span class="co">#&gt;  6 - 8     1.09       3.28  0.333    0.739 -5.33   7.51</span></span>
+<span><span class="co">#&gt;  4 - 8     3.58       2.80  1.279    0.201 -1.90  9.066</span></span>
+<span><span class="co">#&gt;  6 - 4    -1.24       1.03 -1.206    0.228 -3.27  0.777</span></span>
+<span><span class="co">#&gt;  6 - 8     2.34       2.87  0.815    0.415 -3.28  7.954</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>In other contexts, we are interested in a “cross-contrast” or
