@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.10.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.11.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -109,8 +109,7 @@ car is:</p>
 <span><span class="co">#&gt;      4    0.578     0.1229 4.70   &lt;0.001 0.3373  0.819  25 110</span></span>
 <span><span class="co">#&gt;      5    0.218     0.1007 2.17   0.0302 0.0209  0.416  25 110</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  probs </span></span>
-<span><span class="co">#&gt; Columns: rowid, type, group, estimate, std.error, statistic, p.value, conf.low, conf.high, gear, mpg, hp</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: rowid, group, estimate, std.error, statistic, p.value, conf.low, conf.high, gear, mpg, hp</span></span></code></pre></div>
 <p>Since the <code>gear</code> is categorical, we make one prediction
 for each level of the outcome.</p>
 <p>Now consider the marginal effects (aka slopes or partial derivatives)
@@ -123,8 +122,7 @@ for the same car:</p>
 <span><span class="co">#&gt;      4  mpg -0.00321     0.0335 -0.0958   0.9237 -0.06896  0.0625  25 110</span></span>
 <span><span class="co">#&gt;      5  mpg  0.06362     0.0301  2.1132   0.0346  0.00461  0.1226  25 110</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  probs </span></span>
-<span><span class="co">#&gt; Columns: rowid, type, group, term, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, gear, mpg, hp</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: rowid, group, term, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, gear, mpg, hp</span></span></code></pre></div>
 <p>Again, <code>marginaleffects</code> produces one estimate of the
 slope for each outcome level. For a small step size <span class="math inline">\(\varepsilon\)</span>, the printed quantities are
 estimated as:</p>
@@ -149,8 +147,7 @@ and then report the average slope for each level of the outcome:</p>
 <span><span class="co">#&gt;      4  mpg  0.03747   0.013857  2.70  0.00685  0.010311  0.06463</span></span>
 <span><span class="co">#&gt;      5  mpg  0.03267   0.009572  3.41  &lt; 0.001  0.013907  0.05143</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  probs </span></span>
-<span><span class="co">#&gt; Columns: type, group, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: group, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="nnet-package">
@@ -187,8 +184,7 @@ marginal effects as follows:</p>
 <span><span class="co">#&gt;      4  mpg  1.59e-02    0.02010  0.7916  0.42859 -0.02348  0.055293</span></span>
 <span><span class="co">#&gt;      5  mpg  5.54e-02    0.01642  3.3735  &lt; 0.001  0.02322  0.087593</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  probs </span></span>
-<span><span class="co">#&gt; Columns: type, group, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: group, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>Notice that in such models, we get one marginal effect for each term,
 for each level of the response variable. For this reason, we should use
 <code>"group"</code> in the <code>condition</code> argument (or
@@ -249,8 +245,7 @@ individual, one for each mode of transportation:</p>
 <span><span class="co">#&gt;  car   size    0.045880    0.02476  1.853  0.06385 -0.002642  0.09440</span></span>
 <span><span class="co">#&gt;  train size    0.069240    0.02478  2.794  0.00521  0.020662  0.11782</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: type, group, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: group, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>Note that the <code>slopes</code> function will always return
 estimates of zero for regressors before the vertical bar in the formula.
 This is because the <code><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict()</a></code> function supplied by the
@@ -289,8 +284,7 @@ do:</p>
 <span><span class="co">#&gt;  car   size    1.36e-03   8.81e-04  1.54  0.12305 -3.68e-04  3.08e-03</span></span>
 <span><span class="co">#&gt;  train size    1.21e-01   4.45e-02  2.73  0.00634  3.42e-02  2.08e-01</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: type, group, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: group, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>If we want to compute marginal effects with the <code>gcost</code>
 and <code>wait</code> fixed at their mean value, <em>conditional</em> on
 the choice of transportation mode:</p>
@@ -319,8 +313,7 @@ the choice of transportation mode:</p>
 <span><span class="co">#&gt;  car   size    0.067820    0.04123  1.645  0.09996 -0.012984  0.14862</span></span>
 <span><span class="co">#&gt;  train size    0.144668    0.04774  3.030  0.00244  0.051102  0.23823</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: type, group, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: group, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>We can also explore more complex alternatives. Here, for example,
 only one alternative is affected by cost reduction:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
@@ -358,8 +351,7 @@ only one alternative is affected by cost reduction:</p>
 <span><span class="co">#&gt;  car   size    2.38e-03   1.57e-03  1.512    0.131 -7.04e-04  0.005459</span></span>
 <span><span class="co">#&gt;  train size    1.49e-01   4.28e-02  3.489   &lt;0.001  6.55e-02  0.233392</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: type, group, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: group, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>

@@ -24,7 +24,7 @@ https://vincentarelbundock.github.io/marginaleffects
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.10.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.11.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,7 +82,7 @@ https://vincentarelbundock.github.io/marginaleffects
 <span>  type <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  vcov <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  conf_level <span class="op">=</span> <span class="fl">0.95</span>,</span>
-<span>  transform_post <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  transform <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  points <span class="op">=</span> <span class="fl">0</span>,</span>
 <span>  rug <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  gray <span class="op">=</span> <span class="cn">FALSE</span>,</span>
@@ -142,7 +142,7 @@ the <code>marginaleffects:::type_dictionary</code> dataframe.</p></dd>
 <dd><p>numeric value between 0 and 1. Confidence level to use to build a confidence interval.</p></dd>
 
 
-<dt>transform_post</dt>
+<dt>transform</dt>
 <dd><p>A function applied to unit-level adjusted predictions and confidence intervals just before the function returns results. For bayesian models, this function is applied to individual draws from the posterior distribution, before computing summaries.</p></dd>
 
 

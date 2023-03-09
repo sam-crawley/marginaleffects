@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.10.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.11.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -145,7 +145,7 @@ following conditions hold:</p>
 </li>
 <li>The model class is <code>glm</code>
 </li>
-<li>The <code>transform_post</code> argument is <code>NULL</code>
+<li>The <code>transform</code> argument is <code>NULL</code>
 </li>
 </ul>
 <p>then <code><a href="../reference/marginal_means.html">marginal_means()</a></code> and <code><a href="../reference/predictions.html">predictions()</a></code>
@@ -179,8 +179,7 @@ standard errors:</p>
 <span><span class="co">#&gt;      22.6      0.777 29.1   &lt;0.001  21.1   24.1</span></span>
 <span><span class="co">#&gt;      22.6      0.777 29.1   &lt;0.001  21.1   24.1</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: rowid, type, estimate, std.error, statistic, p.value, conf.low, conf.high, mpg, hp</span></span>
+<span><span class="co">#&gt; Columns: rowid, estimate, std.error, statistic, p.value, conf.low, conf.high, mpg, hp</span></span>
 <span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">mod</span>, vcov <span class="op">=</span> <span class="st">"HC3"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">p</span>, <span class="fl">2</span><span class="op">)</span></span>
@@ -189,8 +188,7 @@ standard errors:</p>
 <span><span class="co">#&gt;      22.6      0.863 26.2   &lt;0.001  20.9   24.3</span></span>
 <span><span class="co">#&gt;      22.6      0.863 26.2   &lt;0.001  20.9   24.3</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: rowid, type, estimate, std.error, statistic, p.value, conf.low, conf.high, mpg, hp</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: rowid, estimate, std.error, statistic, p.value, conf.low, conf.high, mpg, hp</span></span></code></pre></div>
 <p>Marginal effects with cluster-robust standard errors:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/slopes.html">avg_slopes</a></span><span class="op">(</span><span class="va">mod</span>, vcov <span class="op">=</span> <span class="op">~</span><span class="va">cyl</span><span class="op">)</span></span>
@@ -198,8 +196,7 @@ standard errors:</p>
 <span><span class="co">#&gt;  Term Estimate Std. Error     z Pr(&gt;|z|)  2.5 %  97.5 %</span></span>
 <span><span class="co">#&gt;    hp  -0.0682     0.0187 -3.65   &lt;0.001 -0.105 -0.0316</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: type, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>Comparing adjusted predictions with classical and robust standard
 errors:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
@@ -237,30 +234,28 @@ to estimate the standard error.</li>
 <span><span class="va">mod</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/inferences.html">inferences</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"simulation"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Estimate Std. Error    2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  7.84e-01      0.189 2.72e-01  0.971</span></span>
-<span><span class="co">#&gt;  7.84e-01      0.161 3.69e-01  0.959</span></span>
-<span><span class="co">#&gt;  8.98e-01      0.134 4.92e-01  0.987</span></span>
-<span><span class="co">#&gt;  8.74e-01      0.232 2.18e-01  0.996</span></span>
-<span><span class="co">#&gt;  1.31e-02      0.179 7.65e-05  0.706</span></span>
+<span><span class="co">#&gt;  7.84e-01      0.201 2.42e-01  0.972</span></span>
+<span><span class="co">#&gt;  7.84e-01      0.171 3.26e-01  0.959</span></span>
+<span><span class="co">#&gt;  8.98e-01      0.149 4.11e-01  0.990</span></span>
+<span><span class="co">#&gt;  8.74e-01      0.231 1.97e-01  0.995</span></span>
+<span><span class="co">#&gt;  1.31e-02      0.188 9.88e-05  0.772</span></span>
 <span><span class="co">#&gt; --- 22 rows omitted. See ?avg_predictions and ?print.marginaleffects --- </span></span>
-<span><span class="co">#&gt;  3.83e-01      0.292 1.89e-02  0.960</span></span>
-<span><span class="co">#&gt;  1.21e-06      0.122 1.87e-12  0.381</span></span>
-<span><span class="co">#&gt;  6.89e-03      0.150 2.92e-05  0.545</span></span>
-<span><span class="co">#&gt;  8.07e-11      0.152 2.22e-16  0.490</span></span>
-<span><span class="co">#&gt;  7.95e-01      0.163 3.61e-01  0.964</span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: rowid, type, estimate, std.error, conf.low, conf.high, vs, hp, wt, gear</span></span>
+<span><span class="co">#&gt;  3.83e-01      0.296 1.54e-02  0.952</span></span>
+<span><span class="co">#&gt;  1.21e-06      0.129 3.81e-12  0.312</span></span>
+<span><span class="co">#&gt;  6.89e-03      0.158 3.28e-05  0.605</span></span>
+<span><span class="co">#&gt;  8.07e-11      0.152 2.22e-16  0.586</span></span>
+<span><span class="co">#&gt;  7.95e-01      0.174 3.07e-01  0.965</span></span>
+<span><span class="co">#&gt; Columns: rowid, estimate, std.error, conf.low, conf.high, vs, hp, wt, gear</span></span>
 <span></span>
 <span><span class="va">mod</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/slopes.html">avg_slopes</a></span><span class="op">(</span>vcov <span class="op">=</span> <span class="op">~</span><span class="va">gear</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/inferences.html">inferences</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"simulation"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Term Contrast Estimate Std. Error   2.5 %  97.5 %</span></span>
-<span><span class="co">#&gt;  gear    4 - 3 -0.03828    0.05650 -0.0914 0.13513</span></span>
-<span><span class="co">#&gt;  gear    5 - 3 -0.19023    0.27103 -0.4881 0.33457</span></span>
-<span><span class="co">#&gt;  hp      dY/dX -0.00479    0.00457 -0.0115 0.00473</span></span>
-<span><span class="co">#&gt;  wt      dY/dX  0.01332    0.31073 -0.5862 0.67486</span></span>
+<span><span class="co">#&gt;  gear    4 - 3 -0.03890    0.05816 -0.0911 0.14340</span></span>
+<span><span class="co">#&gt;  gear    5 - 3 -0.20008    0.27022 -0.4861 0.33327</span></span>
+<span><span class="co">#&gt;  hp      dY/dX -0.00462    0.00454 -0.0114 0.00562</span></span>
+<span><span class="co">#&gt;  wt      dY/dX  0.01184    0.32454 -0.6881 0.71187</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: type, term, contrast, estimate, std.error, conf.low, conf.high</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: term, contrast, estimate, std.error, conf.low, conf.high</span></span></code></pre></div>
 <p>Since simulation based inference generates <code>iter</code>
 estimates of the quantities of interest, we can treat them similarly to
 draws from the posterior distribution in bayesian models. For example,
@@ -329,8 +324,7 @@ computation of delta method standard errors and speed things up.</p>
 <span><span class="co">#&gt;  Term Contrast Estimate Std. Error    z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
 <span><span class="co">#&gt;    am    1 - 0     4.16       1.26 3.31   &lt;0.001   1.7   6.62</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="mixed-effects-models-satterthwaite-and-kenward-roger-corrections">Mixed effects models: Satterthwaite and Kenward-Roger
@@ -356,8 +350,7 @@ z-statistic:</p>
 <span><span class="co">#&gt;    hp dY/dX         -0.0518     0.0115 -4.52   &lt;0.001 -0.0743 -0.0294</span></span>
 <span><span class="co">#&gt;    am TRUE - FALSE   4.6661     1.1343  4.11   &lt;0.001  2.4430  6.8892</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, am, cyl</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, am, cyl</span></span></code></pre></div>
 <p>Marginal effects at the mean with Kenward-Roger adjusted
 variance-covariance and degrees of freedom:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
@@ -369,8 +362,7 @@ variance-covariance and degrees of freedom:</p>
 <span><span class="co">#&gt;    hp dY/dX         -0.0518     0.0152 -3.41   0.0964 -0.131  0.0269</span></span>
 <span><span class="co">#&gt;    am TRUE - FALSE   4.6661     1.2824  3.64   0.0874 -1.980 11.3121</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, df, predicted, predicted_hi, predicted_lo, mpg, hp, am, cyl</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, df, predicted, predicted_hi, predicted_lo, mpg, hp, am, cyl</span></span></code></pre></div>
 <p>We can use the same option in any of the package’s core functions,
 including:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
@@ -435,8 +427,7 @@ arguments which will be pushed forward to
 <span><span class="co">#&gt;            Term Estimate Std. Error    z Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
 <span><span class="co">#&gt;  bill_length_mm   0.0279    0.00595 4.68   &lt;0.001 0.0162 0.0395</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: type, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span>
+<span><span class="co">#&gt; Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>marginaleffects_numDeriv <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"Richardson"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/slopes.html">avg_slopes</a></span><span class="op">(</span><span class="va">mod</span>, variables <span class="op">=</span> <span class="st">"bill_length_mm"</span><span class="op">)</span></span>
@@ -444,8 +435,7 @@ arguments which will be pushed forward to
 <span><span class="co">#&gt;            Term Estimate Std. Error    z Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
 <span><span class="co">#&gt;  bill_length_mm   0.0279    0.00595 4.68   &lt;0.001 0.0162 0.0395</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: type, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span>
+<span><span class="co">#&gt; Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>marginaleffects_numDeriv <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"simple"</span>, method.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>eps <span class="op">=</span> <span class="fl">1e-3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/slopes.html">avg_slopes</a></span><span class="op">(</span><span class="va">mod</span>, variables <span class="op">=</span> <span class="st">"bill_length_mm"</span><span class="op">)</span></span>
@@ -453,8 +443,7 @@ arguments which will be pushed forward to
 <span><span class="co">#&gt;            Term Estimate Std. Error     z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
 <span><span class="co">#&gt;  bill_length_mm   0.0279      0.568 0.049    0.961 -1.09   1.14</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: type, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span>
+<span><span class="co">#&gt; Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>marginaleffects_numDeriv <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"simple"</span>, method.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>eps <span class="op">=</span> <span class="fl">1e-5</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/slopes.html">avg_slopes</a></span><span class="op">(</span><span class="va">mod</span>, variables <span class="op">=</span> <span class="st">"bill_length_mm"</span><span class="op">)</span></span>
@@ -462,8 +451,7 @@ arguments which will be pushed forward to
 <span><span class="co">#&gt;            Term Estimate Std. Error    z Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
 <span><span class="co">#&gt;  bill_length_mm   0.0279    0.00601 4.64   &lt;0.001 0.0161 0.0396</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: type, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span>
+<span><span class="co">#&gt; Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>marginaleffects_numDeriv <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"simple"</span>, method.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>eps <span class="op">=</span> <span class="fl">1e-7</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/slopes.html">avg_slopes</a></span><span class="op">(</span><span class="va">mod</span>, variables <span class="op">=</span> <span class="st">"bill_length_mm"</span><span class="op">)</span></span>
@@ -471,8 +459,7 @@ arguments which will be pushed forward to
 <span><span class="co">#&gt;            Term Estimate Std. Error    z Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
 <span><span class="co">#&gt;  bill_length_mm   0.0279    0.00595 4.68   &lt;0.001 0.0162 0.0395</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  response </span></span>
-<span><span class="co">#&gt; Columns: type, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>Notice that the standard errors can vary considerably when using
 different step sizes. It is good practice for analysts to consider the
 sensitivity of their results to this setting.</p>
@@ -485,13 +472,12 @@ using raw <code>R</code> code. First, we choose two step sizes:</p>
 <span><span class="va">s</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/slopes.html">slopes</a></span><span class="op">(</span><span class="va">mod</span>, newdata <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dat</span>, <span class="fl">3</span><span class="op">)</span>, variables <span class="op">=</span> <span class="st">"bill_length_mm"</span>, eps <span class="op">=</span> <span class="va">eps1</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">s</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>, digits <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;            Term  Estimate Std. Error</span></span>
-<span><span class="co">#&gt;  bill_length_mm 0.0179765 0.00872913</span></span>
-<span><span class="co">#&gt;  bill_length_mm 0.0359630 0.01254757</span></span>
-<span><span class="co">#&gt;  bill_length_mm 0.0849071 0.02128611</span></span>
+<span><span class="co">#&gt;            Term  Estimate Std. Error       z</span></span>
+<span><span class="co">#&gt;  bill_length_mm 0.0179765 0.00872913 2.05937</span></span>
+<span><span class="co">#&gt;  bill_length_mm 0.0359630 0.01254757 2.86613</span></span>
+<span><span class="co">#&gt;  bill_length_mm 0.0849071 0.02128611 3.98885</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  </span></span>
-<span><span class="co">#&gt; Columns: rowid, type, term, estimate, std.error</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: rowid, term, estimate, std.error, statistic</span></span></code></pre></div>
 <p>We can get the same estimates manually with these steps:</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">linkinv</span> <span class="op">&lt;-</span> <span class="va">mod</span><span class="op">$</span><span class="va">family</span><span class="op">$</span><span class="va">linkinv</span></span>
@@ -546,13 +532,12 @@ standard errors via:</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">s</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>, digits <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;            Term   Estimate  Std. Error</span></span>
-<span><span class="co">#&gt;  bill_length_mm 0.01797653 0.008729126</span></span>
-<span><span class="co">#&gt;  bill_length_mm 0.03596304 0.012547575</span></span>
-<span><span class="co">#&gt;  bill_length_mm 0.08490712 0.021286107</span></span>
+<span><span class="co">#&gt;            Term   Estimate  Std. Error        z</span></span>
+<span><span class="co">#&gt;  bill_length_mm 0.01797653 0.008729126 2.059374</span></span>
+<span><span class="co">#&gt;  bill_length_mm 0.03596304 0.012547575 2.866135</span></span>
+<span><span class="co">#&gt;  bill_length_mm 0.08490712 0.021286107 3.988851</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Prediction type:  </span></span>
-<span><span class="co">#&gt; Columns: rowid, type, term, estimate, std.error</span></span></code></pre></div>
+<span><span class="co">#&gt; Columns: rowid, term, estimate, std.error, statistic</span></span></code></pre></div>
 <p>Reverting to default settings:</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>marginaleffects_numDeriv <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
@@ -603,9 +588,9 @@ mean(cmp1$conf.high - cmp1$conf.low)
 #> [1] 0.05572727
 
 # The CI of the average estimate is:
-cmp2 <- comparisons(mod, variables = "hp", transform_pre = "differenceavg")
+cmp2 <- comparisons(mod, variables = "hp", comparison = "differenceavg")
 cmp2$conf.high - cmp2$conf.low
-#> [1] 0.0492053
+#> [1] 0.04920531
 ```
 
 Relevant?

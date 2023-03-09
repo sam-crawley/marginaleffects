@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.10.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.11.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -195,8 +195,7 @@ the <code><a href="../reference/predictions.html">predictions()</a></code> outco
 <span><span class="co">##      19.4      1.145 16.95   &lt;0.001  17.2   21.7</span></span>
 <span><span class="co">##      14.8      2.017  7.33   &lt;0.001  10.8   18.7</span></span>
 <span><span class="co">##      21.5      1.072 20.02   &lt;0.001  19.4   23.6</span></span>
-<span><span class="co">## Prediction type:  response </span></span>
-<span><span class="co">## Columns: rowid, type, estimate, std.error, statistic, p.value, conf.low, conf.high, mpg, hp, wt, am</span></span></code></pre>
+<span><span class="co">## Columns: rowid, estimate, std.error, statistic, p.value, conf.low, conf.high, mpg, hp, wt, am</span></span></code></pre>
 <p>Now, we use the <code><a href="../reference/comparisons.html">comparisons()</a></code> function to compute the
 difference in predicted outcome when each of the predictors is
 incremented by 1 unit (one predictor at a time, holding all others
@@ -223,8 +222,7 @@ there are 3 predictors in the model and our data has 32 rows, we obtain
 <span><span class="co">##    am    1 - 0   0.8951     1.6442  0.544  0.58618 -2.3275  4.117620</span></span>
 <span><span class="co">##    am    1 - 0   4.0272     3.2402  1.243  0.21391 -2.3235 10.377969</span></span>
 <span><span class="co">##    am    1 - 0  -0.2369     1.5864 -0.149  0.88129 -3.3462  2.872416</span></span>
-<span><span class="co">## Prediction type:  response </span></span>
-<span><span class="co">## Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, wt, am</span></span></code></pre>
+<span><span class="co">## Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, wt, am</span></span></code></pre>
 <p>The <code><a href="../reference/comparisons.html">comparisons()</a></code> function allows customized queries.
 For example, what happens to the predicted outcome when the
 <code>hp</code> variable increases from 100 to 120?</p>
@@ -243,8 +241,7 @@ For example, what happens to the predicted outcome when the
 <span><span class="co">##    hp 120 - 100   -0.641      0.334 -1.918  0.05513 -1.297  0.0141</span></span>
 <span><span class="co">##    hp 120 - 100   -0.126      0.272 -0.463  0.64360 -0.659  0.4075</span></span>
 <span><span class="co">##    hp 120 - 100   -0.635      0.332 -1.911  0.05598 -1.286  0.0162</span></span>
-<span><span class="co">## Prediction type:  response </span></span>
-<span><span class="co">## Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, wt, am</span></span></code></pre>
+<span><span class="co">## Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, wt, am</span></span></code></pre>
 <p>What happens to the predicted outcome when the <code>wt</code>
 variable increases by 1 standard deviation about its mean?</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
@@ -262,23 +259,21 @@ variable increases by 1 standard deviation about its mean?</p>
 <span><span class="co">##    hp (x + sd/2) - (x - sd/2)   -2.199      1.147 -1.918  0.05513 -4.45  0.0483</span></span>
 <span><span class="co">##    hp (x + sd/2) - (x - sd/2)   -0.432      0.933 -0.463  0.64360 -2.26  1.3970</span></span>
 <span><span class="co">##    hp (x + sd/2) - (x - sd/2)   -2.177      1.139 -1.911  0.05598 -4.41  0.0556</span></span>
-<span><span class="co">## Prediction type:  response </span></span>
-<span><span class="co">## Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, wt, am</span></span></code></pre>
+<span><span class="co">## Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, wt, am</span></span></code></pre>
 <p>The <code><a href="../reference/comparisons.html">comparisons()</a></code> function also allows users to specify
-arbitrary functions of predictions, with the <code>transform_pre</code>
+arbitrary functions of predictions, with the <code>comparison</code>
 argument. For example, what is the average ratio between predicted Miles
 per Gallon after an increase of 50 units in Horsepower?</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/comparisons.html">comparisons</a></span><span class="op">(</span></span>
 <span>  <span class="va">mod</span>,</span>
 <span>  variables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>hp <span class="op">=</span> <span class="fl">50</span><span class="op">)</span>,</span>
-<span>  transform_pre <span class="op">=</span> <span class="st">"ratioavg"</span><span class="op">)</span></span></code></pre></div>
+<span>  comparison <span class="op">=</span> <span class="st">"ratioavg"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## </span></span>
 <span><span class="co">##  Term  Contrast Estimate Std. Error    z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
 <span><span class="co">##    hp mean(+50)     0.91     0.0291 31.3   &lt;0.001 0.853  0.966</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## Prediction type:  response </span></span>
-<span><span class="co">## Columns: type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo</span></span></code></pre>
+<span><span class="co">## Columns: term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo</span></span></code></pre>
 <p>See the <a href="https://vincentarelbundock.github.io/marginaleffects/articles/comparisons.html">Comparisons
 vignette for detailed explanations and more options.</a></p>
 <p>The <code><a href="../reference/slopes.html">slopes()</a></code> function allows us to compute the partial
@@ -304,8 +299,7 @@ predictors. Once again, we obtain a data frame with 96 rows:</p>
 <span><span class="co">##    am    1 - 0   0.8951     1.6442  0.544  0.58618 -2.3275  4.117620</span></span>
 <span><span class="co">##    am    1 - 0   4.0272     3.2402  1.243  0.21391 -2.3235 10.377969</span></span>
 <span><span class="co">##    am    1 - 0  -0.2369     1.5864 -0.149  0.88129 -3.3462  2.872416</span></span>
-<span><span class="co">## Prediction type:  response </span></span>
-<span><span class="co">## Columns: rowid, type, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, wt, am</span></span></code></pre>
+<span><span class="co">## Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, wt, am</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="grid">Grid<a class="anchor" aria-label="anchor" href="#grid"></a>
@@ -327,16 +321,14 @@ the sample mean or median, we can do:</p>
 <span><span class="co">##  Estimate Std. Error  z Pr(&gt;|z|) 2.5 % 97.5 %  hp   wt    am</span></span>
 <span><span class="co">##      18.4       0.68 27   &lt;0.001    17   19.7 147 3.22 0.406</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## Prediction type:  response </span></span>
-<span><span class="co">## Columns: rowid, type, estimate, std.error, statistic, p.value, conf.low, conf.high, mpg, hp, wt, am</span></span></code></pre>
+<span><span class="co">## Columns: rowid, estimate, std.error, statistic, p.value, conf.low, conf.high, mpg, hp, wt, am</span></span></code></pre>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/predictions.html">predictions</a></span><span class="op">(</span><span class="va">mod</span>, newdata <span class="op">=</span> <span class="st">"median"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## </span></span>
 <span><span class="co">##  Estimate Std. Error    z Pr(&gt;|z|) 2.5 % 97.5 %  hp   wt    am</span></span>
 <span><span class="co">##      18.7      0.819 22.8   &lt;0.001  17.1   20.3 123 3.33 0.406</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## Prediction type:  response </span></span>
-<span><span class="co">## Columns: rowid, type, estimate, std.error, statistic, p.value, conf.low, conf.high, mpg, hp, wt, am</span></span></code></pre>
+<span><span class="co">## Columns: rowid, estimate, std.error, statistic, p.value, conf.low, conf.high, mpg, hp, wt, am</span></span></code></pre>
 <p>The <a href="https://vincentarelbundock.github.io/marginaleffects/reference/datagrid.html"><code>datagrid</code>
 function gives us a powerful way to define a grid of predictors.</a> All
 the variables not mentioned explicitly in <code><a href="../reference/datagrid.html">datagrid()</a></code> are
@@ -354,8 +346,7 @@ fixed to their mean or mode:</p>
 <span><span class="co">##      27.1       2.85 9.52   &lt;0.001 21.56   32.7 147  1 1.51</span></span>
 <span><span class="co">##       5.9       5.81 1.01     0.31 -5.50   17.3 147  1 5.42</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## Prediction type:  response </span></span>
-<span><span class="co">## Columns: rowid, type, estimate, std.error, statistic, p.value, conf.low, conf.high, mpg, hp, am, wt</span></span></code></pre>
+<span><span class="co">## Columns: rowid, estimate, std.error, statistic, p.value, conf.low, conf.high, mpg, hp, am, wt</span></span></code></pre>
 <p>The same mechanism is available in <code><a href="../reference/comparisons.html">comparisons()</a></code> and
 <code><a href="../reference/slopes.html">slopes()</a></code>. To estimate the partial derivative of
 <code>mpg</code> with respect to <code>wt</code>, when <code>am</code>
@@ -370,8 +361,7 @@ is equal to 0 and 1, while other predictors are held at their means:</p>
 <span><span class="co">##    wt    -2.68       1.42 -1.89   0.0594 -5.46  0.106 147 3.22  0</span></span>
 <span><span class="co">##    wt    -5.43       2.15 -2.52   0.0116 -9.65 -1.214 147 3.22  1</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## Prediction type:  response </span></span>
-<span><span class="co">## Columns: rowid, type, term, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, wt, am</span></span></code></pre>
+<span><span class="co">## Columns: rowid, term, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, wt, am</span></span></code></pre>
 <p>We can also plot how predictions, comparisons, or slopes change
 across different values of the predictors using <a href="https://vincentarelbundock.github.io/marginaleffects/articles/plot.html">three
 powerful plotting functions:</a></p>
@@ -423,8 +413,7 @@ the same result: the average predicted outcome in the
 <span><span class="co">##  Estimate Std. Error    z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
 <span><span class="co">##      20.1       0.39 51.5   &lt;0.001  19.3   20.9</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## Prediction type:  response </span></span>
-<span><span class="co">## Columns: type, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre>
+<span><span class="co">## Columns: estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre>
 <p>This is equivalent to manual computation by:</p>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
@@ -443,8 +432,7 @@ sub-groups of the data. For example,</p>
 <span><span class="co">##    wt mean(+1)           0  -2.4799     1.2316 -2.014  0.04406 -4.8939 -0.06595</span></span>
 <span><span class="co">##    wt mean(+1)           1  -6.0718     1.9762 -3.072  0.00212 -9.9451 -2.19846</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## Prediction type:  response </span></span>
-<span><span class="co">## Columns: type, term, contrast, am, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo</span></span></code></pre>
+<span><span class="co">## Columns: term, contrast, am, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo</span></span></code></pre>
 <p>Marginal Means are a special case of predictions, which are
 marginalized (or averaged) across a balanced grid of categorical
 predictors. To illustrate, we estimate a new model with categorical
@@ -466,8 +454,7 @@ described:</p>
 <span><span class="co">##  FALSE     18.3      0.785 23.3   &lt;0.001  16.8   19.9</span></span>
 <span><span class="co">##   TRUE     22.5      0.834 26.9   &lt;0.001  20.8   24.1</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## Prediction type:  response </span></span>
-<span><span class="co">## Columns: type, am, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre>
+<span><span class="co">## Columns: am, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre>
 <p>For convenience, the <code>marginaleffects</code> package also
 includes a <code><a href="../reference/marginal_means.html">marginal_means()</a></code> function:</p>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
@@ -477,9 +464,8 @@ includes a <code><a href="../reference/marginal_means.html">marginal_means()</a>
 <span><span class="co">##    am FALSE 18.3      0.785 23.3   &lt;0.001  16.8   19.9</span></span>
 <span><span class="co">##    am  TRUE 22.5      0.834 26.9   &lt;0.001  20.8   24.1</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## Prediction type:  response </span></span>
 <span><span class="co">## Results averaged over levels of: cyl, am </span></span>
-<span><span class="co">## Columns: type, term, value, am, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre>
+<span><span class="co">## Columns: term, value, am, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre>
 <p><a href="https://vincentarelbundock.github.io/marginaleffects/articles/marginalmeans.html">The
 Marginal Means vignette</a> offers more detail.</p>
 </div>
@@ -505,7 +491,6 @@ coefficient?</p>
 <span><span class="co">##             Term Estimate Std. Error      z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
 <span><span class="co">##  drat = 2 * qsec    -1.39       10.8 -0.129    0.897 -22.5   19.7</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## Prediction type:  </span></span>
 <span><span class="co">## Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre>
 <p>We can ask the same question but refer to parameters by position,
 with indices <code>b1</code>, <code>b2</code>, <code>b3</code>,
@@ -516,7 +501,6 @@ etc.:</p>
 <span><span class="co">##         Term Estimate Std. Error      z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
 <span><span class="co">##  b3 = 2 * b2    -1.39       10.8 -0.129    0.897 -22.5   19.7</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## Prediction type:  </span></span>
 <span><span class="co">## Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre>
 <p>The main functions in <code>marginaleffects</code> all have a
 <code>hypothesis</code> argument, which means that we can do complex
@@ -531,8 +515,7 @@ model testing. For example, consider two slope estimates:</p>
 <span><span class="co">##  drat     5.22       3.79 1.38   0.1682 -2.206   12.7  3.6 14.5</span></span>
 <span><span class="co">##  drat    10.24       5.16 1.98   0.0472  0.125   20.4  3.6 22.9</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## Prediction type:  response </span></span>
-<span><span class="co">## Columns: rowid, type, term, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, drat, qsec</span></span></code></pre>
+<span><span class="co">## Columns: rowid, term, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, drat, qsec</span></span></code></pre>
 <p>Are these two slopes significantly different from one another? To
 test this, we can use the <code>hypothesis</code> argument:</p>
 <div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
@@ -545,8 +528,7 @@ test this, we can use the <code>hypothesis</code> argument:</p>
 <span><span class="co">##   Term Estimate Std. Error      z Pr(&gt;|z|) 2.5 % 97.5 %</span></span>
 <span><span class="co">##  b1=b2    -5.02       8.52 -0.589    0.556 -21.7   11.7</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## Prediction type:  response </span></span>
-<span><span class="co">## Columns: type, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre>
+<span><span class="co">## Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre>
 <p>Now, imagine that for theoretical (or substantive or clinical)
 reasons, we only care about slopes larger than 2. We can use the
 <code><a href="../reference/hypotheses.html">hypotheses()</a></code> function to conduct an equivalence test:</p>
@@ -557,8 +539,7 @@ reasons, we only care about slopes larger than 2. We can use the
 <span><span class="co">##  drat     7.22      1.365 5.29  &lt; 0.001 4.548   9.90     &lt;0.001     0.9999    0.9999</span></span>
 <span><span class="co">##  qsec     1.12      0.433 2.60  0.00945 0.275   1.97     &lt;0.001     0.0216    0.0216</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## Prediction type:  response </span></span>
-<span><span class="co">## Columns: type, term, estimate, std.error, statistic, p.value, conf.low, conf.high, statistic.noninf, statistic.nonsup, p.value.noninf, p.value.nonsup, p.value.equiv</span></span></code></pre>
+<span><span class="co">## Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high, statistic.noninf, statistic.nonsup, p.value.noninf, p.value.nonsup, p.value.equiv</span></span></code></pre>
 <p>See the <a href="https://vincentarelbundock.github.io/marginaleffects/articles/hypothesis.html">Hypothesis
 Tests and Custom Contrasts vignette</a> for background, details, and for
 instructions on how to conduct hypothesis tests in more complex

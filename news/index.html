@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.10.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.11.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +51,48 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.10.0" id="marginaleffects-0100">marginaleffects 0.10.0<a class="anchor" aria-label="anchor" href="#marginaleffects-0100"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.11.0" id="marginaleffects-0110">marginaleffects 0.11.0<a class="anchor" aria-label="anchor" href="#marginaleffects-0110"></a></h2>
+<p>Breaking changes:</p>
+<ul><li>
+<code>type</code> column is replaced by <code>type</code> attribute.</li>
+<li>
+<code><a href="../reference/predictions.html">predictions()</a></code> only works with officially supported model types (same list as <code><a href="../reference/comparisons.html">comparisons()</a></code> and <code><a href="../reference/slopes.html">slopes()</a></code>).</li>
+</ul><p>Renamed arguments (backward compatibility is preserved):</p>
+<ul><li>
+<code>transform_pre</code> -&gt; <code>comparison</code>
+</li>
+<li>
+<code>transform_post</code> -&gt; <code>transform</code>
+</li>
+</ul><p>New:</p>
+<ul><li>
+<code>p_adjust</code> argument: Adjust p-values for multiple comparisons.</li>
+<li>
+<code>equivalence</code> argument available everywhere.</li>
+</ul><p>Performance:</p>
+<ul><li>Much faster results in <code>avg_*()</code> functions for models with only categorical predictors and many rows of data, using deduplication and weights instead of unit-level estimates.</li>
+<li>Faster predictions in <code><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm()</a></code> and <code><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm()</a></code> models using <code>RcppEigen</code>.</li>
+<li>Bayesian models with many rows. Thanks to Etienne Bacher. <a href="https://github.com/vincentarelbundock/marginaleffects/issues/694" class="external-link">#694</a></li>
+<li>Faster predictions, especially with standard errors and large datasets.</li>
+</ul><p>Bugs:</p>
+<ul><li>Multiple imputation with <code>mira</code> objects was not pooling all datasets. Thanks to <a href="https://github.com/Generalized" class="external-link">@Generalized</a> for report <a href="https://github.com/vincentarelbundock/marginaleffects/issues/711" class="external-link">#711</a>.</li>
+<li>Support for more models with offsets. Thanks to <a href="https://github.com/mariofiorini" class="external-link">@mariofiorini</a> for report <a href="https://github.com/vincentarelbundock/marginaleffects/issues/705" class="external-link">#705</a>.</li>
+<li>Error on <code><a href="../reference/predictions.html">predictions()</a></code> with <code>by</code> and <code>wts</code>. Thanks to Noah Greifer for report <a href="https://github.com/vincentarelbundock/marginaleffects/issues/695" class="external-link">#695</a>.</li>
+<li>
+<code>afex</code>: some models generated errors. Thanks to Daniel Lüdecke for report <a href="https://github.com/vincentarelbundock/marginaleffects/issues/696" class="external-link">#696</a>.</li>
+<li>
+<code>group</code> column name is always forbidden. Thanks to Daniel Lüdecke for report <a href="https://github.com/vincentarelbundock/marginaleffects/issues/697" class="external-link">#697</a>.</li>
+<li>Blank graphs in <code><a href="../reference/plot_comparisons.html">plot_comparisons()</a></code> with a list in <code>variables</code>.</li>
+<li>
+<code>type="link"</code> produced an error with some categorical <code>brms</code> models. Thanks to <a href="https://github.com/shirdekel" class="external-link">@shirdekel</a> for report <a href="https://github.com/vincentarelbundock/marginaleffects/issues/703" class="external-link">#703</a>.</li>
+<li>Error on <code>predictions(variables = ...)</code> for <code>glmmTMB</code> models. Thanks to Daniel Lüdecke for report <a href="https://github.com/vincentarelbundock/marginaleffects/issues/707" class="external-link">#707</a>.</li>
+<li>
+<code>by</code> with user-specified function in <code>comparison</code> and factor predictor did not aggregate correctly. Thanks to <a href="https://github.com/joaotedde" class="external-link">@joaotedde</a> for report <a href="https://github.com/vincentarelbundock/marginaleffects/issues/715" class="external-link">#715</a>.</li>
+<li>
+<code><a href="https://rdrr.io/pkg/ordinal/man/clm.html" class="external-link">ordinal::clm</a></code>: Support <code>cum.prob</code> and <code>linear.predictor</code> prediction types. Thanks to <a href="https://github.com/MrJerryTAO" class="external-link">@MrJerryTAO</a> for report <a href="https://github.com/vincentarelbundock/marginaleffects/issues/717" class="external-link">#717</a>.</li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.10.0" id="marginaleffects-0100">marginaleffects 0.10.0<a class="anchor" aria-label="anchor" href="#marginaleffects-0100"></a></h2><p class="text-muted">CRAN release: 2023-02-22</p>
 <p>Performance:</p>
 <ul><li>2-4x faster execution for many calls. Thanks to Etienne Bacher.</li>
 </ul><p>New models supported:</p>
