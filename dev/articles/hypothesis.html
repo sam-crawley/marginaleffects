@@ -27,7 +27,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9019</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9020</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -755,13 +755,13 @@ periods:</p>
 <span>    variable.name <span class="op">=</span> <span class="st">"time"</span>,</span>
 <span>    id.vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"trt"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">did</span><span class="op">)</span></span>
-<span><span class="co">#&gt;    id trt time          y</span></span>
-<span><span class="co">#&gt; 1:  1   1  pre -0.3274861</span></span>
-<span><span class="co">#&gt; 2:  2   0  pre -0.5680516</span></span>
-<span><span class="co">#&gt; 3:  3   0  pre -0.7963511</span></span>
-<span><span class="co">#&gt; 4:  4   1  pre -0.3930164</span></span>
-<span><span class="co">#&gt; 5:  5   0  pre  0.5980435</span></span>
-<span><span class="co">#&gt; 6:  6   1  pre  1.5505333</span></span></code></pre></div>
+<span><span class="co">#&gt;    id trt time           y</span></span>
+<span><span class="co">#&gt; 1:  1   0  pre -0.06343435</span></span>
+<span><span class="co">#&gt; 2:  2   0  pre -0.98873635</span></span>
+<span><span class="co">#&gt; 3:  3   1  pre  0.72291531</span></span>
+<span><span class="co">#&gt; 4:  4   0  pre  1.18659516</span></span>
+<span><span class="co">#&gt; 5:  5   0  pre  1.82991329</span></span>
+<span><span class="co">#&gt; 6:  6   1  pre  1.23853756</span></span></code></pre></div>
 <p>Then, we estimate a linear model with a multiple interaction between
 the time and the treatment indicators. We also compute contrasts at the
 mean for each treatment level:</p>
@@ -774,8 +774,8 @@ mean for each treatment level:</p>
 <span>    variables <span class="op">=</span> <span class="st">"time"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Term   Contrast Estimate Std. Error      z Pr(&gt;|z|)  2.5 % 97.5 % trt</span></span>
-<span><span class="co">#&gt;  time post - pre  -0.0444     0.0787 -0.564    0.573 -0.199  0.110   0</span></span>
-<span><span class="co">#&gt;  time post - pre   0.3504     0.0761  4.605   &lt;0.001  0.201  0.499   1</span></span>
+<span><span class="co">#&gt;  time post - pre  -0.0545     0.0750 -0.726    0.468 -0.202 0.0926   0</span></span>
+<span><span class="co">#&gt;  time post - pre   0.3311     0.0759  4.360   &lt;0.001  0.182 0.4799   1</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, y, time, trt</span></span></code></pre></div>
 <p>Finally, we compute pairwise differences between contrasts. This is
@@ -788,7 +788,7 @@ the Diff-in-Diff estimate:</p>
 <span>    hypothesis <span class="op">=</span> <span class="st">"pairwise"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;           Term Estimate Std. Error     z Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  Row 1 - Row 2   -0.395      0.109 -3.61   &lt;0.001 -0.609  -0.18</span></span>
+<span><span class="co">#&gt;  Row 1 - Row 2   -0.386      0.107 -3.61   &lt;0.001 -0.595 -0.176</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Columns: term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 </div>

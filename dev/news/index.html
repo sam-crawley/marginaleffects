@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9019</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9020</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,7 +73,8 @@
 <li>Bayesian models with many rows. Thanks to Etienne Bacher. <a href="https://github.com/vincentarelbundock/marginaleffects/issues/694" class="external-link">#694</a></li>
 <li>Faster predictions, especially with standard errors and large datasets.</li>
 </ul><p>Bugs:</p>
-<ul><li>Support for more models with offsets. Thanks to <a href="https://github.com/mariofiorini" class="external-link">@mariofiorini</a> for report <a href="https://github.com/vincentarelbundock/marginaleffects/issues/705" class="external-link">#705</a>.</li>
+<ul><li>Multiple imputation with <code>mira</code> objects was not pooling all datasets. Thanks to <a href="https://github.com/Generalized" class="external-link">@Generalized</a> for report <a href="https://github.com/vincentarelbundock/marginaleffects/issues/711" class="external-link">#711</a>.</li>
+<li>Support for more models with offsets. Thanks to <a href="https://github.com/mariofiorini" class="external-link">@mariofiorini</a> for report <a href="https://github.com/vincentarelbundock/marginaleffects/issues/705" class="external-link">#705</a>.</li>
 <li>Error on <code><a href="../reference/predictions.html">predictions()</a></code> with <code>by</code> and <code>wts</code>. Thanks to Noah Greifer for report <a href="https://github.com/vincentarelbundock/marginaleffects/issues/695" class="external-link">#695</a>.</li>
 <li>
 <code>afex</code>: some models generated errors. Thanks to Daniel Lüdecke for report <a href="https://github.com/vincentarelbundock/marginaleffects/issues/696" class="external-link">#696</a>.</li>
@@ -83,7 +84,8 @@
 <li>
 <code>type="link"</code> produced an error with some categorical <code>brms</code> models. Thanks to <a href="https://github.com/shirdekel" class="external-link">@shirdekel</a> for report <a href="https://github.com/vincentarelbundock/marginaleffects/issues/703" class="external-link">#703</a>.</li>
 <li>Error on <code>predictions(variables = ...)</code> for <code>glmmTMB</code> models. Thanks to Daniel Lüdecke for report <a href="https://github.com/vincentarelbundock/marginaleffects/issues/707" class="external-link">#707</a>.</li>
-<li>Multiple imputation with <code>mira</code> objects was not pooling all datasets. Thanks to <a href="https://github.com/Generalized" class="external-link">@Generalized</a> for report <a href="https://github.com/vincentarelbundock/marginaleffects/issues/711" class="external-link">#711</a>.</li>
+<li>
+<code>by</code> with user-specified function in <code>comparison</code> and factor predictor did not aggregate correctly. Thanks to <a href="https://github.com/joaotedde" class="external-link">@joaotedde</a> for report <a href="https://github.com/vincentarelbundock/marginaleffects/issues/715" class="external-link">#715</a>.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.10.0" id="marginaleffects-0100">marginaleffects 0.10.0<a class="anchor" aria-label="anchor" href="#marginaleffects-0100"></a></h2><p class="text-muted">CRAN release: 2023-02-22</p>
