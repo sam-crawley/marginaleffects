@@ -249,9 +249,12 @@ individual, one for each mode of transportation:</p>
 <span><span class="co">#&gt; Columns: group, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>Note that the <code>slopes</code> function will always return
 estimates of zero for regressors before the vertical bar in the formula.
-This is because the <code><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict()</a></code> function supplied by the
-<code>mlogit</code> package does not produce different predictions for
-different values of these variables.</p>
+This is because
+ˋmarginaleffects<code>increments all rows of the prediction dataset in the same way to compute slopes and contrast. Because ˋmlogit</code>
+data are in “long” format, this means that alternatives are
+incremenented in the same way, and that ˋmarginaleffects` does not
+support estimating the effect of alternative-specific changes in the
+predictors.</p>
 <p>To compute different kinds of marginal effects, we can construct
 customized data frames and feed them to the <code>newdata</code>
 argument of the <code>slopes</code> function.</p>
