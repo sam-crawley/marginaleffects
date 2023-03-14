@@ -38,7 +38,7 @@ https://vincentarelbundock.github.io/marginaleffects/
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.11.0.9004</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.11.0.9005</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -170,6 +170,7 @@ slopes, elasticities, etc.</p><ul><li><p><code>comparisons()</code>: unit-level 
 </ul></li>
 <li><p>Numeric variables:</p><ul><li><p>Numeric of length 1: Contrast for a gap of <code>x</code>, computed at the observed value plus and minus <code>x / 2</code>. For example, estimating a <code>+1</code> contrast compares adjusted predictions when the regressor is equal to its observed value minus 0.5 and its observed value plus 0.5.</p></li>
 <li><p>Numeric vector of length 2: Contrast between the 2nd element and the 1st element of the <code>x</code> vector.</p></li>
+<li><p>Data frame with the same number of rows as <code>newdata</code>, with two columns of "low" and "high" values to compare.</p></li>
 <li><p>Function which accepts a numeric vector and returns a data frame with two columns of "low" and "high" values to compare. See examples below.</p></li>
 <li><p>"iqr": Contrast across the interquartile range of the regressor.</p></li>
 <li><p>"sd": Contrast across one standard deviation around the regressor mean.</p></li>

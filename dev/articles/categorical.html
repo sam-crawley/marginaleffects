@@ -27,7 +27,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.11.0.9004</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.11.0.9005</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -220,7 +220,7 @@ individual, one for each mode of transportation:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st">"AER"</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://cran.r-project.org/package=mlogit" class="external-link">"mlogit"</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://tidyverse.tidyverse.org" class="external-link">"tidyverse"</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"TravelMode"</span>, package <span class="op">=</span> <span class="st">"AER"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">TravelMode</span><span class="op">)</span></span>
@@ -252,20 +252,34 @@ estimates of zero for regressors before the vertical bar in the formula.
 This is because
 ˋmarginaleffects<code>increments all rows of the prediction dataset in the same way to compute slopes and contrast. Because ˋmlogit</code>
 data are in “long” format, this means that alternatives are
-incremenented in the same way, and that ˋmarginaleffects` does not
-support estimating the effect of alternative-specific changes in the
-predictors.</p>
-<p>To compute different kinds of marginal effects, we can construct
+incremenented in the same way, which does not produce
+alternative-specific changes in the predictors.</p>
+<p>One strategy to circumvent this problem is to supply a data frame of
+numeric values to compare, with alternative specific changes. In this
+example, we test what happens to the probability of selecting each mode
+of transportation if we only increase the wait time of air travel:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">altspec</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
+<span>  low <span class="op">=</span> <span class="va">TravelMode</span><span class="op">$</span><span class="va">income</span>,</span>
+<span>  high <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">TravelMode</span><span class="op">$</span><span class="va">mode</span> <span class="op">==</span> <span class="st">"air"</span>, <span class="va">TravelMode</span><span class="op">$</span><span class="va">wait</span> <span class="op">+</span> <span class="fl">15</span>, <span class="va">TravelMode</span><span class="op">$</span><span class="va">wait</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/comparisons.html">avg_comparisons</a></span><span class="op">(</span><span class="va">mod</span>, variables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>wait <span class="op">=</span> <span class="va">altspec</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Group Term Contrast Estimate Std. Error      z Pr(&gt;|z|)   2.5 % 97.5 %</span></span>
+<span><span class="co">#&gt;  air   wait   manual   -0.667     0.0407 -16.40   &lt;0.001 -0.7465 -0.587</span></span>
+<span><span class="co">#&gt;  bus   wait   manual    0.115     0.0206   5.60   &lt;0.001  0.0749  0.156</span></span>
+<span><span class="co">#&gt;  car   wait   manual    0.348     0.0285  12.24   &lt;0.001  0.2926  0.404</span></span>
+<span><span class="co">#&gt;  train wait   manual    0.203     0.0307   6.62   &lt;0.001  0.1430  0.263</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Columns: group, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
+<p>We can compute yet more kinds of marginal effects, we can construct
 customized data frames and feed them to the <code>newdata</code>
 argument of the <code>slopes</code> function.</p>
-<p><strong>Important:</strong> The <code>newdata</code> argument for
-<code>mlogit</code> models must be a “balanced” data frame, that is, it
-must have a number of rows that is a multiple of the number of
-choices.</p>
 <p>If we want to compute the slope of the response function (marginal
 effects) when each of the predictors is fixed to its global mean, we can
 do:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">nd</span> <span class="op">&lt;-</span> <span class="va">TravelMode</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html" class="external-link">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"wait"</span>, <span class="st">"gcost"</span>, <span class="st">"income"</span>, <span class="st">"size"</span><span class="op">)</span>,</span>
 <span>              <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
@@ -280,7 +294,7 @@ do:</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Group   Term  Estimate Std. Error     z Pr(&gt;|z|)     2.5 %    97.5 %</span></span>
 <span><span class="co">#&gt;  air   income  6.66e-03   2.42e-03  2.75  0.00603  1.91e-03  1.14e-02</span></span>
-<span><span class="co">#&gt;  bus   income -1.14e-03   9.43e-04 -1.21  0.22638 -2.99e-03  7.08e-04</span></span>
+<span><span class="co">#&gt;  bus   income -1.14e-03   9.43e-04 -1.21  0.22639 -2.99e-03  7.08e-04</span></span>
 <span><span class="co">#&gt;  car   income  6.48e-06   2.02e-05  0.32  0.74893 -3.32e-05  4.62e-05</span></span>
 <span><span class="co">#&gt;  train income -5.52e-03   1.91e-03 -2.89  0.00383 -9.26e-03 -1.78e-03</span></span>
 <span><span class="co">#&gt;  air   size   -1.69e-01   5.88e-02 -2.88  0.00394 -2.85e-01 -5.43e-02</span></span>
@@ -292,7 +306,7 @@ do:</p>
 <p>If we want to compute marginal effects with the <code>gcost</code>
 and <code>wait</code> fixed at their mean value, <em>conditional</em> on
 the choice of transportation mode:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">nd</span> <span class="op">&lt;-</span> <span class="va">TravelMode</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">mode</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html" class="external-link">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"wait"</span>, <span class="st">"gcost"</span>, <span class="st">"income"</span>, <span class="st">"size"</span><span class="op">)</span>, <span class="va">mean</span><span class="op">)</span><span class="op">)</span></span>
@@ -312,15 +326,15 @@ the choice of transportation mode:</p>
 <span><span class="co">#&gt;  bus   income -0.000713    0.00146 -0.489  0.62481 -0.003570  0.00214</span></span>
 <span><span class="co">#&gt;  car   income  0.005445    0.00229  2.382  0.01721  0.000965  0.00993</span></span>
 <span><span class="co">#&gt;  train income -0.010747    0.00256 -4.202  &lt; 0.001 -0.015760 -0.00573</span></span>
-<span><span class="co">#&gt;  air   size   -0.232927    0.05659 -4.116  &lt; 0.001 -0.343847 -0.12201</span></span>
-<span><span class="co">#&gt;  bus   size    0.020440    0.03436  0.595  0.55194 -0.046907  0.08779</span></span>
+<span><span class="co">#&gt;  air   size   -0.232927    0.05659 -4.116  &lt; 0.001 -0.343848 -0.12201</span></span>
+<span><span class="co">#&gt;  bus   size    0.020440    0.03436  0.595  0.55195 -0.046908  0.08779</span></span>
 <span><span class="co">#&gt;  car   size    0.067820    0.04123  1.645  0.09996 -0.012984  0.14862</span></span>
-<span><span class="co">#&gt;  train size    0.144668    0.04774  3.030  0.00244  0.051101  0.23823</span></span>
+<span><span class="co">#&gt;  train size    0.144668    0.04774  3.030  0.00244  0.051102  0.23823</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Columns: group, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
 <p>We can also explore more complex alternatives. Here, for example,
 only one alternative is affected by cost reduction:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">nd</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/datagrid.html">datagrid</a></span><span class="op">(</span>mode <span class="op">=</span> <span class="va">TravelMode</span><span class="op">$</span><span class="va">mode</span>, newdata <span class="op">=</span> <span class="va">TravelMode</span><span class="op">)</span></span>
 <span><span class="va">nd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="va">nd</span>, gcost <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span> <span class="op">==</span> <span class="va">i</span>, <span class="fl">30</span>, <span class="va">gcost</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">nd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html" class="external-link">bind_rows</a></span><span class="op">(</span><span class="va">nd</span><span class="op">)</span></span>
@@ -350,12 +364,16 @@ only one alternative is affected by cost reduction:</p>
 <span><span class="co">#&gt;  bus   income -1.33e-03   1.30e-03 -1.020    0.308 -3.88e-03  0.001222</span></span>
 <span><span class="co">#&gt;  car   income  2.66e-05   4.31e-05  0.617    0.537 -5.79e-05  0.000111</span></span>
 <span><span class="co">#&gt;  train income -6.94e-03   1.86e-03 -3.735   &lt;0.001 -1.06e-02 -0.003298</span></span>
-<span><span class="co">#&gt;  air   size   -2.12e-01   6.02e-02 -3.526   &lt;0.001 -3.31e-01 -0.094365</span></span>
+<span><span class="co">#&gt;  air   size   -2.12e-01   6.02e-02 -3.526   &lt;0.001 -3.31e-01 -0.094366</span></span>
 <span><span class="co">#&gt;  bus   size    6.06e-02   3.79e-02  1.600    0.110 -1.37e-02  0.134911</span></span>
 <span><span class="co">#&gt;  car   size    2.38e-03   1.57e-03  1.512    0.131 -7.04e-04  0.005459</span></span>
 <span><span class="co">#&gt;  train size    1.49e-01   4.28e-02  3.489   &lt;0.001  6.55e-02  0.233392</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Columns: group, term, estimate, std.error, statistic, p.value, conf.low, conf.high</span></span></code></pre></div>
+<p><strong>Important:</strong> The <code>newdata</code> argument for
+<code>mlogit</code> models must be a “balanced” data frame, that is, it
+must have a number of rows that is a multiple of the number of
+choices.</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
