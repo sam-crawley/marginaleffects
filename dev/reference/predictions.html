@@ -270,6 +270,7 @@ arguments.</p></dd>
 <li><p><code>std.error</code>: standard errors computed using the delta method.</p></li>
 <li><p><code>conf.low</code>: lower bound of the confidence interval (or equal-tailed interval for bayesian models)</p></li>
 <li><p><code>conf.high</code>: upper bound of the confidence interval (or equal-tailed interval for bayesian models)</p></li>
+<li><p><code>p.value</code>: p value associated to the <code>estimate</code> column. The null is determined by the <code>hypothesis</code> argument (0 by default), and p values are computed before applying the <code>transform</code> argument. For <code>glm</code> and <code>Gam</code> models, p values are computed on the link scale by default unless the <code>type</code> argument is specified explicitly.</p></li>
 </ul><p>See <code><a href="print.marginaleffects.html">?print.marginaleffects</a></code> for printing options.</p>
     </div>
     <div class="section level2">

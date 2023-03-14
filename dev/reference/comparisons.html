@@ -309,6 +309,7 @@ arguments.</p></dd>
 <li><p><code>term</code>: the variable whose marginal effect is computed</p></li>
 <li><p><code>dydx</code>: slope of the outcome with respect to the term, for a given combination of predictor values</p></li>
 <li><p><code>std.error</code>: standard errors computed by via the delta method.</p></li>
+<li><p><code>p.value</code>: p value associated to the <code>estimate</code> column. The null is determined by the <code>hypothesis</code> argument (0 by default), and p values are computed before applying the <code>transform</code> argument.</p></li>
 </ul><p>See <code><a href="print.marginaleffects.html">?print.marginaleffects</a></code> for printing options.</p>
     </div>
     <div class="section level2">
