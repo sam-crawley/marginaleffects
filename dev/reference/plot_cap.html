@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.11.0.9009</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.11.0.9010</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -161,6 +161,16 @@ arguments.</p></dd>
 
 <p>A <code>ggplot2</code> object or data frame (if <code>draw=FALSE</code>)</p>
     </div>
+    <div class="section level2">
+    <h2 id="model-specific-arguments">Model-Specific Arguments<a class="anchor" aria-label="anchor" href="#model-specific-arguments"></a></h2>
+    
+
+
+<p>Some model types allow model-specific arguments to modify the nature of
+marginal effects, predictions, marginal means, and contrasts. Please report
+other package-specific <code><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict()</a></code> arguments on Github so we can add them to
+the table below.</p>
+<p>https://github.com/vincentarelbundock/marginaleffects/issues</p><table class="table table"><tr><td>Package</td><td>Class</td><td>Argument</td><td>Documentation</td></tr><tr><td><code>brms</code></td><td><code>brmsfit</code></td><td><code>ndraws</code></td><td><a href="https://rdrr.io/pkg/brms/man/posterior_predict.brmsfit.html" class="external-link">brms::posterior_predict</a></td></tr><tr><td></td><td></td><td><code>re_formula</code></td><td><a href="https://rdrr.io/pkg/brms/man/posterior_predict.brmsfit.html" class="external-link">brms::posterior_predict</a></td></tr><tr><td><code>lme4</code></td><td><code>merMod</code></td><td><code>re.form</code></td><td><a href="https://rdrr.io/pkg/lme4/man/predict.merMod.html" class="external-link">lme4::predict.merMod</a></td></tr><tr><td></td><td></td><td><code>allow.new.levels</code></td><td><a href="https://rdrr.io/pkg/lme4/man/predict.merMod.html" class="external-link">lme4::predict.merMod</a></td></tr><tr><td><code>glmmTMB</code></td><td><code>glmmTMB</code></td><td><code>re.form</code></td><td><a href="https://rdrr.io/pkg/glmmTMB/man/predict.glmmTMB.html" class="external-link">glmmTMB::predict.glmmTMB</a></td></tr><tr><td></td><td></td><td><code>allow.new.levels</code></td><td><a href="https://rdrr.io/pkg/glmmTMB/man/predict.glmmTMB.html" class="external-link">glmmTMB::predict.glmmTMB</a></td></tr><tr><td></td><td></td><td><code>zitype</code></td><td><a href="https://rdrr.io/pkg/glmmTMB/man/predict.glmmTMB.html" class="external-link">glmmTMB::predict.glmmTMB</a></td></tr><tr><td><code>mgcv</code></td><td><code>bam</code></td><td><code>exclude</code></td><td><a href="https://rdrr.io/pkg/mgcv/man/predict.bam.html" class="external-link">mgcv::predict.bam</a></td></tr><tr><td><code>robustlmm</code></td><td><code>rlmerMod</code></td><td><code>re.form</code></td><td><a href="https://rdrr.io/pkg/robustlmm/man/rlmerMod-class.html" class="external-link">robustlmm::predict.rlmerMod</a></td></tr><tr><td></td><td></td><td><code>allow.new.levels</code></td><td><a href="https://rdrr.io/pkg/robustlmm/man/rlmerMod-class.html" class="external-link">robustlmm::predict.rlmerMod</a></td></tr><tr><td><code>MCMCglmm</code></td><td><code>MCMCglmm</code></td><td><code>ndraws</code></td><td></td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
