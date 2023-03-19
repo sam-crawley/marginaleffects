@@ -27,7 +27,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.11.0.9011</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.11.0.9012</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -140,9 +140,9 @@ bootstrap” in <code>fwb</code>.</p>
 <span>  <span class="fu"><a href="../reference/inferences.html">inferences</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"boot"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;         Term Contrast    Species Estimate Std. Error  2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  Petal.Width mean(+1) setosa      -0.1103      0.266 -0.611  0.393</span></span>
-<span><span class="co">#&gt;  Petal.Width mean(+1) versicolor  -0.0201      0.161 -0.324  0.297</span></span>
-<span><span class="co">#&gt;  Petal.Width mean(+1) virginica    0.0216      0.180 -0.332  0.389</span></span>
+<span><span class="co">#&gt;  Petal.Width mean(+1) setosa      -0.1103      0.268 -0.625  0.427</span></span>
+<span><span class="co">#&gt;  Petal.Width mean(+1) versicolor  -0.0201      0.163 -0.340  0.295</span></span>
+<span><span class="co">#&gt;  Petal.Width mean(+1) virginica    0.0216      0.185 -0.330  0.393</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Columns: term, contrast, Species, estimate, predicted, predicted_hi, predicted_lo, std.error, conf.low, conf.high</span></span></code></pre></div>
 <p>All unknown arguments that we feed to <code><a href="../reference/inferences.html">inferences()</a></code> are
@@ -153,9 +153,9 @@ pushed forward to <code><a href="https://rdrr.io/pkg/boot/man/boot.html" class="
 <span><span class="va">est</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;         Term Contrast    Species Estimate Std. Error  2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  Petal.Width mean(+1) setosa      -0.1103      0.280 -0.644  0.401</span></span>
-<span><span class="co">#&gt;  Petal.Width mean(+1) versicolor  -0.0201      0.161 -0.322  0.298</span></span>
-<span><span class="co">#&gt;  Petal.Width mean(+1) virginica    0.0216      0.179 -0.354  0.344</span></span>
+<span><span class="co">#&gt;  Petal.Width mean(+1) setosa      -0.1103      0.251 -0.676  0.336</span></span>
+<span><span class="co">#&gt;  Petal.Width mean(+1) versicolor  -0.0201      0.158 -0.341  0.304</span></span>
+<span><span class="co">#&gt;  Petal.Width mean(+1) virginica    0.0216      0.181 -0.363  0.379</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Columns: term, contrast, Species, estimate, predicted, predicted_hi, predicted_lo, std.error, conf.low, conf.high</span></span></code></pre></div>
 <p>We can extract the original <code>boot</code> object from an
@@ -174,21 +174,21 @@ attribute:</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Bootstrap Statistics :</span></span>
-<span><span class="co">#&gt;        original        bias    std. error</span></span>
-<span><span class="co">#&gt; t1* -0.11025325  0.0009996216   0.2800215</span></span>
-<span><span class="co">#&gt; t2* -0.02006005 -0.0002938646   0.1606249</span></span>
-<span><span class="co">#&gt; t3*  0.02158742 -0.0008911427   0.1786821</span></span></code></pre></div>
+<span><span class="co">#&gt;        original       bias    std. error</span></span>
+<span><span class="co">#&gt; t1* -0.11025325  0.005581788   0.2511931</span></span>
+<span><span class="co">#&gt; t2* -0.02006005  0.000374309   0.1582657</span></span>
+<span><span class="co">#&gt; t3*  0.02158742 -0.002030288   0.1806686</span></span></code></pre></div>
 <p>Or we can extract the individual draws with the
 <code><a href="../reference/posterior_draws.html">posterior_draws()</a></code> function:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/posterior_draws.html">posterior_draws</a></span><span class="op">(</span><span class="va">est</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   drawid        draw        term contrast    Species    estimate predicted predicted_hi predicted_lo std.error   conf.low conf.high</span></span>
-<span><span class="co">#&gt; 1      1  0.04406057 Petal.Width mean(+1)     setosa -0.11025325  4.957514     4.901389     5.013640 0.2800215 -0.6442304 0.4009436</span></span>
-<span><span class="co">#&gt; 2      1  0.17083077 Petal.Width mean(+1) versicolor -0.02006005  6.327949     6.325011     6.330887 0.1606249 -0.3215367 0.2979182</span></span>
-<span><span class="co">#&gt; 3      1  0.22936798 Petal.Width mean(+1)  virginica  0.02158742  7.015513     7.033528     6.997499 0.1786821 -0.3540536 0.3440148</span></span>
-<span><span class="co">#&gt; 4      2 -0.95329170 Petal.Width mean(+1)     setosa -0.11025325  4.957514     4.901389     5.013640 0.2800215 -0.6442304 0.4009436</span></span>
-<span><span class="co">#&gt; 5      2 -0.49531302 Petal.Width mean(+1) versicolor -0.02006005  6.327949     6.325011     6.330887 0.1606249 -0.3215367 0.2979182</span></span>
-<span><span class="co">#&gt; 6      2 -0.28383752 Petal.Width mean(+1)  virginica  0.02158742  7.015513     7.033528     6.997499 0.1786821 -0.3540536 0.3440148</span></span>
+<span><span class="co">#&gt;   drawid         draw        term contrast    Species    estimate predicted predicted_hi predicted_lo std.error   conf.low conf.high</span></span>
+<span><span class="co">#&gt; 1      1  0.006132239 Petal.Width mean(+1)     setosa -0.11025325  4.957514     4.901389     5.013640 0.2511931 -0.6755713 0.3356478</span></span>
+<span><span class="co">#&gt; 2      1 -0.037811295 Petal.Width mean(+1) versicolor -0.02006005  6.327949     6.325011     6.330887 0.1582657 -0.3411261 0.3044442</span></span>
+<span><span class="co">#&gt; 3      1 -0.058102591 Petal.Width mean(+1)  virginica  0.02158742  7.015513     7.033528     6.997499 0.1806686 -0.3631318 0.3792475</span></span>
+<span><span class="co">#&gt; 4      2 -0.199399892 Petal.Width mean(+1)     setosa -0.11025325  4.957514     4.901389     5.013640 0.2511931 -0.6755713 0.3356478</span></span>
+<span><span class="co">#&gt; 5      2 -0.082698870 Petal.Width mean(+1) versicolor -0.02006005  6.327949     6.325011     6.330887 0.1582657 -0.3411261 0.3044442</span></span>
+<span><span class="co">#&gt; 6      2 -0.028811193 Petal.Width mean(+1)  virginica  0.02158742  7.015513     7.033528     6.997499 0.1806686 -0.3631318 0.3792475</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/posterior_draws.html">posterior_draws</a></span><span class="op">(</span><span class="va">est</span>, shape <span class="op">=</span> <span class="st">"DxP"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 500   3</span></span></code></pre></div>
@@ -206,9 +206,9 @@ For example, for stratified resampling:</p>
 <span><span class="va">est</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;         Term Contrast    Species Estimate  2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  Petal.Width mean(+1) setosa      -0.1103 -0.526  0.421</span></span>
-<span><span class="co">#&gt;  Petal.Width mean(+1) versicolor  -0.0201 -0.287  0.267</span></span>
-<span><span class="co">#&gt;  Petal.Width mean(+1) virginica    0.0216 -0.350  0.365</span></span>
+<span><span class="co">#&gt;  Petal.Width mean(+1) setosa      -0.1103 -0.596  0.508</span></span>
+<span><span class="co">#&gt;  Petal.Width mean(+1) versicolor  -0.0201 -0.257  0.279</span></span>
+<span><span class="co">#&gt;  Petal.Width mean(+1) virginica    0.0216 -0.316  0.341</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Columns: term, contrast, Species, estimate, predicted, predicted_hi, predicted_lo, conf.low, conf.high</span></span>
 <span></span>
@@ -217,28 +217,28 @@ For example, for stratified resampling:</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 101 × 3</span></span></span>
 <span><span class="co">#&gt;    splits           id           estimates       </span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>          </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="color: #949494;">&lt;split [150/56]&gt;</span> Bootstrap001 <span style="color: #949494;">&lt;tibble [3 × 7]&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="color: #949494;">&lt;split [150/53]&gt;</span> Bootstrap001 <span style="color: #949494;">&lt;tibble [3 × 7]&gt;</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="color: #949494;">&lt;split [150/57]&gt;</span> Bootstrap002 <span style="color: #949494;">&lt;tibble [3 × 7]&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="color: #949494;">&lt;split [150/57]&gt;</span> Bootstrap003 <span style="color: #949494;">&lt;tibble [3 × 7]&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="color: #949494;">&lt;split [150/58]&gt;</span> Bootstrap004 <span style="color: #949494;">&lt;tibble [3 × 7]&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="color: #949494;">&lt;split [150/54]&gt;</span> Bootstrap005 <span style="color: #949494;">&lt;tibble [3 × 7]&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="color: #949494;">&lt;split [150/53]&gt;</span> Bootstrap006 <span style="color: #949494;">&lt;tibble [3 × 7]&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="color: #949494;">&lt;split [150/48]&gt;</span> Bootstrap007 <span style="color: #949494;">&lt;tibble [3 × 7]&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="color: #949494;">&lt;split [150/61]&gt;</span> Bootstrap008 <span style="color: #949494;">&lt;tibble [3 × 7]&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="color: #949494;">&lt;split [150/57]&gt;</span> Bootstrap009 <span style="color: #949494;">&lt;tibble [3 × 7]&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="color: #949494;">&lt;split [150/48]&gt;</span> Bootstrap010 <span style="color: #949494;">&lt;tibble [3 × 7]&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="color: #949494;">&lt;split [150/48]&gt;</span> Bootstrap003 <span style="color: #949494;">&lt;tibble [3 × 7]&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="color: #949494;">&lt;split [150/49]&gt;</span> Bootstrap004 <span style="color: #949494;">&lt;tibble [3 × 7]&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="color: #949494;">&lt;split [150/56]&gt;</span> Bootstrap005 <span style="color: #949494;">&lt;tibble [3 × 7]&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="color: #949494;">&lt;split [150/49]&gt;</span> Bootstrap006 <span style="color: #949494;">&lt;tibble [3 × 7]&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="color: #949494;">&lt;split [150/60]&gt;</span> Bootstrap007 <span style="color: #949494;">&lt;tibble [3 × 7]&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="color: #949494;">&lt;split [150/49]&gt;</span> Bootstrap008 <span style="color: #949494;">&lt;tibble [3 × 7]&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="color: #949494;">&lt;split [150/54]&gt;</span> Bootstrap009 <span style="color: #949494;">&lt;tibble [3 × 7]&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="color: #949494;">&lt;split [150/52]&gt;</span> Bootstrap010 <span style="color: #949494;">&lt;tibble [3 × 7]&gt;</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># … with 91 more rows</span></span></span></code></pre></div>
 <p>Or we can extract the individual draws with the
 <code><a href="../reference/posterior_draws.html">posterior_draws()</a></code> function:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/posterior_draws.html">posterior_draws</a></span><span class="op">(</span><span class="va">est</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   drawid        draw        term contrast    Species    estimate predicted predicted_hi predicted_lo   conf.low conf.high</span></span>
-<span><span class="co">#&gt; 1      1 -0.28755038 Petal.Width mean(+1)     setosa -0.11025325  4.957514     4.901389     5.013640 -0.5262030 0.4212485</span></span>
-<span><span class="co">#&gt; 2      1 -0.02346426 Petal.Width mean(+1) versicolor -0.02006005  6.327949     6.325011     6.330887 -0.2873196 0.2674126</span></span>
-<span><span class="co">#&gt; 3      1  0.09847972 Petal.Width mean(+1)  virginica  0.02158742  7.015513     7.033528     6.997499 -0.3498431 0.3649061</span></span>
-<span><span class="co">#&gt; 4      2  0.03086845 Petal.Width mean(+1)     setosa -0.11025325  4.957514     4.901389     5.013640 -0.5262030 0.4212485</span></span>
-<span><span class="co">#&gt; 5      2  0.24859785 Petal.Width mean(+1) versicolor -0.02006005  6.327949     6.325011     6.330887 -0.2873196 0.2674126</span></span>
-<span><span class="co">#&gt; 6      2  0.34913623 Petal.Width mean(+1)  virginica  0.02158742  7.015513     7.033528     6.997499 -0.3498431 0.3649061</span></span>
+<span><span class="co">#&gt; 1      1 -0.31667013 Petal.Width mean(+1)     setosa -0.11025325  4.957514     4.901389     5.013640 -0.5958445 0.5083124</span></span>
+<span><span class="co">#&gt; 2      1 -0.04533245 Petal.Width mean(+1) versicolor -0.02006005  6.327949     6.325011     6.330887 -0.2574519 0.2789104</span></span>
+<span><span class="co">#&gt; 3      1  0.07996000 Petal.Width mean(+1)  virginica  0.02158742  7.015513     7.033528     6.997499 -0.3161477 0.3407369</span></span>
+<span><span class="co">#&gt; 4      2  0.21210876 Petal.Width mean(+1)     setosa -0.11025325  4.957514     4.901389     5.013640 -0.5958445 0.5083124</span></span>
+<span><span class="co">#&gt; 5      2  0.30498563 Petal.Width mean(+1) versicolor -0.02006005  6.327949     6.325011     6.330887 -0.2574519 0.2789104</span></span>
+<span><span class="co">#&gt; 6      2  0.34787231 Petal.Width mean(+1)  virginica  0.02158742  7.015513     7.033528     6.997499 -0.3161477 0.3407369</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/posterior_draws.html">posterior_draws</a></span><span class="op">(</span><span class="va">est</span>, shape <span class="op">=</span> <span class="st">"PxD"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1]   3 100</span></span></code></pre></div>
@@ -264,10 +264,10 @@ inference strategy to <code>marginaleffects</code> objects:</p>
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/comparisons.html">avg_comparisons</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/inferences.html">inferences</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"fwb"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;          Term            Contrast Estimate Std. Error  2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  Petal.Length +1                    0.8929     0.0779  0.740  1.045</span></span>
-<span><span class="co">#&gt;  Petal.Width  +1                   -0.0362     0.1565 -0.317  0.286</span></span>
-<span><span class="co">#&gt;  Species      versicolor - setosa  -1.4629     0.3255 -2.163 -0.897</span></span>
-<span><span class="co">#&gt;  Species      virginica - setosa   -1.9842     0.3788 -2.784 -1.289</span></span>
+<span><span class="co">#&gt;  Petal.Length +1                    0.8929     0.0792  0.737  1.042</span></span>
+<span><span class="co">#&gt;  Petal.Width  +1                   -0.0362     0.1543 -0.320  0.309</span></span>
+<span><span class="co">#&gt;  Species      versicolor - setosa  -1.4629     0.3308 -2.136 -0.825</span></span>
+<span><span class="co">#&gt;  Species      virginica - setosa   -1.9842     0.3854 -2.731 -1.229</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Columns: term, contrast, estimate, std.error, conf.low, conf.high</span></span></code></pre></div>
 </div>
@@ -299,9 +299,9 @@ to estimate the standard error.</li>
 <span>  <span class="fu"><a href="../reference/inferences.html">inferences</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"simulation"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;         Term Contrast    Species Estimate Std. Error  2.5 % 97.5 %</span></span>
-<span><span class="co">#&gt;  Petal.Width mean(+1) setosa      -0.1215      0.299 -0.711  0.455</span></span>
-<span><span class="co">#&gt;  Petal.Width mean(+1) versicolor  -0.0257      0.168 -0.350  0.286</span></span>
-<span><span class="co">#&gt;  Petal.Width mean(+1) virginica    0.0217      0.174 -0.324  0.365</span></span>
+<span><span class="co">#&gt;  Petal.Width mean(+1) setosa     -0.09363      0.286 -0.672  0.454</span></span>
+<span><span class="co">#&gt;  Petal.Width mean(+1) versicolor -0.00804      0.159 -0.323  0.299</span></span>
+<span><span class="co">#&gt;  Petal.Width mean(+1) virginica   0.02136      0.169 -0.326  0.346</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Columns: term, contrast, Species, estimate, std.error, conf.low, conf.high, predicted, predicted_hi, predicted_lo, tmp_idx</span></span></code></pre></div>
 <p>Since simulation based inference generates <code>R</code> estimates

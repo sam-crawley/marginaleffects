@@ -27,7 +27,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.11.0.9011</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.11.0.9012</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -257,9 +257,9 @@ argument would not be necessary.</p>
 <span><span class="fu"><a href="../reference/comparisons.html">comparisons</a></span><span class="op">(</span><span class="va">mod</span>, newdata <span class="op">=</span> <span class="st">"mean"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Term Contrast  Estimate Std. Error         z Pr(&gt;|z|)     2.5 %   97.5 %</span></span>
-<span><span class="co">#&gt;   hp     +1    -1.56e-10   6.80e-07 -0.000229    1.000 -1.33e-06 1.33e-06</span></span>
 <span><span class="co">#&gt;   cyl    6 - 4 -2.22e-01   3.94e-01 -0.564207    0.573 -9.94e-01 5.50e-01</span></span>
 <span><span class="co">#&gt;   cyl    8 - 4 -5.95e-01   5.11e-01 -1.163438    0.245 -1.60e+00 4.07e-01</span></span>
+<span><span class="co">#&gt;   hp     +1    -1.56e-10   6.80e-07 -0.000229    1.000 -1.33e-06 1.33e-06</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, vs, hp, cyl</span></span></code></pre></div>
 </div>
@@ -411,9 +411,9 @@ large grids or for the full original dataset.</p>
 <span><span class="fu"><a href="../reference/slopes.html">slopes</a></span><span class="op">(</span><span class="va">mod</span>, newdata <span class="op">=</span> <span class="fu"><a href="../reference/datagrid.html">datagrid</a></span><span class="op">(</span>cyl <span class="op">=</span> <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Term Contrast Estimate Std. Error      z Pr(&gt;|z|)   2.5 % 97.5 %  hp cyl</span></span>
-<span><span class="co">#&gt;   hp     dY/dX -0.00785      0.011 -0.713    0.476 -0.0294 0.0137 147   4</span></span>
 <span><span class="co">#&gt;   cyl    6 - 4 -0.22219      0.394 -0.564    0.573 -0.9940 0.5496 147   4</span></span>
 <span><span class="co">#&gt;   cyl    8 - 4 -0.59469      0.511 -1.163    0.245 -1.5965 0.4071 147   4</span></span>
+<span><span class="co">#&gt;   hp     dY/dX -0.00785      0.011 -0.713    0.476 -0.0294 0.0137 147   4</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, vs, hp, cyl</span></span></code></pre></div>
 <p>Link scale, user-specified values:</p>
@@ -427,9 +427,9 @@ large grids or for the full original dataset.</p>
 <span><span class="fu"><a href="../reference/slopes.html">slopes</a></span><span class="op">(</span><span class="va">mod</span>, type <span class="op">=</span> <span class="st">"link"</span>, newdata <span class="op">=</span> <span class="fu"><a href="../reference/datagrid.html">datagrid</a></span><span class="op">(</span>cyl <span class="op">=</span> <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Term Contrast Estimate Std. Error        z Pr(&gt;|z|)     2.5 %   97.5 %  hp cyl</span></span>
-<span><span class="co">#&gt;   hp     dY/dX  -0.0326   3.39e-02 -0.96144    0.336    -0.099 3.38e-02 147   4</span></span>
 <span><span class="co">#&gt;   cyl    6 - 4  -0.9049   1.63e+00 -0.55506    0.579    -4.100 2.29e+00 147   4</span></span>
 <span><span class="co">#&gt;   cyl    8 - 4 -19.5418   4.37e+03 -0.00447    0.996 -8579.030 8.54e+03 147   4</span></span>
+<span><span class="co">#&gt;   hp     dY/dX  -0.0326   3.39e-02 -0.96144    0.336    -0.099 3.38e-02 147   4</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, vs, hp, cyl</span></span></code></pre></div>
 </div>

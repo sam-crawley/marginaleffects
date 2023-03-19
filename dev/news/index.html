@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.11.0.9011</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.11.0.9012</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,7 +52,9 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.11.0.9000" id="marginaleffects-01109000">marginaleffects 0.11.0.9000<a class="anchor" aria-label="anchor" href="#marginaleffects-01109000"></a></h2>
-<p>Support new models:</p>
+<p>Breaking change:</p>
+<ul><li>Row orders are now more consistent, but may have changed from previous version. This could affect results from <code>hypothesis</code> with <code>b1</code>, <code>b2</code>, … indexing.</li>
+</ul><p>Support new models:</p>
 <ul><li><code><a href="https://rdrr.io/pkg/nlme/man/lme.html" class="external-link">nlme::lme()</a></code></li>
 </ul><p>New features:</p>
 <ul><li>

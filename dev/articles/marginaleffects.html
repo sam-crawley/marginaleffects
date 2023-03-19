@@ -27,7 +27,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.11.0.9011</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.11.0.9012</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -211,18 +211,18 @@ there are 3 predictors in the model and our data has 32 rows, we obtain
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cmp</span></span></code></pre></div>
 <pre><code><span><span class="co">## </span></span>
-<span><span class="co">##  Term Contrast Estimate Std. Error      z Pr(&gt;|z|)   2.5 %    97.5 %</span></span>
-<span><span class="co">##    hp    +1     -0.0369     0.0185 -1.995  0.04607 -0.0732 -0.000643</span></span>
-<span><span class="co">##    hp    +1     -0.0287     0.0156 -1.836  0.06640 -0.0593  0.001942</span></span>
-<span><span class="co">##    hp    +1     -0.0466     0.0226 -2.062  0.03922 -0.0908 -0.002302</span></span>
-<span><span class="co">##    hp    +1     -0.0423     0.0133 -3.182  0.00146 -0.0683 -0.016238</span></span>
-<span><span class="co">##    hp    +1     -0.0390     0.0134 -2.909  0.00362 -0.0653 -0.012734</span></span>
+<span><span class="co">##  Term Contrast Estimate Std. Error      z Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
+<span><span class="co">##    am    1 - 0    0.325       1.68  0.193   0.8467  -2.97  3.622</span></span>
+<span><span class="co">##    am    1 - 0   -0.544       1.57 -0.347   0.7287  -3.62  2.530</span></span>
+<span><span class="co">##    am    1 - 0    1.201       2.35  0.511   0.6090  -3.40  5.802</span></span>
+<span><span class="co">##    am    1 - 0   -1.703       1.87 -0.912   0.3618  -5.36  1.957</span></span>
+<span><span class="co">##    am    1 - 0   -0.615       1.68 -0.366   0.7146  -3.91  2.680</span></span>
 <span><span class="co">## --- 86 rows omitted. See ?avg_comparisons and ?print.marginaleffects --- </span></span>
-<span><span class="co">##    am    1 - 0   4.0807     3.9351  1.037  0.29973 -3.6319 11.793387</span></span>
-<span><span class="co">##    am    1 - 0   2.1064     2.2892  0.920  0.35751 -2.3804  6.593103</span></span>
-<span><span class="co">##    am    1 - 0   0.8951     1.6442  0.544  0.58618 -2.3275  4.117620</span></span>
-<span><span class="co">##    am    1 - 0   4.0272     3.2402  1.243  0.21391 -2.3235 10.377969</span></span>
-<span><span class="co">##    am    1 - 0  -0.2369     1.5864 -0.149  0.88129 -3.3462  2.872416</span></span>
+<span><span class="co">##    wt    +1      -6.518       1.88 -3.462   &lt;0.001 -10.21 -2.828</span></span>
+<span><span class="co">##    wt    +1      -1.653       3.74 -0.442   0.6588  -8.99  5.683</span></span>
+<span><span class="co">##    wt    +1      -4.520       2.47 -1.830   0.0672  -9.36  0.321</span></span>
+<span><span class="co">##    wt    +1       0.635       4.89  0.130   0.8966  -8.95 10.216</span></span>
+<span><span class="co">##    wt    +1      -6.647       1.86 -3.572   &lt;0.001 -10.29 -2.999</span></span>
 <span><span class="co">## Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, wt, am</span></span></code></pre>
 <p>The <code><a href="../reference/comparisons.html">comparisons()</a></code> function allows customized queries.
 For example, what happens to the predicted outcome when the
@@ -288,18 +288,18 @@ predictors. Once again, we obtain a data frame with 96 rows:</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mfx</span></span></code></pre></div>
 <pre><code><span><span class="co">## </span></span>
-<span><span class="co">##  Term Contrast Estimate Std. Error      z Pr(&gt;|z|)   2.5 %    97.5 %</span></span>
-<span><span class="co">##    hp    dY/dX  -0.0369     0.0185 -1.995  0.04607 -0.0732 -0.000643</span></span>
-<span><span class="co">##    hp    dY/dX  -0.0287     0.0156 -1.836  0.06640 -0.0593  0.001942</span></span>
-<span><span class="co">##    hp    dY/dX  -0.0466     0.0226 -2.062  0.03922 -0.0908 -0.002302</span></span>
-<span><span class="co">##    hp    dY/dX  -0.0423     0.0133 -3.182  0.00146 -0.0683 -0.016237</span></span>
-<span><span class="co">##    hp    dY/dX  -0.0390     0.0134 -2.909  0.00362 -0.0653 -0.012734</span></span>
+<span><span class="co">##  Term Contrast Estimate Std. Error      z Pr(&gt;|z|)  2.5 % 97.5 %</span></span>
+<span><span class="co">##    am    1 - 0    0.325       1.68  0.193   0.8467  -2.97  3.622</span></span>
+<span><span class="co">##    am    1 - 0   -0.544       1.57 -0.347   0.7287  -3.62  2.530</span></span>
+<span><span class="co">##    am    1 - 0    1.201       2.35  0.511   0.6090  -3.40  5.802</span></span>
+<span><span class="co">##    am    1 - 0   -1.703       1.87 -0.912   0.3618  -5.36  1.957</span></span>
+<span><span class="co">##    am    1 - 0   -0.615       1.68 -0.366   0.7146  -3.91  2.680</span></span>
 <span><span class="co">## --- 86 rows omitted. See ?avg_slopes and ?print.marginaleffects --- </span></span>
-<span><span class="co">##    am    1 - 0   4.0807     3.9351  1.037  0.29973 -3.6319 11.793387</span></span>
-<span><span class="co">##    am    1 - 0   2.1064     2.2892  0.920  0.35751 -2.3804  6.593103</span></span>
-<span><span class="co">##    am    1 - 0   0.8951     1.6442  0.544  0.58618 -2.3275  4.117620</span></span>
-<span><span class="co">##    am    1 - 0   4.0272     3.2402  1.243  0.21391 -2.3235 10.377969</span></span>
-<span><span class="co">##    am    1 - 0  -0.2369     1.5864 -0.149  0.88129 -3.3462  2.872416</span></span>
+<span><span class="co">##    wt    dY/dX   -6.518       1.88 -3.462   &lt;0.001 -10.21 -2.828</span></span>
+<span><span class="co">##    wt    dY/dX   -1.653       3.74 -0.442   0.6588  -8.99  5.683</span></span>
+<span><span class="co">##    wt    dY/dX   -4.520       2.47 -1.830   0.0672  -9.36  0.321</span></span>
+<span><span class="co">##    wt    dY/dX    0.635       4.89  0.130   0.8966  -8.95 10.216</span></span>
+<span><span class="co">##    wt    dY/dX   -6.647       1.86 -3.572   &lt;0.001 -10.29 -2.999</span></span>
 <span><span class="co">## Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, conf.low, conf.high, predicted, predicted_hi, predicted_lo, mpg, hp, wt, am</span></span></code></pre>
 </div>
 <div class="section level2">
