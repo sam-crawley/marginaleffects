@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">marginaleffects</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.11.0.9014</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.11.0.9015</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,6 +59,8 @@
 </ul><p>New features:</p>
 <ul><li>
 <code><a href="../reference/comparisons.html">comparisons()</a></code> accepts data frames with two numeric columns (“low” and “high”) to specify fully customizable contrasts.</li>
+<li>
+<code><a href="../reference/datagrid.html">datagrid()</a></code> gets a new <code>by</code> argument to create apply grid-making functions within groups.</li>
 </ul><p>Bug:</p>
 <ul><li>
 <code><a href="https://rdrr.io/pkg/ordinal/man/clm.html" class="external-link">ordinal::clm()</a></code>: incorrect standard errors when location and scale parameters are the same. Thanks to MrJerryTAO for report <a href="https://github.com/vincentarelbundock/marginaleffects/issues/718" class="external-link">#718</a>.</li>
